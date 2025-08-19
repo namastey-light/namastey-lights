@@ -5,7 +5,6 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const quickLinks = [
-    { name: 'About Us', href: '/about' },
     { name: 'Products', href: '/products' },
     { name: 'Custom Design', href: '/customize' },
     { name: 'Contact', href: '/contact' },
@@ -71,11 +70,11 @@ const Footer = () => {
             <div className="space-y-2">
               <div className="flex items-center text-sm text-muted-foreground">
                 <Mail className="w-4 h-4 mr-2 text-neon-blue" />
-                hello@neoncraft.com
+                believebrightcare@gmail.com
               </div>
               <div className="flex items-center text-sm text-muted-foreground">
                 <Phone className="w-4 h-4 mr-2 text-neon-blue" />
-                +91 98765 43210
+                +91 8384884622
               </div>
               <div className="flex items-center text-sm text-muted-foreground">
                 <MapPin className="w-4 h-4 mr-2 text-neon-blue" />
@@ -126,7 +125,7 @@ const Footer = () => {
         {/* Bottom Section */}
         <div className="border-t border-white/10 mt-8 pt-8 flex flex-col sm:flex-row justify-between items-center">
           <p className="text-muted-foreground text-sm">
-            © {currentYear} namstey Light. All rights reserved.
+            © {currentYear} Namastey lights. All rights reserved.
           </p>
           
           {/* Social Links */}

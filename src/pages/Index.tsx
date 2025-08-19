@@ -8,15 +8,15 @@ import { useToast } from '@/hooks/use-toast';
 import NeonText from '@/components/ui/NeonText';
 import NeonCard from '@/components/ui/NeonCard';
 import { supabase } from '@/integrations/supabase/client';
-import { 
-  Zap, 
-  Shield, 
-  Clock, 
-  Truck, 
-  Star, 
-  ArrowRight, 
-  Heart, 
-  Coffee, 
+import {
+  Zap,
+  Shield,
+  Clock,
+  Truck,
+  Star,
+  ArrowRight,
+  Heart,
+  Coffee,
   GamepadIcon,
   PartyPopper,
   Quote,
@@ -34,7 +34,7 @@ const Index = () => {
   // Set up real-time listeners for main website
   useEffect(() => {
     fetchBestsellingProducts();
-    
+
     const productChannel = supabase
       .channel('main-products-changes')
       .on(
@@ -130,7 +130,7 @@ const Index = () => {
       console.error('Error fetching bestselling products:', error);
     }
   };
-  
+
   const handleAddToCart = (product: typeof bestsellingProducts[0]) => {
     addItem({
       id: product.id.toString(),
@@ -210,25 +210,39 @@ const Index = () => {
 
   const testimonials = [
     {
-      name: 'Priya Sharma',
+      name: 'Amit Verma',
       rating: 5,
-      review: 'Absolutely love my custom neon sign! The quality is outstanding and it looks amazing in my bedroom.',
-      image: '/placeholder.svg',
-      location: 'Mumbai'
+      review: "Namastey Lights transformed my living room! The custom neon sign adds such a vibrant vibe, and everyone compliments it when they visit.",
+      image: '/lovable-uploads/p1.jpg',
+      location: 'Delhi'
     },
     {
-      name: 'Raj Patel',
+      name: 'Rohit Mehra',
       rating: 5,
-      review: 'Perfect for my cafe! Customers love the vibrant neon open sign. Highly recommend NeonCraft.',
-      image: '/placeholder.svg',
+      review: "The service was smooth and quick. My café looks stunning with the neon board from Namastey Lights. Customers love the new look!",
+      image: '/lovable-uploads/p2.jpg',
       location: 'Bangalore'
     },
     {
-      name: 'Anita Singh',
+      name: 'Karan Malhotra',
       rating: 5,
-      review: 'Great experience from design to delivery. The team was helpful and the product exceeded expectations.',
-      image: '/placeholder.svg',
-      location: 'Delhi'
+      review: "Absolutely amazing quality. I ordered a name sign for my studio, and it glows perfectly. Definitely worth every rupee!",
+      image: '/lovable-uploads/p3.jpg',
+      location: 'Mumbai'
+    },
+    {
+      name: 'Vikram Sharma',
+      rating: 5,
+      review: "From design to delivery, the Namastey Lights team was super helpful. My customized sign arrived on time and looks even better in person.",
+      image: '/lovable-uploads/p5.jpg',
+      location: 'Pune'
+    },
+    {
+      name: 'Sahil Kapoor',
+      rating: 5,
+      review: "Great craftsmanship and excellent brightness. My neon sign has completely changed the look of my gaming setup. Highly recommended!",
+      image: '/lovable-uploads/p4.jpg',
+      location: 'Hyderabad'
     }
   ];
 
@@ -254,9 +268,9 @@ const Index = () => {
               <NeonText color="white">Neon Signs</NeonText>
             </h1>
           </div>
-          
+
           <p className="font-inter text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto">
-            Transform your space with premium custom neon lights. From bedroom decor to business signage, 
+            Transform your space with premium custom neon lights. From bedroom decor to business signage,
             we create vibrant LED neon signs that last 50,000+ hours.
           </p>
 
@@ -267,7 +281,7 @@ const Index = () => {
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Link>
             </Button>
-            
+
             <Button asChild className="btn-outline-neon text-lg px-8 py-4">
               <Link to="/customize">
                 <Zap className="mr-2 w-5 h-5" />
@@ -299,97 +313,115 @@ const Index = () => {
         <div className="fixed inset-0 bg-gradient-to-br from-purple-900/20 via-background to-pink-900/20 pointer-events-none"></div>
         <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_center,rgba(120,80,255,0.1)_0%,transparent_50%)]"></div>
 
-      {/* Why Choose Us Section */}
-      <section className="py-20 relative z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="font-orbitron font-bold text-4xl md:text-5xl mb-6 bg-gradient-to-r from-orange-400 via-orange-500 to-red-500 bg-clip-text text-transparent"
+        {/* Why Choose Us Section */}
+        <section className="py-20 relative z-10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="text-center mb-16 animate-fade-in">
+
+
+              <h2 className="font-orbitron font-bold text-4xl md:text-5xl mb-6 bg-gradient-to-r from-orange-400 via-orange-500 to-red-500 bg-clip-text text-transparent"
                 style={{
                   textShadow: '0 0 10px hsl(25 100% 60% / 0.8), 0 0 20px hsl(25 100% 60% / 0.6), 0 0 30px hsl(25 100% 60% / 0.4)'
                 }}>
-              Why Choose NeonCraft?
-            </h2>
-            <p className="font-inter text-xl text-muted-foreground max-w-2xl mx-auto">
-              We combine premium materials, expert craftsmanship, and innovative design to create neon signs that shine bright and last long.
-            </p>
-          </div>
+                Why Choose{' '}
+                <span 
+  className="text-white font-bold"
+  style={{
+    textShadow: `
+      0 0 8px rgba(255, 255, 255, 0.8), 
+      0 0 16px rgba(255, 255, 255, 0.6), 
+      0 0 24px rgba(255, 255, 255, 0.4), 
+      0 0 40px rgba(255, 255, 255, 0.3)
+    `
+  }}
+>
+  Namastey lights?
+</span>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {features.map((feature, index) => {
-              const Icon = feature.icon;
-              return (
-                <div 
-                  key={index} 
-                  className="group relative transition-all duration-300 hover:-translate-y-1"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  {/* Minimal clean card */}
-                  <div className="relative p-6 rounded-2xl border border-white/10 bg-card/50 backdrop-blur-sm hover:border-orange-400/30 hover:bg-card/70 transition-all duration-300">
-                    
-                    {/* Simple icon container */}
-                    <div className="mb-4 flex justify-center">
-                      <div className="p-3 rounded-xl bg-gradient-to-br from-orange-400/20 to-red-500/20 group-hover:from-orange-400/30 group-hover:to-red-500/30 transition-all duration-300">
-                        <Icon className="w-6 h-6 text-orange-400 group-hover:text-orange-300 transition-colors duration-300" />
+              </h2>
+
+
+              <p className="font-inter text-xl text-muted-foreground max-w-2xl mx-auto">
+                We combine premium materials, expert craftsmanship, and innovative design to create neon signs that shine bright and last long.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {features.map((feature, index) => {
+                const Icon = feature.icon;
+                return (
+                  <div
+                    key={index}
+                    className="group relative transition-all duration-300 hover:-translate-y-1"
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                  >
+                    {/* Minimal clean card */}
+                    <div className="relative p-6 rounded-2xl border border-white/10 bg-card/50 backdrop-blur-sm hover:border-orange-400/30 hover:bg-card/70 transition-all duration-300">
+
+                      {/* Simple icon container */}
+                      <div className="mb-4 flex justify-center">
+                        <div className="p-3 rounded-xl bg-gradient-to-br from-orange-400/20 to-red-500/20 group-hover:from-orange-400/30 group-hover:to-red-500/30 transition-all duration-300">
+                          <Icon className="w-6 h-6 text-orange-400 group-hover:text-orange-300 transition-colors duration-300" />
+                        </div>
                       </div>
-                    </div>
-                    
-                    {/* Title with theme gradient */}
-                    <h3 className="font-rajdhani font-bold text-lg mb-3 text-center bg-gradient-to-r from-orange-400 via-orange-500 to-red-500 bg-clip-text text-transparent">
-                      {feature.title}
-                    </h3>
-                    
-                    {/* Description */}
-                    <p className="font-inter text-sm text-muted-foreground text-center leading-relaxed">
-                      {feature.description}
-                    </p>
-                    
-                    {/* Subtle bottom accent */}
-                    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-orange-400 to-red-500 group-hover:w-16 transition-all duration-300"></div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
 
-      {/* Categories Showcase */}
-      <section className="py-20 relative z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="font-orbitron font-bold text-4xl md:text-5xl mb-6 bg-gradient-to-r from-orange-400 via-orange-500 to-red-500 bg-clip-text text-transparent"
+                      {/* Title with theme gradient */}
+                      <h3 className="font-rajdhani font-bold text-lg mb-3 text-center bg-gradient-to-r from-orange-400 via-orange-500 to-red-500 bg-clip-text text-transparent">
+                        {feature.title}
+                      </h3>
+
+                      {/* Description */}
+                      <p className="font-inter text-sm text-muted-foreground text-center leading-relaxed">
+                        {feature.description}
+                      </p>
+
+                      {/* Subtle bottom accent */}
+                      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-orange-400 to-red-500 group-hover:w-16 transition-all duration-300"></div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* Categories Showcase */}
+        <section className="py-20 relative z-10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="text-center mb-16 animate-fade-in">
+              <h2 className="font-orbitron font-bold text-4xl md:text-5xl mb-6 bg-gradient-to-r from-orange-400 via-orange-500 to-red-500 bg-clip-text text-transparent"
                 style={{
                   textShadow: '0 0 10px hsl(25 100% 60% / 0.8), 0 0 20px hsl(25 100% 60% / 0.6), 0 0 30px hsl(25 100% 60% / 0.4)'
                 }}>
-              Popular Categories
-            </h2>
-            <p className="font-inter text-xl text-muted-foreground max-w-2xl mx-auto">
-              Discover our most loved neon sign categories, each designed to perfectly match your space and style.
-            </p>
-          </div>
+                Popular Categories
+              </h2>
+              <p className="font-inter text-xl text-muted-foreground max-w-2xl mx-auto">
+                Discover our most loved neon sign categories, each designed to perfectly match your space and style.
+              </p>
+            </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
-            {categories.map((category, index) => {
-              const Icon = category.icon;
-              return (
-                <div 
-                  key={index} 
-                  className="group relative cursor-pointer transition-all duration-500 hover:-translate-y-4 hover:scale-105"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  {/* Premium multicolor category card with proper rounded border */}
-                  <div className="relative p-0.5 rounded-3xl overflow-hidden"
-                       style={{
-                         background: `linear-gradient(135deg, 
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+              {categories.map((category, index) => {
+                const Icon = category.icon;
+                return (
+                  <div
+                    key={index}
+                    className="group relative cursor-pointer transition-all duration-500 hover:-translate-y-4 hover:scale-105"
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                  >
+                    {/* Premium multicolor category card with proper rounded border */}
+                    <div className="relative p-0.5 rounded-3xl overflow-hidden"
+                      style={{
+                        background: `linear-gradient(135deg, 
                            hsl(var(--neon-blue) / 0.7), 
                            hsl(var(--neon-green) / 0.7), 
                            hsl(var(--neon-white) / 0.5),
                            hsl(var(--neon-blue) / 0.7)
                          )`
-                       }}>
-                    <div className="relative p-6 rounded-3xl backdrop-blur-sm text-center overflow-hidden"
-                         style={{
-                           background: `
+                      }}>
+                      <div className="relative p-6 rounded-3xl backdrop-blur-sm text-center overflow-hidden"
+                        style={{
+                          background: `
                              linear-gradient(135deg, 
                                hsl(var(--card) / 0.95) 0%, 
                                hsl(220 15% 13% / 0.9) 25%,
@@ -398,161 +430,161 @@ const Index = () => {
                                hsl(var(--card) / 0.95) 100%
                              )
                            `,
-                           boxShadow: `0 8px 32px hsl(220 15% 3% / 0.5)`
-                         }}>
-                    
-                    {/* Animated multicolor overlay */}
-                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                         style={{
-                           background: `
+                          boxShadow: `0 8px 32px hsl(220 15% 3% / 0.5)`
+                        }}>
+
+                        {/* Animated multicolor overlay */}
+                        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                          style={{
+                            background: `
                              linear-gradient(135deg, 
                                hsl(var(--neon-blue) / 0.06) 0%, 
                                hsl(var(--neon-green) / 0.06) 50%,
                                hsl(var(--neon-white) / 0.03) 100%
                              )
                            `,
-                           backgroundSize: '200% 200%',
-                           animation: 'gradientShift 4s ease infinite'
-                         }}>
-                    </div>
-                    
-                    <div className="relative z-10">
-                      <div className="aspect-square bg-gradient-to-br from-muted to-muted/50 rounded-2xl mb-4 overflow-hidden relative"
-                           style={{
-                             boxShadow: '0 0 20px hsl(var(--neon-blue) / 0.3)'
-                           }}>
-                        <img
-                          src={category.image}
-                          alt={category.name}
-                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                        />
-                        <div className="absolute inset-0 group-hover:opacity-100 transition-opacity duration-500"
-                             style={{
-                               background: `
+                            backgroundSize: '200% 200%',
+                            animation: 'gradientShift 4s ease infinite'
+                          }}>
+                        </div>
+
+                        <div className="relative z-10">
+                          <div className="aspect-square bg-gradient-to-br from-muted to-muted/50 rounded-2xl mb-4 overflow-hidden relative"
+                            style={{
+                              boxShadow: '0 0 20px hsl(var(--neon-blue) / 0.3)'
+                            }}>
+                            <img
+                              src={category.image}
+                              alt={category.name}
+                              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                            />
+                            <div className="absolute inset-0 group-hover:opacity-100 transition-opacity duration-500"
+                              style={{
+                                background: `
                                  linear-gradient(45deg, 
                                    hsl(var(--neon-blue) / 0.1) 0%, 
                                    transparent 50%,
                                    hsl(var(--neon-green) / 0.1) 100%
                                  )
                                `
-                             }}>
-                        </div>
-                      </div>
-                      
-                      <div className="mb-4 flex justify-center">
-                        <div className="p-3 rounded-3xl group-hover:scale-110 transition-transform duration-300"
-                             style={{
-                               background: `
+                              }}>
+                            </div>
+                          </div>
+
+                          <div className="mb-4 flex justify-center">
+                            <div className="p-3 rounded-3xl group-hover:scale-110 transition-transform duration-300"
+                              style={{
+                                background: `
                                  linear-gradient(135deg, 
                                    hsl(var(--neon-blue) / 0.3) 0%, 
                                    hsl(var(--neon-green) / 0.3) 100%
                                  )
                                `,
-                               boxShadow: `
+                                boxShadow: `
                                  0 0 20px hsl(var(--neon-blue) / 0.4),
                                  inset 0 0 20px hsl(var(--neon-green) / 0.2)
                                `
-                             }}>
-                          <Icon className="w-6 h-6 text-neon-white group-hover:rotate-12 transition-all duration-300" />
-                        </div>
-                      </div>
-                      
-                      <h3 className="font-rajdhani font-bold text-lg mb-2 group-hover:text-transparent transition-all duration-300"
-                          style={{
-                            background: 'linear-gradient(135deg, hsl(var(--neon-blue)), hsl(var(--neon-green)))',
-                            WebkitBackgroundClip: 'text',
-                            backgroundClip: 'text',
-                          }}>
-                        {category.name}
-                      </h3>
-                      
-                      <p className="font-inter text-sm text-muted-foreground mb-3 group-hover:text-foreground/80 transition-colors duration-300">
-                        {category.description}
-                      </p>
-                      
-                      <span className="text-xs font-medium px-3 py-1 rounded-full"
+                              }}>
+                              <Icon className="w-6 h-6 text-neon-white group-hover:rotate-12 transition-all duration-300" />
+                            </div>
+                          </div>
+
+                          <h3 className="font-rajdhani font-bold text-lg mb-2 group-hover:text-transparent transition-all duration-300"
+                            style={{
+                              background: 'linear-gradient(135deg, hsl(var(--neon-blue)), hsl(var(--neon-green)))',
+                              WebkitBackgroundClip: 'text',
+                              backgroundClip: 'text',
+                            }}>
+                            {category.name}
+                          </h3>
+
+                          <p className="font-inter text-sm text-muted-foreground mb-3 group-hover:text-foreground/80 transition-colors duration-300">
+                            {category.description}
+                          </p>
+
+                          <span className="text-xs font-medium px-3 py-1 rounded-full"
                             style={{
                               background: 'linear-gradient(135deg, hsl(var(--neon-blue) / 0.2), hsl(var(--neon-green) / 0.2))',
                               border: '1px solid hsl(var(--neon-blue) / 0.3)',
                               color: 'hsl(var(--neon-blue))'
                             }}>
-                        {category.count}
-                      </span>
-                    </div>
-                    
-                    {/* Multicolor bottom glow */}
-                    <div className="absolute inset-x-0 bottom-0 h-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                         style={{
-                           background: 'linear-gradient(90deg, hsl(var(--neon-blue)), hsl(var(--neon-green)), hsl(var(--neon-white)), hsl(var(--neon-blue)))',
-                           backgroundSize: '200% 100%',
-                           animation: 'gradientShift 3s ease infinite'
-                         }}>
-                    </div>
-                    
-                    {/* Outer glow effect */}
-                    <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                         style={{
-                           boxShadow: '0 0 60px hsl(var(--neon-blue) / 0.4), 0 0 100px hsl(var(--neon-green) / 0.2)'
-                         }}>
+                            {category.count}
+                          </span>
+                        </div>
+
+                        {/* Multicolor bottom glow */}
+                        <div className="absolute inset-x-0 bottom-0 h-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                          style={{
+                            background: 'linear-gradient(90deg, hsl(var(--neon-blue)), hsl(var(--neon-green)), hsl(var(--neon-white)), hsl(var(--neon-blue)))',
+                            backgroundSize: '200% 100%',
+                            animation: 'gradientShift 3s ease infinite'
+                          }}>
+                        </div>
+
+                        {/* Outer glow effect */}
+                        <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                          style={{
+                            boxShadow: '0 0 60px hsl(var(--neon-blue) / 0.4), 0 0 100px hsl(var(--neon-green) / 0.2)'
+                          }}>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-                </div>
-              );
-            })}
-          </div>
+                );
+              })}
+            </div>
 
-          <div className="text-center mt-12">
-            <Button asChild className="btn-outline-neon group hover:shadow-lg hover:shadow-neon-pink/30 transition-shadow duration-300">
-              <Link to="/products">
-                View All Categories
-                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-              </Link>
-            </Button>
+            <div className="text-center mt-12">
+              <Button asChild className="btn-outline-neon group hover:shadow-lg hover:shadow-neon-pink/30 transition-shadow duration-300">
+                <Link to="/products">
+                  View All Categories
+                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                </Link>
+              </Button>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Bestsellers Carousel */}
-      <section className="py-20 relative z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="font-orbitron font-bold text-4xl md:text-5xl mb-6 bg-gradient-to-r from-orange-400 via-orange-500 to-red-500 bg-clip-text text-transparent"
+        {/* Bestsellers Carousel */}
+        <section className="py-20 relative z-10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="text-center mb-16 animate-fade-in">
+              <h2 className="font-orbitron font-bold text-4xl md:text-5xl mb-6 bg-gradient-to-r from-orange-400 via-orange-500 to-red-500 bg-clip-text text-transparent"
                 style={{
                   textShadow: '0 0 10px hsl(25 100% 60% / 0.8), 0 0 20px hsl(25 100% 60% / 0.6), 0 0 30px hsl(25 100% 60% / 0.4)'
                 }}>
-              Bestselling Neon Signs
-            </h2>
-            <p className="font-inter text-xl text-muted-foreground max-w-2xl mx-auto">
-              Our most popular designs loved by thousands of customers worldwide.
-            </p>
-          </div>
+                Bestselling Neon Signs
+              </h2>
+              <p className="font-inter text-xl text-muted-foreground max-w-2xl mx-auto">
+                Our most popular designs loved by thousands of customers worldwide.
+              </p>
+            </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {bestsellingProducts.length === 0 ? (
-              <div className="col-span-full text-center py-12">
-                <p className="text-muted-foreground">No bestselling products configured yet.</p>
-              </div>
-            ) : (
-              bestsellingProducts.map((product, index) => (
-              <div 
-                key={product.id} 
-                className="group relative transition-all duration-500 hover:-translate-y-3 hover:scale-105"
-                style={{ animationDelay: `${index * 0.15}s` }}
-              >
-                {/* Premium multicolor product card with proper rounded border */}
-                <div className="relative p-0.5 rounded-3xl overflow-hidden"
-                     style={{
-                       background: `linear-gradient(135deg, 
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {bestsellingProducts.length === 0 ? (
+                <div className="col-span-full text-center py-12">
+                  <p className="text-muted-foreground">No bestselling products configured yet.</p>
+                </div>
+              ) : (
+                bestsellingProducts.map((product, index) => (
+                  <div
+                    key={product.id}
+                    className="group relative transition-all duration-500 hover:-translate-y-3 hover:scale-105"
+                    style={{ animationDelay: `${index * 0.15}s` }}
+                  >
+                    {/* Premium multicolor product card with proper rounded border */}
+                    <div className="relative p-0.5 rounded-3xl overflow-hidden"
+                      style={{
+                        background: `linear-gradient(135deg, 
                          hsl(var(--neon-orange) / 0.6), 
                          hsl(var(--neon-purple) / 0.6), 
                          hsl(var(--neon-pink) / 0.6),
                          hsl(var(--neon-orange) / 0.6)
                        )`
-                     }}>
-                  <div className="relative p-6 rounded-3xl backdrop-blur-sm overflow-hidden"
-                       style={{
-                         background: `
+                      }}>
+                      <div className="relative p-6 rounded-3xl backdrop-blur-sm overflow-hidden"
+                        style={{
+                          background: `
                            linear-gradient(135deg, 
                              hsl(var(--card) / 0.9) 0%, 
                              hsl(220 15% 12% / 0.85) 30%,
@@ -560,341 +592,343 @@ const Index = () => {
                              hsl(220 15% 10% / 0.9) 100%
                            )
                          `,
-                         boxShadow: `0 8px 32px hsl(220 15% 3% / 0.4)`
-                       }}>
-                  
-                  {/* Animated gradient overlay */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                       style={{
-                         background: `
+                          boxShadow: `0 8px 32px hsl(220 15% 3% / 0.4)`
+                        }}>
+
+                        {/* Animated gradient overlay */}
+                        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                          style={{
+                            background: `
                            linear-gradient(135deg, 
                              hsl(var(--neon-orange) / 0.08) 0%, 
                              hsl(var(--neon-purple) / 0.08) 50%,
                              hsl(var(--neon-pink) / 0.08) 100%
                            )
                          `,
-                         backgroundSize: '200% 200%',
-                         animation: 'gradientShift 3s ease infinite'
-                       }}>
-                  </div>
-                  
-                  <div className="relative z-10">
-                    <Link to={`/products/${product.id}`}>
-                      <div className="aspect-square bg-gradient-to-br from-muted to-muted/50 rounded-2xl mb-4 overflow-hidden relative"
-                           style={{
-                             boxShadow: '0 0 20px hsl(var(--neon-orange) / 0.3)'
-                           }}>
-                        <img
-                          src={product.image}
-                          alt={product.name}
-                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                        />
-                        <div className="absolute inset-0 group-hover:opacity-100 transition-opacity duration-500"
-                             style={{
-                               background: `
+                            backgroundSize: '200% 200%',
+                            animation: 'gradientShift 3s ease infinite'
+                          }}>
+                        </div>
+
+                        <div className="relative z-10">
+                          <Link to={`/products/${product.id}`}>
+                            <div className="aspect-square bg-gradient-to-br from-muted to-muted/50 rounded-2xl mb-4 overflow-hidden relative"
+                              style={{
+                                boxShadow: '0 0 20px hsl(var(--neon-orange) / 0.3)'
+                              }}>
+                              <img
+                                src={product.image}
+                                alt={product.name}
+                                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                              />
+                              <div className="absolute inset-0 group-hover:opacity-100 transition-opacity duration-500"
+                                style={{
+                                  background: `
                                  linear-gradient(45deg, 
                                    hsl(var(--neon-orange) / 0.1) 0%, 
                                    transparent 50%,
                                    hsl(var(--neon-purple) / 0.1) 100%
                                  )
                                `
-                             }}>
-                        </div>
-                        <Badge className="absolute top-3 left-3 backdrop-blur-sm group-hover:shadow-lg transition-all duration-300"
-                               style={{
-                                 background: 'linear-gradient(135deg, hsl(var(--neon-orange) / 0.9), hsl(var(--neon-purple) / 0.9))',
-                                 border: '1px solid hsl(var(--neon-orange) / 0.5)',
-                                 color: 'hsl(var(--neon-white))',
-                                 boxShadow: '0 0 20px hsl(var(--neon-orange) / 0.5)'
-                               }}>
-                          {product.badge}
-                        </Badge>
-                      </div>
-                    </Link>
-                    
-                    <Link to={`/products/${product.id}`}>
-                      <h3 className="font-rajdhani font-bold text-lg mb-3 group-hover:text-transparent transition-all duration-300"
-                          style={{
-                            background: 'linear-gradient(135deg, hsl(var(--neon-orange)), hsl(var(--neon-purple)))',
-                            WebkitBackgroundClip: 'text',
-                            backgroundClip: 'text',
-                          }}>
-                        {product.name}
-                      </h3>
-                    </Link>
-                    
-                    <div className="flex items-center gap-2 mb-4">
-                      <div className="flex items-center">
-                        {[...Array(5)].map((_, i) => (
-                          <Star
-                            key={i}
-                            className={`w-4 h-4 transition-colors duration-300 ${i < Math.floor(product.rating) ? 'text-yellow-400 fill-current group-hover:text-yellow-300' : 'text-gray-300'}`}
-                          />
-                        ))}
-                      </div>
-                      <span className="text-sm text-muted-foreground group-hover:text-foreground/80 transition-colors duration-300">
-                        {product.rating} ({product.reviews} reviews)
-                      </span>
-                    </div>
+                                }}>
+                              </div>
+                              <Badge className="absolute top-3 left-3 backdrop-blur-sm group-hover:shadow-lg transition-all duration-300"
+                                style={{
+                                  background: 'linear-gradient(135deg, hsl(var(--neon-orange) / 0.9), hsl(var(--neon-purple) / 0.9))',
+                                  border: '1px solid hsl(var(--neon-orange) / 0.5)',
+                                  color: 'hsl(var(--neon-white))',
+                                  boxShadow: '0 0 20px hsl(var(--neon-orange) / 0.5)'
+                                }}>
+                                {product.badge}
+                              </Badge>
+                            </div>
+                          </Link>
 
-                    <div className="flex items-center justify-between mb-6">
-                      <div className="flex items-center gap-2">
-                        <span className="font-bold text-lg group-hover:text-transparent transition-all duration-300"
+                          <Link to={`/products/${product.id}`}>
+                            <h3 className="font-rajdhani font-bold text-lg mb-3 group-hover:text-transparent transition-all duration-300"
                               style={{
                                 background: 'linear-gradient(135deg, hsl(var(--neon-orange)), hsl(var(--neon-purple)))',
                                 WebkitBackgroundClip: 'text',
                                 backgroundClip: 'text',
                               }}>
-                          ₹{product.price.toLocaleString()}
-                        </span>
-                        {product.originalPrice && (
-                          <span className="text-sm text-muted-foreground line-through">
-                            ₹{product.originalPrice.toLocaleString()}
-                          </span>
-                        )}
+                              {product.name}
+                            </h3>
+                          </Link>
+
+                          <div className="flex items-center gap-2 mb-4">
+                            <div className="flex items-center">
+                              {[...Array(5)].map((_, i) => (
+                                <Star
+                                  key={i}
+                                  className={`w-4 h-4 transition-colors duration-300 ${i < Math.floor(product.rating) ? 'text-yellow-400 fill-current group-hover:text-yellow-300' : 'text-gray-300'}`}
+                                />
+                              ))}
+                            </div>
+                            <span className="text-sm text-muted-foreground group-hover:text-foreground/80 transition-colors duration-300">
+                              {product.rating} ({product.reviews} reviews)
+                            </span>
+                          </div>
+
+                          <div className="flex items-center justify-between mb-6">
+                            <div className="flex items-center gap-2">
+                              <span className="font-bold text-lg group-hover:text-transparent transition-all duration-300"
+                                style={{
+                                  background: 'linear-gradient(135deg, hsl(var(--neon-orange)), hsl(var(--neon-purple)))',
+                                  WebkitBackgroundClip: 'text',
+                                  backgroundClip: 'text',
+                                }}>
+                                ₹{product.price.toLocaleString()}
+                              </span>
+                              {product.originalPrice && (
+                                <span className="text-sm text-muted-foreground line-through">
+                                  ₹{product.originalPrice.toLocaleString()}
+                                </span>
+                              )}
+                            </div>
+                          </div>
+
+                          <div className="flex gap-3">
+                            <Button
+                              asChild
+                              className="flex-1 group-hover:shadow-lg transition-shadow duration-300 rounded-2xl"
+                              size="sm"
+                              style={{
+                                background: 'linear-gradient(135deg, hsl(var(--neon-orange)), hsl(var(--neon-purple)))',
+                                color: 'hsl(var(--background))',
+                                boxShadow: '0 0 20px hsl(var(--neon-orange) / 0.4)'
+                              }}
+                            >
+                              <Link to={`/products/${product.id}`}>
+                                Select Options
+                              </Link>
+                            </Button>
+                            <Button
+                              asChild
+                              className="flex-1 group-hover:shadow-lg transition-shadow duration-300 rounded-2xl"
+                              size="sm"
+                              style={{
+                                background: 'transparent',
+                                border: '2px solid hsl(var(--neon-purple))',
+                                color: 'hsl(var(--neon-purple))',
+                                boxShadow: '0 0 20px hsl(var(--neon-purple) / 0.3)'
+                              }}
+                            >
+                              <Link to={`/products/${product.id}`}>
+                                View Details
+                              </Link>
+                            </Button>
+                          </div>
+                        </div>
+
+                        {/* Multicolor bottom glow */}
+                        <div className="absolute inset-x-0 bottom-0 h-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                          style={{
+                            background: 'linear-gradient(90deg, hsl(var(--neon-orange)), hsl(var(--neon-purple)), hsl(var(--neon-pink)), hsl(var(--neon-orange)))',
+                            backgroundSize: '200% 100%',
+                            animation: 'gradientShift 2s ease infinite'
+                          }}>
+                        </div>
+
+                        {/* Outer glow effect */}
+                        <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                          style={{
+                            boxShadow: '0 0 50px hsl(var(--neon-orange) / 0.4), 0 0 100px hsl(var(--neon-purple) / 0.3)'
+                          }}>
+                        </div>
                       </div>
                     </div>
-                    
-                    <div className="flex gap-3">
-                      <Button 
-                        asChild
-                        className="flex-1 group-hover:shadow-lg transition-shadow duration-300 rounded-2xl"
-                        size="sm"
-                        style={{
-                          background: 'linear-gradient(135deg, hsl(var(--neon-orange)), hsl(var(--neon-purple)))',
-                          color: 'hsl(var(--background))',
-                          boxShadow: '0 0 20px hsl(var(--neon-orange) / 0.4)'
-                        }}
-                      >
-                        <Link to={`/products/${product.id}`}>
-                          Select Options
-                        </Link>
-                      </Button>
-                      <Button 
-                        asChild
-                        className="flex-1 group-hover:shadow-lg transition-shadow duration-300 rounded-2xl"
-                        size="sm"
-                        style={{
-                          background: 'transparent',
-                          border: '2px solid hsl(var(--neon-purple))',
-                          color: 'hsl(var(--neon-purple))',
-                          boxShadow: '0 0 20px hsl(var(--neon-purple) / 0.3)'
-                        }}
-                      >
-                        <Link to={`/products/${product.id}`}>
-                          View Details
-                        </Link>
-                      </Button>
-                    </div>
                   </div>
-                  
-                  {/* Multicolor bottom glow */}
-                  <div className="absolute inset-x-0 bottom-0 h-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                       style={{
-                         background: 'linear-gradient(90deg, hsl(var(--neon-orange)), hsl(var(--neon-purple)), hsl(var(--neon-pink)), hsl(var(--neon-orange)))',
-                         backgroundSize: '200% 100%',
-                         animation: 'gradientShift 2s ease infinite'
-                       }}>
-                  </div>
-                  
-                  {/* Outer glow effect */}
-                  <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                       style={{
-                         boxShadow: '0 0 50px hsl(var(--neon-orange) / 0.4), 0 0 100px hsl(var(--neon-purple) / 0.3)'
-                       }}>
-                  </div>
-                </div>
-              </div>
-              </div>
-              ))
-            )}
+                ))
+              )}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* How It Works Process */}
-      <section className="py-20 relative z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="font-orbitron font-bold text-4xl md:text-5xl mb-6 bg-gradient-to-r from-orange-400 via-orange-500 to-red-500 bg-clip-text text-transparent"
+        {/* How It Works Process */}
+        <section className="py-20 relative z-10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="text-center mb-16 animate-fade-in">
+              <h2 className="font-orbitron font-bold text-4xl md:text-5xl mb-6 bg-gradient-to-r from-orange-400 via-orange-500 to-red-500 bg-clip-text text-transparent"
                 style={{
                   textShadow: '0 0 10px hsl(25 100% 60% / 0.8), 0 0 20px hsl(25 100% 60% / 0.6), 0 0 30px hsl(25 100% 60% / 0.4)'
                 }}>
-              How It Works
-            </h2>
-            <p className="font-inter text-xl text-muted-foreground max-w-2xl mx-auto">
-              From concept to delivery, we make creating your perfect neon sign simple and stress-free.
-            </p>
-          </div>
+                How It Works
+              </h2>
+              <p className="font-inter text-xl text-muted-foreground max-w-2xl mx-auto">
+                From concept to delivery, we make creating your perfect neon sign simple and stress-free.
+              </p>
+            </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
-            {process.map((step, index) => (
-              <div 
-                key={index} 
-                className="text-center relative group"
-                style={{ animationDelay: `${index * 0.2}s` }}
-              >
-                {index < process.length - 1 && (
-                  <div className="hidden md:block absolute top-8 left-full w-full h-0.5 bg-gradient-to-r from-neon-pink via-neon-blue to-neon-pink transform translate-x-4 group-hover:shadow-lg group-hover:shadow-neon-pink/20 transition-shadow duration-500"></div>
-                )}
-                
-                <div className="mb-6 flex justify-center">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-neon-pink to-neon-blue flex items-center justify-center text-background font-bold text-xl relative group-hover:scale-110 transition-all duration-500 shadow-lg group-hover:shadow-2xl group-hover:shadow-neon-pink/40">
-                    <div className="absolute inset-0 rounded-full bg-gradient-to-br from-neon-pink to-neon-blue opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500"></div>
-                    <span className="relative z-10">{step.step}</span>
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+              {process.map((step, index) => (
+                <div
+                  key={index}
+                  className="text-center relative group"
+                  style={{ animationDelay: `${index * 0.2}s` }}
+                >
+                  {index < process.length - 1 && (
+                    <div className="hidden md:block absolute top-8 left-full w-full h-0.5 bg-gradient-to-r from-neon-pink via-neon-blue to-neon-pink transform translate-x-4 group-hover:shadow-lg group-hover:shadow-neon-pink/20 transition-shadow duration-500"></div>
+                  )}
+
+                  <div className="mb-6 flex justify-center">
+                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-neon-pink to-neon-blue flex items-center justify-center text-background font-bold text-xl relative group-hover:scale-110 transition-all duration-500 shadow-lg group-hover:shadow-2xl group-hover:shadow-neon-pink/40">
+                      <div className="absolute inset-0 rounded-full bg-gradient-to-br from-neon-pink to-neon-blue opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500"></div>
+                      <span className="relative z-10">{step.step}</span>
+                    </div>
                   </div>
-                </div>
-                
-                <h3 className="font-rajdhani font-semibold text-xl mb-3 text-neon-blue group-hover:text-neon-pink transition-colors duration-300">
-                  {step.title}
-                </h3>
-                
-                <p className="font-inter text-muted-foreground text-sm group-hover:text-foreground/80 transition-colors duration-300">
-                  {step.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* Who We Are Section */}
-      <section className="py-20 relative z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            {/* Left Content */}
-            <div className="space-y-8 animate-fade-in order-2 lg:order-1 text-center lg:text-left">
-              <div>
-                <h2 className="font-orbitron font-bold text-3xl sm:text-4xl md:text-5xl mb-6"
+                  <h3 className="font-rajdhani font-semibold text-xl mb-3 text-neon-blue group-hover:text-neon-pink transition-colors duration-300">
+                    {step.title}
+                  </h3>
+
+                  <p className="font-inter text-muted-foreground text-sm group-hover:text-foreground/80 transition-colors duration-300">
+                    {step.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Who We Are Section */}
+        <section className="py-20 relative z-10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+              {/* Left Content */}
+              <div className="space-y-8 animate-fade-in order-2 lg:order-1 text-center lg:text-left">
+                <div>
+
+                  <h2 className="font-orbitron font-bold text-3xl sm:text-4xl md:text-5xl mb-6"
                     style={{
                       textShadow: '0 0 8px hsl(120 100% 75% / 0.8), 0 0 16px hsl(120 100% 75% / 0.6), 0 0 24px hsl(120 100% 75% / 0.4)'
                     }}>
-                  Who{' '}
-                  <span className="bg-gradient-to-r from-neon-green to-neon-yellow bg-clip-text text-transparent"
-                        style={{
-                          textShadow: '0 0 8px hsl(54 100% 75% / 0.8), 0 0 16px hsl(54 100% 75% / 0.6), 0 0 24px hsl(54 100% 75% / 0.4)'
-                        }}>
-                    are we?
-                  </span>
-                </h2>
-                <p className="font-rajdhani font-bold text-lg sm:text-xl md:text-2xl text-neon-blue mb-8">
-                  Full-time siblings. Full-time business partners!
-                </p>
+                    Who{' '}
+                    <span className="bg-gradient-to-r from-neon-green to-neon-yellow bg-clip-text text-transparent"
+                      style={{
+                        textShadow: '0 0 8px hsl(54 100% 75% / 0.8), 0 0 16px hsl(54 100% 75% / 0.6), 0 0 24px hsl(54 100% 75% / 0.4)'
+                      }}>
+                      are we?
+                    </span>
+                  </h2>
+
+                  <p className="font-rajdhani font-bold text-lg sm:text-xl md:text-2xl text-neon-blue mb-8">
+                    Full-time siblings. Full-time business partners!
+                  </p>
+                </div>
+
+                <div className="space-y-6">
+                  <p className="font-inter text-base sm:text-lg text-muted-foreground leading-relaxed">
+                    United by brotherhood and a DIY neon sign project, we forged Neon Attack in 2020.
+                    Filling a market gap, we became India's top neon sign brand.
+                  </p>
+
+                  <p className="font-inter text-base sm:text-lg text-muted-foreground leading-relaxed">
+                    With FloRo technology and a community of 195,000+, our journey thrives on passion
+                    and perfection, transforming rooms and illuminating lives nationwide.
+                  </p>
+                </div>
+
+                <div className="flex flex-col sm:flex-row gap-4 pt-6 justify-center lg:justify-start">
+                  <Button asChild className="btn-neon text-lg px-6 sm:px-8 py-4">
+                    <Link to="/products">
+                      <Zap className="mr-2 w-5 h-5" />
+                      Shop Ready Made Signs
+                    </Link>
+                  </Button>
+                  <Button asChild className="btn-outline-neon text-lg px-6 sm:px-8 py-4">
+                    <Link to="/contact">
+                      Learn More About Us
+                    </Link>
+                  </Button>
+                </div>
               </div>
-              
-              <div className="space-y-6">
-                <p className="font-inter text-base sm:text-lg text-muted-foreground leading-relaxed">
-                  United by brotherhood and a DIY neon sign project, we forged Neon Attack in 2020. 
-                  Filling a market gap, we became India's top neon sign brand.
-                </p>
-                
-                <p className="font-inter text-base sm:text-lg text-muted-foreground leading-relaxed">
-                  With FloRo technology and a community of 195,000+, our journey thrives on passion 
-                  and perfection, transforming rooms and illuminating lives nationwide.
-                </p>
-              </div>
-              
-              <div className="flex flex-col sm:flex-row gap-4 pt-6 justify-center lg:justify-start">
-                <Button asChild className="btn-neon text-lg px-6 sm:px-8 py-4">
-                  <Link to="/products">
-                    <Zap className="mr-2 w-5 h-5" />
-                    Shop Ready Made Signs
-                  </Link>
-                </Button>
-                <Button asChild className="btn-outline-neon text-lg px-6 sm:px-8 py-4">
-                  <Link to="/contact">
-                    Learn More About Us
-                  </Link>
-                </Button>
-              </div>
-            </div>
-            
-            {/* Right Image */}
-            <div className="relative group order-1 lg:order-2">
-              <div className="relative rounded-3xl overflow-hidden"
-                   style={{
-                     boxShadow: '0 0 40px hsl(var(--neon-green) / 0.3), 0 0 80px hsl(var(--neon-yellow) / 0.2)'
-                   }}>
-                <img
-                  src="/placeholder.svg"
-                  alt="Two brothers standing next to colorful neon signs showcasing their craftsmanship"
-                  className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-                
-                {/* Gradient overlay on hover */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500"
-                     style={{
-                       background: `
+
+              {/* Right Image */}
+              <div className="relative group order-1 lg:order-2">
+                <div className="relative rounded-3xl overflow-hidden"
+                  style={{
+                    boxShadow: '0 0 40px hsl(var(--neon-green) / 0.3), 0 0 80px hsl(var(--neon-yellow) / 0.2)'
+                  }}>
+                  <img
+                    src="/placeholder.svg"
+                    alt="Two brothers standing next to colorful neon signs showcasing their craftsmanship"
+                    className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+
+                  {/* Gradient overlay on hover */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500"
+                    style={{
+                      background: `
                          linear-gradient(45deg, 
                            hsl(var(--neon-green) / 0.3) 0%, 
                            transparent 50%,
                            hsl(var(--neon-yellow) / 0.3) 100%
                          )
                        `
-                     }}>
+                    }}>
+                  </div>
                 </div>
-              </div>
-              
-              {/* Floating stats - responsive positioning */}
-              <div className="absolute -top-4 -left-4 sm:-top-6 sm:-left-6 bg-card/90 backdrop-blur-sm border border-neon-green/30 rounded-2xl p-3 sm:p-4 group-hover:scale-110 transition-transform duration-300"
-                   style={{
-                     boxShadow: '0 0 20px hsl(var(--neon-green) / 0.4)'
-                   }}>
-                <div className="text-center">
-                  <div className="font-orbitron font-bold text-xl sm:text-2xl text-neon-green">195K+</div>
-                  <div className="font-inter text-xs sm:text-sm text-muted-foreground">Community</div>
+
+                {/* Floating stats - responsive positioning */}
+                <div className="absolute -top-4 -left-4 sm:-top-6 sm:-left-6 bg-card/90 backdrop-blur-sm border border-neon-green/30 rounded-2xl p-3 sm:p-4 group-hover:scale-110 transition-transform duration-300"
+                  style={{
+                    boxShadow: '0 0 20px hsl(var(--neon-green) / 0.4)'
+                  }}>
+                  <div className="text-center">
+                    <div className="font-orbitron font-bold text-xl sm:text-2xl text-neon-green">195K+</div>
+                    <div className="font-inter text-xs sm:text-sm text-muted-foreground">Community</div>
+                  </div>
                 </div>
-              </div>
-              
-              <div className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 bg-card/90 backdrop-blur-sm border border-neon-yellow/30 rounded-2xl p-3 sm:p-4 group-hover:scale-110 transition-transform duration-300"
-                   style={{
-                     boxShadow: '0 0 20px hsl(var(--neon-yellow) / 0.4)'
-                   }}>
-                <div className="text-center">
-                  <div className="font-orbitron font-bold text-xl sm:text-2xl text-neon-yellow">2020</div>
-                  <div className="font-inter text-xs sm:text-sm text-muted-foreground">Founded</div>
+
+                <div className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 bg-card/90 backdrop-blur-sm border border-neon-yellow/30 rounded-2xl p-3 sm:p-4 group-hover:scale-110 transition-transform duration-300"
+                  style={{
+                    boxShadow: '0 0 20px hsl(var(--neon-yellow) / 0.4)'
+                  }}>
+                  <div className="text-center">
+                    <div className="font-orbitron font-bold text-xl sm:text-2xl text-neon-yellow">2020</div>
+                    <div className="font-inter text-xs sm:text-sm text-muted-foreground">Founded</div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Testimonials */}
-      <section className="py-20 relative z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="font-orbitron font-bold text-4xl md:text-5xl mb-6 bg-gradient-to-r from-orange-400 via-orange-500 to-red-500 bg-clip-text text-transparent"
+        {/* Testimonials */}
+        <section className="py-20 relative z-10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="text-center mb-16 animate-fade-in">
+              <h2 className="font-orbitron font-bold text-4xl md:text-5xl mb-6 bg-gradient-to-r from-orange-400 via-orange-500 to-red-500 bg-clip-text text-transparent"
                 style={{
                   textShadow: '0 0 10px hsl(25 100% 60% / 0.8), 0 0 20px hsl(25 100% 60% / 0.6), 0 0 30px hsl(25 100% 60% / 0.4)'
                 }}>
-              What Our Customers Say
-            </h2>
-            <p className="font-inter text-xl text-muted-foreground max-w-2xl mx-auto">
-              Real reviews from real customers who transformed their spaces with our neon signs.
-            </p>
-          </div>
+                What Our Customers Say
+              </h2>
+              <p className="font-inter text-xl text-muted-foreground max-w-2xl mx-auto">
+                Real reviews from real customers who transformed their spaces with our neon signs.
+              </p>
+            </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div 
-                key={index}
-                className="group relative transition-all duration-500 hover:-translate-y-3 hover:scale-105"
-                style={{ animationDelay: `${index * 0.15}s` }}
-              >
-                {/* Premium multicolor testimonial card with proper rounded border */}
-                <div className="relative p-0.5 rounded-3xl overflow-hidden"
-                     style={{
-                       background: `linear-gradient(135deg, 
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {testimonials.map((testimonial, index) => (
+                <div
+                  key={index}
+                  className="group relative transition-all duration-500 hover:-translate-y-3 hover:scale-105"
+                  style={{ animationDelay: `${index * 0.15}s` }}
+                >
+                  {/* Premium multicolor testimonial card with proper rounded border */}
+                  <div className="relative p-0.5 rounded-3xl overflow-hidden"
+                    style={{
+                      background: `linear-gradient(135deg, 
                          hsl(var(--neon-purple) / 0.6), 
                          hsl(var(--neon-white) / 0.4), 
                          hsl(var(--neon-blue) / 0.6),
                          hsl(var(--neon-purple) / 0.6)
                        )`
-                     }}>
-                  <div className="relative p-6 rounded-3xl backdrop-blur-sm overflow-hidden"
-                       style={{
-                         background: `
+                    }}>
+                    <div className="relative p-6 rounded-3xl backdrop-blur-sm overflow-hidden"
+                      style={{
+                        background: `
                            linear-gradient(135deg, 
                              hsl(var(--card) / 0.9) 0%, 
                              hsl(220 15% 12% / 0.85) 30%,
@@ -902,132 +936,132 @@ const Index = () => {
                              hsl(220 15% 10% / 0.9) 100%
                            )
                          `,
-                         boxShadow: `0 8px 32px hsl(220 15% 3% / 0.4)`
-                       }}>
-                  
-                  {/* Animated gradient overlay */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                       style={{
-                         background: `
+                        boxShadow: `0 8px 32px hsl(220 15% 3% / 0.4)`
+                      }}>
+
+                      {/* Animated gradient overlay */}
+                      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                        style={{
+                          background: `
                            linear-gradient(135deg, 
                              hsl(var(--neon-purple) / 0.08) 0%, 
                              hsl(var(--neon-white) / 0.04) 50%,
                              hsl(var(--neon-blue) / 0.08) 100%
                            )
                          `,
-                         backgroundSize: '200% 200%',
-                         animation: 'gradientShift 4s ease infinite'
-                       }}>
-                  </div>
-                  
-                  <div className="relative z-10">
-                    <div className="flex items-center mb-6">
-                      <div className="w-12 h-12 rounded-full mr-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
-                           style={{
-                             background: `
+                          backgroundSize: '200% 200%',
+                          animation: 'gradientShift 4s ease infinite'
+                        }}>
+                      </div>
+
+                      <div className="relative z-10">
+                        <div className="flex items-center mb-6">
+                          <div className="w-12 h-12 rounded-full mr-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
+                            style={{
+                              background: `
                                linear-gradient(135deg, 
                                  hsl(var(--neon-purple) / 0.3) 0%, 
                                  hsl(var(--neon-blue) / 0.3) 100%
                                )
                              `,
-                             boxShadow: `
+                              boxShadow: `
                                0 0 20px hsl(var(--neon-purple) / 0.4),
                                inset 0 0 20px hsl(var(--neon-blue) / 0.2)
                              `
-                           }}>
-                        <img
-                          src={testimonial.image}
-                          alt={testimonial.name}
-                          className="w-10 h-10 rounded-full object-cover"
-                        />
-                      </div>
-                      <div>
-                        <h4 className="font-rajdhani font-bold text-lg group-hover:text-transparent transition-all duration-300"
-                            style={{
-                              background: 'linear-gradient(135deg, hsl(var(--neon-purple)), hsl(var(--neon-blue)))',
-                              WebkitBackgroundClip: 'text',
-                              backgroundClip: 'text',
                             }}>
-                          {testimonial.name}
-                        </h4>
-                        <p className="text-sm text-muted-foreground group-hover:text-foreground/80 transition-colors duration-300">
-                          {testimonial.location}
+                            <img
+                              src={testimonial.image}
+                              alt={testimonial.name}
+                              className="w-10 h-10 rounded-full object-cover"
+                            />
+                          </div>
+                          <div>
+                            <h4 className="font-rajdhani font-bold text-lg group-hover:text-transparent transition-all duration-300"
+                              style={{
+                                background: 'linear-gradient(135deg, hsl(var(--neon-purple)), hsl(var(--neon-blue)))',
+                                WebkitBackgroundClip: 'text',
+                                backgroundClip: 'text',
+                              }}>
+                              {testimonial.name}
+                            </h4>
+                            <p className="text-sm text-muted-foreground group-hover:text-foreground/80 transition-colors duration-300">
+                              {testimonial.location}
+                            </p>
+                          </div>
+                        </div>
+
+                        <div className="flex items-center mb-4">
+                          {[...Array(testimonial.rating)].map((_, i) => (
+                            <Star
+                              key={i}
+                              className="w-4 h-4 text-yellow-400 fill-current group-hover:text-yellow-300 transition-colors duration-300"
+                              style={{
+                                filter: 'drop-shadow(0 0 8px hsl(var(--neon-yellow) / 0.6))'
+                              }}
+                            />
+                          ))}
+                        </div>
+
+                        <p className="font-inter text-muted-foreground italic group-hover:text-foreground/90 transition-colors duration-300">
+                          "{testimonial.review}"
                         </p>
                       </div>
+
+                      {/* Multicolor bottom glow */}
+                      <div className="absolute inset-x-0 bottom-0 h-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                        style={{
+                          background: 'linear-gradient(90deg, hsl(var(--neon-purple)), hsl(var(--neon-white)), hsl(var(--neon-blue)), hsl(var(--neon-purple)))',
+                          backgroundSize: '200% 100%',
+                          animation: 'gradientShift 3s ease infinite'
+                        }}>
+                      </div>
+
+                      {/* Outer glow effect */}
+                      <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                        style={{
+                          boxShadow: '0 0 50px hsl(var(--neon-purple) / 0.4), 0 0 100px hsl(var(--neon-blue) / 0.3)'
+                        }}>
+                      </div>
                     </div>
-                    
-                    <div className="flex items-center mb-4">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star 
-                          key={i} 
-                          className="w-4 h-4 text-yellow-400 fill-current group-hover:text-yellow-300 transition-colors duration-300"
-                          style={{
-                            filter: 'drop-shadow(0 0 8px hsl(var(--neon-yellow) / 0.6))'
-                          }}
-                        />
-                      ))}
-                    </div>
-                    
-                    <p className="font-inter text-muted-foreground italic group-hover:text-foreground/90 transition-colors duration-300">
-                      "{testimonial.review}"
-                    </p>
-                  </div>
-                  
-                  {/* Multicolor bottom glow */}
-                  <div className="absolute inset-x-0 bottom-0 h-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                       style={{
-                         background: 'linear-gradient(90deg, hsl(var(--neon-purple)), hsl(var(--neon-white)), hsl(var(--neon-blue)), hsl(var(--neon-purple)))',
-                         backgroundSize: '200% 100%',
-                         animation: 'gradientShift 3s ease infinite'
-                       }}>
-                  </div>
-                  
-                  {/* Outer glow effect */}
-                  <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                       style={{
-                         boxShadow: '0 0 50px hsl(var(--neon-purple) / 0.4), 0 0 100px hsl(var(--neon-blue) / 0.3)'
-                       }}>
                   </div>
                 </div>
-              </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* CTA Section */}
-      <section className="py-20 relative z-10">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <div className="animate-fade-in">
-            <h2 className="font-orbitron font-bold text-4xl md:text-5xl mb-6 bg-gradient-to-r from-orange-400 via-orange-500 to-red-500 bg-clip-text text-transparent"
+        {/* CTA Section */}
+        <section className="py-20 relative z-10">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <div className="animate-fade-in">
+              <h2 className="font-orbitron font-bold text-4xl md:text-5xl mb-6 bg-gradient-to-r from-orange-400 via-orange-500 to-red-500 bg-clip-text text-transparent"
                 style={{
                   textShadow: '0 0 10px hsl(25 100% 60% / 0.8), 0 0 20px hsl(25 100% 60% / 0.6), 0 0 30px hsl(25 100% 60% / 0.4)'
                 }}>
-              Ready to Light Up Your Space?
-            </h2>
-            <p className="font-inter text-xl text-muted-foreground mb-8">
-              Join thousands of satisfied customers and create your perfect neon sign today.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Button asChild className="btn-neon text-lg px-8 py-4 group hover:shadow-2xl hover:shadow-neon-pink/40 transition-shadow duration-500">
-                <Link to="/customize">
-                  <Zap className="mr-2 w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
-                  Start Customizing
-                </Link>
-              </Button>
-              
-              <Button asChild className="btn-outline-neon text-lg px-8 py-4 group hover:shadow-2xl hover:shadow-neon-blue/40 transition-shadow duration-500">
-                <Link to="/contact">
-                  Get a Quote
-                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-                </Link>
-              </Button>
+                Ready to Light Up Your Space?
+              </h2>
+              <p className="font-inter text-xl text-muted-foreground mb-8">
+                Join thousands of satisfied customers and create your perfect neon sign today.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-6 justify-center">
+                <Button asChild className="btn-neon text-lg px-8 py-4 group hover:shadow-2xl hover:shadow-neon-pink/40 transition-shadow duration-500">
+                  <Link to="/customize">
+                    <Zap className="mr-2 w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
+                    Start Customizing
+                  </Link>
+                </Button>
+
+                <Button asChild className="btn-outline-neon text-lg px-8 py-4 group hover:shadow-2xl hover:shadow-neon-blue/40 transition-shadow duration-500">
+                  <Link to="/contact">
+                    Get a Quote
+                    <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                  </Link>
+                </Button>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
       </div> {/* End unified background wrapper */}
     </div>
   );

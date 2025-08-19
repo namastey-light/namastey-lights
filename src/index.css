@@ -242,37 +242,37 @@
   /* Button Variants */
   .btn-neon {
     @apply relative overflow-hidden rounded-2xl px-8 py-4 font-bold text-lg;
-    background: linear-gradient(135deg, hsl(var(--neon-orange)), hsl(25 100% 70%));
+    background: linear-gradient(135deg, hsl(var(--neon-white)), hsl(0 0% 90%));
     color: hsl(var(--background));
     box-shadow: 
-      0 0 20px hsl(var(--neon-orange) / 0.5),
-      0 4px 15px hsl(var(--neon-orange) / 0.3);
+      0 0 20px hsl(var(--neon-white) / 0.5),
+      0 4px 15px hsl(var(--neon-white) / 0.3);
     transition: all 0.3s ease;
   }
 
   .btn-neon:hover {
     transform: translateY(-2px);
     box-shadow: 
-      0 0 30px hsl(var(--neon-orange) / 0.7),
-      0 6px 20px hsl(var(--neon-orange) / 0.4);
+      0 0 30px hsl(var(--neon-white) / 0.7),
+      0 6px 20px hsl(var(--neon-white) / 0.4);
   }
 
   .btn-outline-neon {
     @apply relative overflow-hidden rounded-2xl px-8 py-4 font-bold text-lg border-2;
-    border-color: hsl(var(--neon-orange));
-    color: hsl(var(--neon-orange));
+    border-color: hsl(var(--neon-white));
+    color: hsl(var(--neon-white));
     background: transparent;
     box-shadow: 
-      0 0 10px hsl(var(--neon-orange) / 0.3),
-      inset 0 0 10px hsl(var(--neon-orange) / 0.1);
+      0 0 10px hsl(var(--neon-white) / 0.3),
+      inset 0 0 10px hsl(var(--neon-white) / 0.1);
     transition: all 0.3s ease;
   }
 
   .btn-outline-neon:hover {
-    background: hsl(var(--neon-orange) / 0.1);
+    background: hsl(var(--neon-white) / 0.1);
     box-shadow: 
-      0 0 20px hsl(var(--neon-orange) / 0.5),
-      inset 0 0 20px hsl(var(--neon-orange) / 0.2);
+      0 0 20px hsl(var(--neon-white) / 0.5),
+      inset 0 0 20px hsl(var(--neon-white) / 0.2);
   }
 
   /* Card Styles */
