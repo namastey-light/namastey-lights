@@ -24,8 +24,9 @@ const Contact = () => {
       title: 'WhatsApp',
       details: '+91 83848 84622',
       description: 'Quick support on WhatsApp',
-      action: 'https://wa.me/918384884622'
+      action: 'https://wa.me/918384884622?text=Hello%20I%20want%20to%20know%20more'
     },
+
     {
       icon: MapPin,
       title: 'Visit Us',
@@ -95,10 +96,10 @@ const Contact = () => {
                         <p className="text-neon-pink font-medium text-lg">{contact.details}</p>
                         <p className="text-sm text-muted-foreground mt-1">{contact.description}</p>
                       </div>
-                      
+
                       {contact.action !== '#' && (
-                        <Button 
-                          className="btn-outline-neon w-full" 
+                        <Button
+                          className="btn-outline-neon w-full"
                           onClick={() => window.open(contact.action, '_blank')}
                         >
                           Contact
@@ -135,39 +136,39 @@ const Contact = () => {
               </div>
             );
           })()}
-        
-        {/* FAQ Section */}
-        <div className="max-w-6xl mx-auto">
-          <Card className="neon-card">
-            <CardHeader>
-              <CardTitle className="text-center text-2xl">Frequently Asked Questions</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div className="text-center">
-                  <h4 className="font-semibold text-neon-blue mb-2">How long does delivery take?</h4>
-                  <p className="text-sm text-muted-foreground">
-                    Standard delivery is 7-10 business days. Custom designs may take 10-14 days depending on complexity.
-                  </p>
+
+          {/* FAQ Section */}
+          <div className="max-w-6xl mx-auto">
+            <Card className="neon-card">
+              <CardHeader>
+                <CardTitle className="text-center text-2xl">Frequently Asked Questions</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  <div className="text-center">
+                    <h4 className="font-semibold text-neon-blue mb-2">How long does delivery take?</h4>
+                    <p className="text-sm text-muted-foreground">
+                      Standard delivery is 7-10 business days. Custom designs may take 10-14 days depending on complexity.
+                    </p>
+                  </div>
+
+                  <div className="text-center">
+                    <h4 className="font-semibold text-neon-blue mb-2">Do you offer installation services?</h4>
+                    <p className="text-sm text-muted-foreground">
+                      Yes! We provide professional installation services in major cities. Contact us for availability in your area.
+                    </p>
+                  </div>
+
+                  <div className="text-center">
+                    <h4 className="font-semibold text-neon-blue mb-2">What's the warranty on your neon?</h4>
+                    <p className="text-sm text-muted-foreground">
+                      All our neon signs come with a 12-month warranty covering manufacturing defects and LED failures.
+                    </p>
+                  </div>
                 </div>
-                
-                <div className="text-center">
-                  <h4 className="font-semibold text-neon-blue mb-2">Do you offer installation services?</h4>
-                  <p className="text-sm text-muted-foreground">
-                    Yes! We provide professional installation services in major cities. Contact us for availability in your area.
-                  </p>
-                </div>
-                
-                <div className="text-center">
-                  <h4 className="font-semibold text-neon-blue mb-2">What's the warranty on your neon?</h4>
-                  <p className="text-sm text-muted-foreground">
-                    All our neon signs come with a 12-month warranty covering manufacturing defects and LED failures.
-                  </p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </div>
     </div>

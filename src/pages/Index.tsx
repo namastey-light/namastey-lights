@@ -261,17 +261,16 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <div className="animate-float">
             <h1 className="font-orbitron font-bold text-5xl md:text-7xl lg:text-8xl mb-8 leading-tight">
-              <NeonText color="pink" animated>Create</NeonText>{' '}
+              <span className="text-orange-500">Create</span>{' '}
               <br className="hidden sm:block" />
-              <NeonText color="white" animated>Stunning</NeonText>{' '}
+              <span className="text-white">Stunning</span>{' '}
               <br className="hidden sm:block" />
-              <NeonText color="white">Neon Signs</NeonText>
+              <span className="text-[#FFD966] font-monoton drop-shadow-[0_0_50px_#FFD966]">Neon Signs</span>
             </h1>
           </div>
 
-          <p className="font-inter text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto">
-            Transform your space with premium custom neon lights. From bedroom decor to business signage,
-            we create vibrant LED neon signs that last 50,000+ hours.
+          <p className="font-dancing-script text-2xl md:text-3xl lg:text-4xl text-lime-400 mb-12 max-w-4xl mx-auto leading-relaxed font-medium tracking-wide italic">
+            Light up your vibe with custom neon signs that glow for years
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
