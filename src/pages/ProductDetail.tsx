@@ -427,20 +427,7 @@ const ProductDetail = () => {
                 {product.stock_quantity === 0 ? 'OUT OF STOCK' : 'ADD TO CART'}
               </Button>
               
-              <Button 
-                className="w-full font-semibold py-3 text-lg rounded-2xl"
-                style={{
-                  background: 'transparent',
-                  border: '2px solid hsl(var(--neon-purple))',
-                  color: 'hsl(var(--neon-purple))',
-                  boxShadow: '0 0 20px hsl(var(--neon-purple) / 0.3)'
-                }}
-                onClick={handleBuyNow}
-                disabled={product.stock_quantity === 0}
-              >
-                <MessageCircle className="w-4 h-4 mr-2" />
-                Order On WhatsApp
-              </Button>
+              
             </div>
 
             {/* Trust Badges */}
@@ -490,7 +477,7 @@ const ProductDetail = () => {
                 </div>
                 <div className="aspect-video bg-muted rounded-xl overflow-hidden">
                   <img
-                    src="/placeholder.svg"
+                    src="\lovable-uploads\1755593981887.png"
                     alt="2nd Gen LED Neon Strip"
                     className="w-full h-full object-cover"
                   />
@@ -522,22 +509,22 @@ const ProductDetail = () => {
                   {
                     step: 1,
                     title: "Take a measuring tape and mark out the position of your neon sign.",
-                    image: "/placeholder.svg"
+                    image: "/lovable-uploads/AdobeStock_535119941_1_2.jpg"
                   },
                   {
                     step: 2,
                     title: "Safely Drill small holes on the wall.",
-                    image: "/placeholder.svg"
+                    image: "/lovable-uploads/Rectangle_26311_1.jpg"
                   },
                   {
                     step: 3,
                     title: "Use the SS mounting screws to mount your neon sign on the wall.",
-                    image: "/placeholder.svg"
+                    image: "/lovable-uploads/AdobeStock_1271062131_1_1.jpg"
                   },
                   {
                     step: 4,
                     title: "Connect the power adapter to the transparent cable and your sign is ready!",
-                    image: "/placeholder.svg"
+                    image: "/lovable-uploads/AdobeStock_981467593_1_2.jpg"
                   }
                 ].map((item) => (
                   <div key={item.step} className="text-center">
@@ -577,53 +564,6 @@ const ProductDetail = () => {
                 <p className="text-muted-foreground text-sm">{faq.answer}</p>
               </div>
             ))}
-            <div className="text-center pt-6">
-              <Button variant="outline" className="btn-outline-neon">
-                Load More
-              </Button>
-            </div>
-          </div>
-        </div>
-
-        {/* Similar Products */}
-        <div className="mb-16">
-          <h2 className="font-orbitron font-bold text-3xl mb-8 text-center">
-            Similar <NeonText color="pink">Products</NeonText>
-          </h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {similarProducts.map((item) => {
-              const itemPrimaryImage = item.product_images?.[0]?.image_url || '/placeholder.svg';
-              
-              return (
-                <NeonCard key={item.id} className="group cursor-pointer">
-                  <Link to={`/products/${item.id}`}>
-                    <div className="aspect-square bg-muted rounded-lg mb-4 overflow-hidden">
-                      <img
-                        src={itemPrimaryImage}
-                        alt={item.name}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                    </div>
-                    
-                    <h3 className="font-rajdhani font-semibold text-lg mb-2 group-hover:text-neon-pink transition-colors">
-                      {item.name}
-                    </h3>
-                    
-                    <div className="flex items-center gap-3">
-                      <span className="font-bold text-xl text-neon-blue">
-                        ₹{getDisplayPrice(item).toLocaleString()}
-                      </span>
-                      {getDisplayMRP(item) && getDisplayMRP(item) > getDisplayPrice(item) && (
-                        <span className="text-sm text-muted-foreground line-through">
-                          ₹{getDisplayMRP(item).toLocaleString()}
-                        </span>
-                      )}
-                    </div>
-                  </Link>
-                </NeonCard>
-              );
-            })}
           </div>
         </div>
       </div>
