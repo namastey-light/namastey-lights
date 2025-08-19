@@ -249,37 +249,45 @@ export function PurchaseDetails() {
           <CardTitle>All Orders</CardTitle>
         </CardHeader>
         <CardContent>
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>Order ID</TableHead>
-                <TableHead>Customer</TableHead>
-                <TableHead>Email</TableHead>
-                <TableHead>Subtotal</TableHead>
-                <TableHead>Delivery</TableHead>
-                <TableHead>Total</TableHead>
-                <TableHead>Payment</TableHead>
-                <TableHead>Date</TableHead>
-                <TableHead>Actions</TableHead>
-              </TableRow>
-            </TableHeader>
+          <div className="overflow-x-auto">
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead className="min-w-[100px]">Order ID</TableHead>
+                  <TableHead className="min-w-[120px]">Customer</TableHead>
+                  <TableHead className="min-w-[180px] hidden md:table-cell">Email</TableHead>
+                  <TableHead className="min-w-[80px] hidden sm:table-cell">Subtotal</TableHead>
+                  <TableHead className="min-w-[80px] hidden sm:table-cell">Delivery</TableHead>
+                  <TableHead className="min-w-[80px]">Total</TableHead>
+                  <TableHead className="min-w-[100px] hidden lg:table-cell">Payment</TableHead>
+                  <TableHead className="min-w-[100px] hidden md:table-cell">Date</TableHead>
+                  <TableHead className="min-w-[80px]">Actions</TableHead>
+                </TableRow>
+              </TableHeader>
             <TableBody>
               {orders.map((order) => (
                 <TableRow key={order.id}>
                   <TableCell className="font-mono text-xs">
                     NL{order.id.split('-')[0].toUpperCase()}
                   </TableCell>
-                  <TableCell>{order.customer_name}</TableCell>
-                  <TableCell>{order.customer_email}</TableCell>
-                  <TableCell>₹{order.subtotal || (order.total_amount - (order.delivery_fee || 299))}</TableCell>
-                  <TableCell>₹{order.delivery_fee || 299}</TableCell>
-                  <TableCell>₹{order.total_amount}</TableCell>
                   <TableCell>
+                    <div>
+                      <div className="font-medium text-sm">{order.customer_name}</div>
+                      <div className="text-xs text-muted-foreground md:hidden">
+                        {order.customer_email}
+                      </div>
+                    </div>
+                  </TableCell>
+                  <TableCell className="hidden md:table-cell">{order.customer_email}</TableCell>
+                  <TableCell className="hidden sm:table-cell">₹{order.subtotal || (order.total_amount - (order.delivery_fee || 299))}</TableCell>
+                  <TableCell className="hidden sm:table-cell">₹{order.delivery_fee || 299}</TableCell>
+                  <TableCell className="font-semibold">₹{order.total_amount}</TableCell>
+                  <TableCell className="hidden lg:table-cell">
                     <span className="px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-medium">
                       {order.payment_method === 'cod' ? 'COD' : 'Online Payment'}
                     </span>
                   </TableCell>
-                  <TableCell>
+                  <TableCell className="hidden md:table-cell">
                     {new Date(order.created_at).toLocaleDateString()}
                   </TableCell>
                   <TableCell>
@@ -294,7 +302,8 @@ export function PurchaseDetails() {
                 </TableRow>
               ))}
             </TableBody>
-          </Table>
+            </Table>
+          </div>
           {orders.length === 0 && (
             <div className="text-center py-8 text-muted-foreground">
               No orders found yet.
@@ -304,29 +313,35 @@ export function PurchaseDetails() {
       </Card>
 
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-        <DialogContent className="max-w-4xl">
+        <DialogContent className="max-w-7xl max-h-[95vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle>Order Details</DialogTitle>
           </DialogHeader>
           {selectedOrder && (
             <div className="space-y-6">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                 <Card>
                   <CardHeader>
                     <CardTitle className="text-lg">Customer Information</CardTitle>
                   </CardHeader>
-                  <CardContent className="space-y-2">
-                    <div>
-                      <strong>Name:</strong> {selectedOrder.customer_name}
+                  <CardContent className="space-y-3">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                      <div>
+                        <strong className="text-sm">Name:</strong>
+                        <p className="text-sm">{selectedOrder.customer_name}</p>
+                      </div>
+                      <div>
+                        <strong className="text-sm">Email:</strong>
+                        <p className="text-sm break-all">{selectedOrder.customer_email}</p>
+                      </div>
+                      <div>
+                        <strong className="text-sm">Phone:</strong>
+                        <p className="text-sm">{selectedOrder.customer_phone || "N/A"}</p>
+                      </div>
                     </div>
                     <div>
-                      <strong>Email:</strong> {selectedOrder.customer_email}
-                    </div>
-                    <div>
-                      <strong>Phone:</strong> {selectedOrder.customer_phone || "N/A"}
-                    </div>
-                    <div>
-                      <strong>Address:</strong> {selectedOrder.shipping_address}
+                      <strong className="text-sm">Address:</strong>
+                      <p className="text-sm">{selectedOrder.shipping_address}</p>
                     </div>
                   </CardContent>
                 </Card>
@@ -335,33 +350,42 @@ export function PurchaseDetails() {
                   <CardHeader>
                     <CardTitle className="text-lg">Order Information</CardTitle>
                   </CardHeader>
-                  <CardContent className="space-y-2">
-                    <div>
-                      <strong>Order ID:</strong> NL{selectedOrder.id.split('-')[0].toUpperCase()}
+                  <CardContent className="space-y-3">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                      <div>
+                        <strong className="text-sm">Order ID:</strong>
+                        <p className="text-sm font-mono">NL{selectedOrder.id.split('-')[0].toUpperCase()}</p>
+                      </div>
+                      <div>
+                        <strong className="text-sm">Subtotal:</strong>
+                        <p className="text-sm">₹{selectedOrder.subtotal || (selectedOrder.total_amount - (selectedOrder.delivery_fee || 299))}</p>
+                      </div>
+                      <div>
+                        <strong className="text-sm">Delivery Fee:</strong>
+                        <p className="text-sm">₹{selectedOrder.delivery_fee || 299}</p>
+                      </div>
+                      <div>
+                        <strong className="text-sm">Total Amount:</strong>
+                        <p className="text-sm font-semibold">₹{selectedOrder.total_amount}</p>
+                      </div>
                     </div>
-                    <div>
-                      <strong>Subtotal:</strong> ₹{selectedOrder.subtotal || (selectedOrder.total_amount - (selectedOrder.delivery_fee || 299))}
-                    </div>
-                    <div>
-                      <strong>Delivery Fee:</strong> ₹{selectedOrder.delivery_fee || 299}
-                    </div>
-                    <div>
-                      <strong>Total Amount:</strong> ₹{selectedOrder.total_amount}
-                    </div>
-                    <div>
-                      <strong>Payment Method:</strong>{" "}
-                      <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
-                        {selectedOrder.payment_method === 'cod' ? 'COD' : 'Online Payment'}
-                      </span>
-                    </div>
-                    <div>
-                      <strong>Payment Status:</strong>{" "}
-                      <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-medium">
-                        {selectedOrder.payment_status}
-                      </span>
-                    </div>
-                    <div>
-                      <strong>Date:</strong> {new Date(selectedOrder.created_at).toLocaleString()}
+                    <div className="space-y-2">
+                      <div>
+                        <strong className="text-sm">Payment Method:</strong>
+                        <span className="ml-2 px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-medium">
+                          {selectedOrder.payment_method === 'cod' ? 'COD' : 'Online Payment'}
+                        </span>
+                      </div>
+                      <div>
+                        <strong className="text-sm">Payment Status:</strong>
+                        <span className="ml-2 px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs font-medium">
+                          {selectedOrder.payment_status}
+                        </span>
+                      </div>
+                      <div>
+                        <strong className="text-sm">Date:</strong>
+                        <p className="text-sm">{new Date(selectedOrder.created_at).toLocaleString()}</p>
+                      </div>
                     </div>
                   </CardContent>
                 </Card>
@@ -372,17 +396,18 @@ export function PurchaseDetails() {
                   <CardTitle className="text-lg">Order Items</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <Table>
-                    <TableHeader>
-                      <TableRow>
-                        <TableHead>Product</TableHead>
-                        <TableHead>Image</TableHead>
-                        <TableHead>Configuration</TableHead>
-                        <TableHead>Quantity</TableHead>
-                        <TableHead>Price</TableHead>
-                        <TableHead>Total</TableHead>
-                      </TableRow>
-                    </TableHeader>
+                  <div className="overflow-x-auto">
+                    <Table>
+                      <TableHeader>
+                        <TableRow>
+                          <TableHead className="min-w-[120px]">Product</TableHead>
+                          <TableHead className="min-w-[80px]">Image</TableHead>
+                          <TableHead className="min-w-[150px] hidden md:table-cell">Configuration</TableHead>
+                          <TableHead className="min-w-[80px]">Qty</TableHead>
+                          <TableHead className="min-w-[80px] hidden sm:table-cell">Price</TableHead>
+                          <TableHead className="min-w-[80px]">Total</TableHead>
+                        </TableRow>
+                      </TableHeader>
                     <TableBody>
                       {selectedOrder.order_items.map((item) => {
                         const productImage = item.product_image || 
@@ -395,7 +420,21 @@ export function PurchaseDetails() {
                         return (
                           <TableRow key={item.id}>
                             <TableCell>
-                              {item.product_name || item.products?.name || "Product not found"}
+                              <div className="text-sm">
+                                <div className="font-medium">{item.product_name || item.products?.name || "Product not found"}</div>
+                                <div className="md:hidden text-xs text-muted-foreground mt-1">
+                                  {config && (
+                                    <div className="space-y-0.5">
+                                      <div>Size: {config.size}</div>
+                                      <div>Color: {config.color}</div>
+                                      <div>Type: {config.productType}</div>
+                                      {config.brightnessController && (
+                                        <div className="text-green-600">✓ Controller</div>
+                                      )}
+                                    </div>
+                                  )}
+                                </div>
+                              </div>
                             </TableCell>
                             <TableCell>
                               <div 
@@ -405,14 +444,14 @@ export function PurchaseDetails() {
                                 <img 
                                   src={productImage} 
                                   alt={item.product_name}
-                                  className="w-20 h-20 object-cover rounded-lg transition-transform group-hover:scale-105"
+                                  className="w-12 h-12 md:w-16 md:h-16 object-cover rounded-lg transition-transform group-hover:scale-105"
                                 />
                                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg flex items-center justify-center">
-                                  <ZoomIn className="w-6 h-6 text-white" />
+                                  <ZoomIn className="w-4 h-4 text-white" />
                                 </div>
                               </div>
                             </TableCell>
-                            <TableCell>
+                            <TableCell className="hidden md:table-cell">
                               {config && (
                                 <div className="text-xs space-y-1">
                                   <div>Size: {config.size}</div>
@@ -424,14 +463,15 @@ export function PurchaseDetails() {
                                 </div>
                               )}
                             </TableCell>
-                            <TableCell>{item.quantity}</TableCell>
-                            <TableCell>₹{item.price}</TableCell>
-                            <TableCell>₹{(item.quantity * item.price).toFixed(2)}</TableCell>
+                            <TableCell className="text-center">{item.quantity}</TableCell>
+                            <TableCell className="hidden sm:table-cell">₹{item.price}</TableCell>
+                            <TableCell className="font-semibold">₹{(item.quantity * item.price).toFixed(2)}</TableCell>
                           </TableRow>
                         );
                       })}
                     </TableBody>
-                  </Table>
+                    </Table>
+                  </div>
                 </CardContent>
               </Card>
             </div>
@@ -441,16 +481,16 @@ export function PurchaseDetails() {
 
       {/* Image Zoom Modal */}
       <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
-        <DialogContent className="max-w-3xl">
+        <DialogContent className="max-w-4xl max-h-[90vh]">
           <DialogHeader>
             <DialogTitle>Product Image</DialogTitle>
           </DialogHeader>
           {selectedImage && (
-            <div className="flex justify-center">
+            <div className="flex justify-center p-4">
               <img 
                 src={selectedImage} 
                 alt="Product preview"
-                className="max-w-full max-h-[70vh] object-contain rounded-lg"
+                className="max-w-full max-h-[60vh] object-contain rounded-lg"
               />
             </div>
           )}

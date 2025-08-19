@@ -235,54 +235,58 @@ export const CustomNeonPurchaseDetails = () => {
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>Order ID</TableHead>
-                <TableHead>Customer</TableHead>
-                <TableHead>Custom Text</TableHead>
-                <TableHead>Font Style</TableHead>
-                <TableHead>Base Price</TableHead>
-                <TableHead>Characters</TableHead>
-                <TableHead>Backing</TableHead>
-                <TableHead>Dimmer</TableHead>
-                <TableHead>Total</TableHead>
-                <TableHead>Payment</TableHead>
-                <TableHead>Date</TableHead>
-                <TableHead>Actions</TableHead>
-              </TableRow>
-            </TableHeader>
+          <div className="overflow-x-auto">
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead className="min-w-[100px]">Order ID</TableHead>
+                  <TableHead className="min-w-[120px]">Customer</TableHead>
+                  <TableHead className="min-w-[120px] hidden lg:table-cell">Custom Text</TableHead>
+                  <TableHead className="min-w-[100px] hidden xl:table-cell">Font Style</TableHead>
+                  <TableHead className="min-w-[80px] hidden md:table-cell">Base Price</TableHead>
+                  <TableHead className="min-w-[80px] hidden sm:table-cell">Characters</TableHead>
+                  <TableHead className="min-w-[80px] hidden sm:table-cell">Backing</TableHead>
+                  <TableHead className="min-w-[80px] hidden sm:table-cell">Dimmer</TableHead>
+                  <TableHead className="min-w-[100px]">Total</TableHead>
+                  <TableHead className="min-w-[100px] hidden md:table-cell">Payment</TableHead>
+                  <TableHead className="min-w-[100px] hidden lg:table-cell">Date</TableHead>
+                  <TableHead className="min-w-[80px]">Actions</TableHead>
+                </TableRow>
+              </TableHeader>
             <TableBody>
               {orders.map((order) => (
                 <TableRow key={order.id}>
-                  <TableCell className="font-mono">
+                  <TableCell className="font-mono text-sm">
                     {generateOrderId(order.id)}
                   </TableCell>
                   <TableCell>
                     <div>
-                      <div className="font-medium">{order.customer_name}</div>
-                      <div className="text-sm text-muted-foreground">{order.customer_email}</div>
+                      <div className="font-medium text-sm">{order.customer_name}</div>
+                      <div className="text-xs text-muted-foreground">{order.customer_email}</div>
+                      <div className="lg:hidden text-xs text-muted-foreground mt-1">
+                        "{order.custom_text.length > 20 ? order.custom_text.substring(0, 20) + '...' : order.custom_text}"
+                      </div>
                     </div>
                   </TableCell>
-                  <TableCell>
-                    <div className="max-w-[150px] truncate">
+                  <TableCell className="hidden lg:table-cell">
+                    <div className="max-w-[150px] truncate text-sm">
                       "{order.custom_text}"
                     </div>
                   </TableCell>
-                  <TableCell>
-                    <span className={fonts.find(f => f.id === order.font_style)?.family || 'font-sans'}>
+                  <TableCell className="hidden xl:table-cell">
+                    <span className={`text-sm ${fonts.find(f => f.id === order.font_style)?.family || 'font-sans'}`}>
                       {fonts.find(f => f.id === order.font_style)?.name || 'Modern Sans'}
                     </span>
                   </TableCell>
-                  <TableCell>₹{order.base_price}</TableCell>
-                  <TableCell>₹{order.character_price}</TableCell>
-                  <TableCell>₹{order.backing_price}</TableCell>
-                  <TableCell>₹{order.dimmer_price}</TableCell>
+                  <TableCell className="hidden md:table-cell text-sm">₹{order.base_price}</TableCell>
+                  <TableCell className="hidden sm:table-cell text-sm">₹{order.character_price}</TableCell>
+                  <TableCell className="hidden sm:table-cell text-sm">₹{order.backing_price}</TableCell>
+                  <TableCell className="hidden sm:table-cell text-sm">₹{order.dimmer_price}</TableCell>
                   <TableCell className="font-semibold">₹{order.total_amount.toLocaleString()}</TableCell>
-                  <TableCell>
+                  <TableCell className="hidden md:table-cell">
                     <div className="space-y-1">
-                      <Badge variant={order.payment_method === 'cod' ? 'secondary' : 'default'}>
-                        {order.payment_method === 'cod' ? 'COD' : 'Online Payment'}
+                      <Badge variant={order.payment_method === 'cod' ? 'secondary' : 'default'} className="text-xs">
+                        {order.payment_method === 'cod' ? 'COD' : 'Online'}
                       </Badge>
                       <div>
                         <Badge 
@@ -300,7 +304,7 @@ export const CustomNeonPurchaseDetails = () => {
                       </div>
                     </div>
                   </TableCell>
-                  <TableCell>{formatDate(order.created_at)}</TableCell>
+                  <TableCell className="hidden lg:table-cell text-sm">{formatDate(order.created_at)}</TableCell>
                   <TableCell>
                     <Button
                       variant="outline"
@@ -310,20 +314,20 @@ export const CustomNeonPurchaseDetails = () => {
                         setIsDialogOpen(true);
                       }}
                     >
-                      <Eye className="h-4 w-4 mr-1" />
-                      View
+                      <Eye className="h-4 w-4" />
                     </Button>
                   </TableCell>
                 </TableRow>
               ))}
             </TableBody>
-          </Table>
+            </Table>
+          </div>
         </CardContent>
       </Card>
 
       {/* Order Details Dialog */}
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+        <DialogContent className="max-w-7xl max-h-[95vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle>Custom Neon Order Details - {selectedOrder && generateOrderId(selectedOrder.id)}</DialogTitle>
           </DialogHeader>
@@ -335,26 +339,26 @@ export const CustomNeonPurchaseDetails = () => {
                 <CardHeader>
                   <CardTitle>Customer Information</CardTitle>
                 </CardHeader>
-                <CardContent className="grid grid-cols-2 gap-4">
+                <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label className="text-sm font-medium">Name</label>
-                    <p>{selectedOrder.customer_name}</p>
+                    <p className="text-sm">{selectedOrder.customer_name}</p>
                   </div>
                   <div>
                     <label className="text-sm font-medium">Email</label>
-                    <p>{selectedOrder.customer_email}</p>
+                    <p className="text-sm break-all">{selectedOrder.customer_email}</p>
                   </div>
                   <div>
                     <label className="text-sm font-medium">Phone</label>
-                    <p>{selectedOrder.customer_phone || 'Not provided'}</p>
+                    <p className="text-sm">{selectedOrder.customer_phone || 'Not provided'}</p>
                   </div>
                   <div>
                     <label className="text-sm font-medium">Total Amount</label>
                     <p className="text-lg font-bold">₹{selectedOrder.total_amount.toLocaleString()}</p>
                   </div>
-                  <div className="col-span-2">
+                  <div className="md:col-span-2">
                     <label className="text-sm font-medium">Shipping Address</label>
-                    <p>{selectedOrder.shipping_address}</p>
+                    <p className="text-sm">{selectedOrder.shipping_address}</p>
                   </div>
                 </CardContent>
               </Card>
@@ -364,10 +368,10 @@ export const CustomNeonPurchaseDetails = () => {
                 <CardHeader>
                   <CardTitle>Order Summary</CardTitle>
                 </CardHeader>
-                <CardContent className="grid grid-cols-4 gap-4">
+                <CardContent className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                   <div>
                     <label className="text-sm font-medium">Payment Method</label>
-                    <Badge variant={selectedOrder.payment_method === 'cod' ? 'secondary' : 'default'}>
+                    <Badge variant={selectedOrder.payment_method === 'cod' ? 'secondary' : 'default'} className="text-xs">
                       {selectedOrder.payment_method === 'cod' ? 'COD' : 'Online Payment'}
                     </Badge>
                   </div>
@@ -380,6 +384,7 @@ export const CustomNeonPurchaseDetails = () => {
                           selectedOrder.payment_status === 'pending' ? 'secondary' : 
                           'destructive'
                         }
+                        className="text-xs"
                       >
                         {selectedOrder.payment_status === 'paid' ? 'Paid' : 
                          selectedOrder.payment_status === 'pending' ? 'Pending' : 
@@ -389,7 +394,7 @@ export const CustomNeonPurchaseDetails = () => {
                   </div>
                   <div>
                     <label className="text-sm font-medium">Order Date</label>
-                    <p>{formatDate(selectedOrder.created_at)}</p>
+                    <p className="text-sm">{formatDate(selectedOrder.created_at)}</p>
                   </div>
                   <div>
                     <label className="text-sm font-medium">Total Amount</label>
@@ -438,7 +443,7 @@ export const CustomNeonPurchaseDetails = () => {
                     <div className="space-y-4">
                       <h4 className="text-md font-semibold">Configuration Details</h4>
                       
-                      <div className="grid grid-cols-2 gap-4 text-sm">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
                         <div>
                           <label className="font-medium flex items-center gap-1">
                             <Type className="h-3 w-3" />

@@ -29,7 +29,7 @@ const Contact = () => {
     {
       icon: MapPin,
       title: 'Visit Us',
-      details: 'Mumbai, Maharashtra',
+      details: 'Badaun, Uttar pradesh',
       description: 'India',
       action: '#'
     }

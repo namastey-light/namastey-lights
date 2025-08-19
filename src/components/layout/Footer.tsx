@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Zap, Instagram, Facebook, Twitter, Mail, Phone, MapPin } from 'lucide-react';
+import { Zap, Instagram, Facebook, Twitter, Mail, Phone, MapPin, Youtube } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -18,9 +18,8 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { name: 'Instagram', icon: Instagram, href: '#' },
-    { name: 'Facebook', icon: Facebook, href: '#' },
-    { name: 'Twitter', icon: Twitter, href: '#' },
+    { name: 'Instagram', icon: Instagram, href: 'https://www.instagram.com/namasteylightsin?igsh=bWMwbHFzc2t1Nm5w&utm_source=qr' },
+    { name: 'Youtube', icon: Youtube, href: 'https://youtube.com/@namasteylights?si=7aSRUWET6cYGxgNT' },
   ];
 
   return (
@@ -78,7 +77,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center text-sm text-muted-foreground">
                 <MapPin className="w-4 h-4 mr-2 text-neon-blue" />
-                Mumbai, Maharashtra, India
+                Badaun, Uttar pradesh, India
               </div>
             </div>
           </div>
@@ -136,10 +135,11 @@ const Footer = () => {
                 <a
                   key={social.name}
                   href={social.href}
+                  target="_blank" 
                   className="text-muted-foreground hover:text-neon-pink transition-all duration-300 cursor-pointer relative z-20 p-2 hover:scale-110 hover:bg-white/5 rounded-lg"
                   aria-label={social.name}
                 >
-                  <Icon className="w-5 h-5" />
+                  <Icon className="w-10 h-10" />
                 </a>
               );
             })}

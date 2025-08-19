@@ -41,11 +41,10 @@ export function AdminSidebar() {
 
   return (
     <Sidebar className={collapsed ? "w-14" : "w-60"} collapsible="icon">
-      <div className="p-4 border-b">
+      <div className="p-4 border-b hidden md:block">
         <h2 className={`font-bold text-lg ${collapsed ? "hidden" : ""}`}>
           Admin Panel
         </h2>
-        <SidebarTrigger className="mt-2" />
       </div>
 
       <SidebarContent>

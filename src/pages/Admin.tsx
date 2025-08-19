@@ -1,4 +1,4 @@
-import { SidebarProvider } from "@/components/ui/sidebar";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AdminSidebar } from "@/components/admin/AdminSidebar";
 import { Routes, Route } from "react-router-dom";
 import { AdminDashboard } from "@/components/admin/AdminDashboard";
@@ -11,7 +11,7 @@ import BannerManagement from "@/components/admin/BannerManagement";
 import { ProtectedRoute } from "@/components/auth/ProtectedRoute";
 import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
-import { LogOut } from "lucide-react";
+import { LogOut, Menu } from "lucide-react";
 
 const Admin = () => {
   const { signOut, user } = useAuth();
@@ -39,8 +39,22 @@ const Admin = () => {
       <SidebarProvider>
         <div className="min-h-screen flex w-full bg-background">
           <AdminSidebar />
-          <main className="flex-1 p-6 overflow-auto">
-            <div className="flex justify-between items-center mb-6">
+          <main className="flex-1 overflow-auto">
+            {/* Mobile Header */}
+            <div className="sticky top-0 z-10 bg-background border-b p-4 md:hidden">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <SidebarTrigger className="p-2" />
+                  <h1 className="text-lg font-bold">Admin</h1>
+                </div>
+                <Button variant="outline" size="sm" onClick={handleLogout}>
+                  <LogOut className="h-4 w-4" />
+                </Button>
+              </div>
+            </div>
+
+            {/* Desktop Header */}
+            <div className="hidden md:flex justify-between items-center p-6 pb-0">
               <h1 className="text-2xl font-bold">Admin Panel</h1>
               <div className="flex items-center gap-4">
                 <span className="text-sm text-muted-foreground">
@@ -52,15 +66,18 @@ const Admin = () => {
                 </Button>
               </div>
             </div>
-            <Routes>
-              <Route path="/" element={<AdminDashboard />} />
-              <Route path="/categories" element={<CategoryManagement />} />
-              <Route path="/products" element={<ProductManagement />} />
-              <Route path="/bestselling" element={<BestsellingManagement />} />
-              <Route path="/banners" element={<BannerManagement />} />
-              <Route path="/purchases" element={<PurchaseDetails />} />
-              <Route path="/custom-neon" element={<CustomNeonPurchaseDetails />} />
-            </Routes>
+
+            <div className="p-6">
+              <Routes>
+                <Route path="/" element={<AdminDashboard />} />
+                <Route path="/categories" element={<CategoryManagement />} />
+                <Route path="/products" element={<ProductManagement />} />
+                <Route path="/bestselling" element={<BestsellingManagement />} />
+                <Route path="/banners" element={<BannerManagement />} />
+                <Route path="/purchases" element={<PurchaseDetails />} />
+                <Route path="/custom-neon" element={<CustomNeonPurchaseDetails />} />
+              </Routes>
+            </div>
           </main>
         </div>
       </SidebarProvider>
