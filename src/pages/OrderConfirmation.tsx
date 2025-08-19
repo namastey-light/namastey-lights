@@ -141,14 +141,14 @@ const OrderConfirmation = () => {
                 <Phone className="w-5 h-5 text-neon-blue" />
                 <div>
                   <p className="font-medium">Call Us</p>
-                  <p className="text-sm text-muted-foreground">+91 98765 43210</p>
+                  <p className="text-sm text-muted-foreground">+91 83848 84622</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-neon-blue" />
                 <div>
                   <p className="font-medium">Email Us</p>
-                  <p className="text-sm text-muted-foreground">hello@neoncraft.com</p>
+                  <p className="text-sm text-muted-foreground">believebrightcare@gmail.com</p>
                 </div>
               </div>
             </div>
