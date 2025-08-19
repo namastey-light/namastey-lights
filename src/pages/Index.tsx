@@ -172,37 +172,37 @@ const Index = () => {
     {
       name: 'Bedroom',
       icon: Heart,
-      image: '/placeholder.svg',
-      description: 'Romantic & cozy neon lights',
-      count: '45+ designs'
+      image: '/lovable-uploads/bedroom.jpeg',
+      description: 'Romantic neon lights',
+      count: '10+ designs'
     },
     {
       name: 'Bar/Cafe',
       icon: Coffee,
-      image: '/placeholder.svg',
-      description: 'Professional business signage',
-      count: '30+ designs'
+      image: '/lovable-uploads/bar.jpeg',
+      description: 'Professional business',
+      count: '15+ designs'
     },
     {
       name: 'Gaming Zone',
       icon: GamepadIcon,
-      image: '/placeholder.svg',
+      image: '/lovable-uploads/gaming.jpeg',
       description: 'Epic gaming setup lights',
-      count: '25+ designs'
+      count: '5+ designs'
     },
     {
       name: 'Wedding/Event',
       icon: PartyPopper,
-      image: '/placeholder.svg',
+      image: '/lovable-uploads/wedding.jpeg',
       description: 'Special occasion decor',
-      count: '40+ designs'
+      count: '20+ designs'
     },
     {
       name: 'Quotes',
       icon: Quote,
-      image: '/placeholder.svg',
+      image: '/lovable-uploads/quots.jpeg',
       description: 'Inspirational text designs',
-      count: '60+ designs'
+      count: '15+ designs'
     }
   ];
 
@@ -386,7 +386,7 @@ const Index = () => {
 
         {/* Categories Showcase */}
         <section className="py-20 relative z-10">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="max-w-9xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="text-center mb-16 animate-fade-in">
               <h2 className="font-orbitron font-bold text-4xl md:text-5xl mb-6 bg-gradient-to-r from-orange-400 via-orange-500 to-red-500 bg-clip-text text-transparent"
                 style={{
@@ -766,8 +766,15 @@ const Index = () => {
                   style={{ animationDelay: `${index * 0.2}s` }}
                 >
                   {index < process.length - 1 && (
-                    <div className="hidden md:block absolute top-8 left-full w-full h-0.5 bg-gradient-to-r from-neon-pink via-neon-blue to-neon-pink transform translate-x-4 group-hover:shadow-lg group-hover:shadow-neon-pink/20 transition-shadow duration-500"></div>
+                    <div
+                      className={`absolute ${
+                        // mobile me vertical line, desktop me horizontal
+                        "left-1/2 top-full w-0.5 h-12 md:top-8 md:left-full md:w-full md:h-0.5"
+                        } bg-gradient-to-b md:bg-gradient-to-r from-neon-pink via-neon-blue to-neon-pink 
+    transform md:translate-x-4`}
+                    ></div>
                   )}
+
 
                   <div className="mb-6 flex justify-center">
                     <div className="w-16 h-16 rounded-full bg-gradient-to-br from-neon-pink to-neon-blue flex items-center justify-center text-background font-bold text-xl relative group-hover:scale-110 transition-all duration-500 shadow-lg group-hover:shadow-2xl group-hover:shadow-neon-pink/40">
@@ -881,7 +888,7 @@ const Index = () => {
                   }}
                 >
                   <div className="text-center">
-                    <div className="font-orbitron font-bold text-xl sm:text-2xl text-neon-green">195K+</div>
+                    <div className="font-orbitron font-bold text-xl sm:text-2xl text-neon-green">10K+</div>
                     <div className="font-inter text-xs sm:text-sm text-muted-foreground">Community</div>
                   </div>
                 </div>
@@ -893,7 +900,7 @@ const Index = () => {
                   }}
                 >
                   <div className="text-center">
-                    <div className="font-orbitron font-bold text-xl sm:text-2xl text-neon-yellow">2020</div>
+                    <div className="font-orbitron font-bold text-xl sm:text-2xl text-neon-yellow">2025</div>
                     <div className="font-inter text-xs sm:text-sm text-muted-foreground">Founded</div>
                   </div>
                 </div>

@@ -37,6 +37,27 @@
   <div id="root"></div>
   <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
   <script type="module" src="/src/main.tsx"></script>
+
+
+
+  <script>
+  // Disable right click
+  document.addEventListener("contextmenu", (e) => e.preventDefault());
+
+  // Disable specific keys (F12, Ctrl+Shift+I, Ctrl+U etc.)
+  document.addEventListener("keydown", (e) => {
+    if (
+      e.key === "F12" ||
+      (e.ctrlKey && e.shiftKey && e.key === "I") ||
+      (e.ctrlKey && e.shiftKey && e.key === "J") ||
+      (e.ctrlKey && e.key === "U") ||
+      (e.ctrlKey && e.key === "S")
+    ) {
+      e.preventDefault();
+    }
+  });
+</script>
+
 </body>
 
 </html>
