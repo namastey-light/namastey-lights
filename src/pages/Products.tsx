@@ -8,6 +8,7 @@ import { useCart } from '@/contexts/CartContext';
 import { useToast } from '@/hooks/use-toast';
 import { Badge } from '@/components/ui/badge';
 import NeonText from '@/components/ui/NeonText';
+import ProductShareButton from '@/components/ui/ProductShareButton';
 import { supabase } from '@/integrations/supabase/client';
 import { Product, Category, getDisplayPrice, getDisplayMRP } from '@/types/product';
 
@@ -356,7 +357,7 @@ const Products = () => {
                           </div>
                         </div>
                         
-                        <div className="flex gap-3">
+                        <div className="flex gap-3 mb-3">
                           <Button 
                             asChild
                             className="flex-1 group-hover:shadow-lg transition-shadow duration-300 rounded-2xl"
@@ -386,6 +387,15 @@ const Products = () => {
                               View Details
                             </Link>
                           </Button>
+                        </div>
+                        
+                        {/* Share Button */}
+                        <div className="relative">
+                          <ProductShareButton 
+                            productId={product.id}
+                            productName={product.name}
+                            productImage={primaryImage}
+                          />
                         </div>
                       </div>
                       
