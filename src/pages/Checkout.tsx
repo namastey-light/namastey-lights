@@ -11,10 +11,10 @@ import { useCart } from '@/contexts/CartContext';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
 import NeonText from '@/components/ui/NeonText';
-import { 
-  CreditCard, 
-  Truck, 
-  Shield, 
+import {
+  CreditCard,
+  Truck,
+  Shield,
   MapPin,
   Phone,
   Mail,
@@ -26,7 +26,7 @@ const Checkout = () => {
   const navigate = useNavigate();
   const { state, clearCart } = useCart();
   const { toast } = useToast();
-  
+
   const [customerInfo, setCustomerInfo] = useState({
     name: '',
     email: '',
@@ -182,15 +182,15 @@ const Checkout = () => {
   const saveOrder = async (paymentStatus: string = 'pending') => {
     // Create order in database
     const fullAddress = `${deliveryInfo.address1}, ${deliveryInfo.address2 ? deliveryInfo.address2 + ', ' : ''}${deliveryInfo.landmark ? 'Near ' + deliveryInfo.landmark + ', ' : ''}${deliveryInfo.city}, ${deliveryInfo.state} - ${deliveryInfo.pincode}`;
-    
+
     // Generate a UUID on the client to avoid SELECT RLS issues
     const orderUuid = (typeof crypto !== 'undefined' && 'randomUUID' in crypto)
       ? crypto.randomUUID()
       : `${Date.now()}-xxxx-4xxx-yxxx-xxxxxxxxxxxx`.replace(/[xy]/g, c => {
-          const r = Math.random() * 16 | 0;
-          const v = c === 'x' ? r : (r & 0x3 | 0x8);
-          return v.toString(16);
-        });
+        const r = Math.random() * 16 | 0;
+        const v = c === 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+      });
 
     // Separate custom and regular items
     const customItems = state.items.filter(item => item.type === 'custom');
@@ -437,12 +437,33 @@ const Checkout = () => {
                           <SelectValue placeholder="Select state" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="maharashtra">Maharashtra</SelectItem>
-                          <SelectItem value="delhi">Delhi</SelectItem>
-                          <SelectItem value="karnataka">Karnataka</SelectItem>
+                          <SelectItem value="andhra-pradesh">Andhra Pradesh</SelectItem>
+                          <SelectItem value="arunachal-pradesh">Arunachal Pradesh</SelectItem>
+                          <SelectItem value="assam">Assam</SelectItem>
+                          <SelectItem value="bihar">Bihar</SelectItem>
+                          <SelectItem value="chhattisgarh">Chhattisgarh</SelectItem>
+                          <SelectItem value="goa">Goa</SelectItem>
                           <SelectItem value="gujarat">Gujarat</SelectItem>
+                          <SelectItem value="haryana">Haryana</SelectItem>
+                          <SelectItem value="himachal-pradesh">Himachal Pradesh</SelectItem>
+                          <SelectItem value="jharkhand">Jharkhand</SelectItem>
+                          <SelectItem value="karnataka">Karnataka</SelectItem>
+                          <SelectItem value="kerala">Kerala</SelectItem>
+                          <SelectItem value="madhya-pradesh">Madhya Pradesh</SelectItem>
+                          <SelectItem value="maharashtra">Maharashtra</SelectItem>
+                          <SelectItem value="manipur">Manipur</SelectItem>
+                          <SelectItem value="meghalaya">Meghalaya</SelectItem>
+                          <SelectItem value="mizoram">Mizoram</SelectItem>
+                          <SelectItem value="nagaland">Nagaland</SelectItem>
+                          <SelectItem value="odisha">Odisha</SelectItem>
+                          <SelectItem value="punjab">Punjab</SelectItem>
                           <SelectItem value="rajasthan">Rajasthan</SelectItem>
+                          <SelectItem value="sikkim">Sikkim</SelectItem>
                           <SelectItem value="tamil-nadu">Tamil Nadu</SelectItem>
+                          <SelectItem value="telangana">Telangana</SelectItem>
+                          <SelectItem value="tripura">Tripura</SelectItem>
+                          <SelectItem value="uttar-pradesh">Uttar Pradesh</SelectItem>
+                          <SelectItem value="uttarakhand">Uttarakhand</SelectItem>
                           <SelectItem value="west-bengal">West Bengal</SelectItem>
                         </SelectContent>
                       </Select>
@@ -566,8 +587,8 @@ const Checkout = () => {
                     </div>
                   </div>
 
-                  <Button 
-                    type="submit" 
+                  <Button
+                    type="submit"
                     className="btn-neon w-full"
                     disabled={isProcessing}
                   >

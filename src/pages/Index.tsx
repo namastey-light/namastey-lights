@@ -841,7 +841,7 @@ const Index = () => {
                 </div>
               </div>
 
-              {/* Right Image */}
+              {/* Right Vidio */}
               <div className="relative group order-1 lg:order-2">
                 <div
                   className="relative rounded-3xl overflow-hidden"
