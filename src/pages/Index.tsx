@@ -324,19 +324,19 @@ const Index = () => {
                   textShadow: '0 0 10px hsl(25 100% 60% / 0.8), 0 0 20px hsl(25 100% 60% / 0.6), 0 0 30px hsl(25 100% 60% / 0.4)'
                 }}>
                 Why Choose{' '}
-                <span 
-  className="text-white font-bold"
-  style={{
-    textShadow: `
+                <span
+                  className="text-white font-bold"
+                  style={{
+                    textShadow: `
       0 0 8px rgba(255, 255, 255, 0.8), 
       0 0 16px rgba(255, 255, 255, 0.6), 
       0 0 24px rgba(255, 255, 255, 0.4), 
       0 0 40px rgba(255, 255, 255, 0.3)
     `
-  }}
->
-  Namastey lights?
-</span>
+                  }}
+                >
+                  Namastey lights?
+                </span>
 
               </h2>
 
@@ -812,19 +812,17 @@ const Index = () => {
                   </h2>
 
                   <p className="font-rajdhani font-bold text-lg sm:text-xl md:text-2xl text-neon-blue mb-8">
-                    Full-time siblings. Full-time business partners!
+                    My name is Khan, and Namastey Lights is not just a brand—it’s my dream turned into reality.
                   </p>
                 </div>
 
                 <div className="space-y-6">
                   <p className="font-inter text-base sm:text-lg text-muted-foreground leading-relaxed">
-                    United by brotherhood and a DIY neon sign project, we forged Neon Attack in 2020.
-                    Filling a market gap, we became India's top neon sign brand.
+                    After preparing for NEET and deciding to take a different path, I chose to build something of my own. With no team, no big backing, just determination and countless hours of hard work, I started this journey as a solo entrepreneur. From learning the craft to managing designs, production, and customer service, every step has been a challenge and a lesson.
                   </p>
 
                   <p className="font-inter text-base sm:text-lg text-muted-foreground leading-relaxed">
-                    With FloRo technology and a community of 195,000+, our journey thrives on passion
-                    and perfection, transforming rooms and illuminating lives nationwide.
+                    Today, Namastey Lights stands as a symbol of creativity, resilience, and passion—bringing customized LED neon signs that add light and life to people’s homes, businesses, and celebrations across India.
                   </p>
                 </div>
 
@@ -845,51 +843,64 @@ const Index = () => {
 
               {/* Right Image */}
               <div className="relative group order-1 lg:order-2">
-                <div className="relative rounded-3xl overflow-hidden"
+                <div
+                  className="relative rounded-3xl overflow-hidden"
                   style={{
-                    boxShadow: '0 0 40px hsl(var(--neon-green) / 0.3), 0 0 80px hsl(var(--neon-yellow) / 0.2)'
-                  }}>
-                  <img
-                    src="/placeholder.svg"
-                    alt="Two brothers standing next to colorful neon signs showcasing their craftsmanship"
-                    className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
+                    boxShadow:
+                      '0 0 40px hsl(var(--neon-green) / 0.3), 0 0 80px hsl(var(--neon-yellow) / 0.2)'
+                  }}
+                >
+                  <video
+                    src="/lovable-uploads/nmsteylights.mp4"  // yahan apna video path daalna
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-[600px] object-cover group-hover:scale-105 transition-transform duration-700"
                   />
 
                   {/* Gradient overlay on hover */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500"
+                  <div
+                    className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500"
                     style={{
                       background: `
-                         linear-gradient(45deg, 
-                           hsl(var(--neon-green) / 0.3) 0%, 
-                           transparent 50%,
-                           hsl(var(--neon-yellow) / 0.3) 100%
-                         )
-                       `
-                    }}>
-                  </div>
+          linear-gradient(45deg, 
+            hsl(var(--neon-green) / 0.3) 0%, 
+            transparent 50%,
+            hsl(var(--neon-yellow) / 0.3) 100%
+          )
+        `
+                    }}
+                  ></div>
                 </div>
 
                 {/* Floating stats - responsive positioning */}
-                <div className="absolute -top-4 -left-4 sm:-top-6 sm:-left-6 bg-card/90 backdrop-blur-sm border border-neon-green/30 rounded-2xl p-3 sm:p-4 group-hover:scale-110 transition-transform duration-300"
+                <div
+                  className="absolute -top-4 -left-4 sm:-top-6 sm:-left-6 bg-card/90 backdrop-blur-sm border border-neon-green/30 rounded-2xl p-3 sm:p-4 group-hover:scale-110 transition-transform duration-300"
                   style={{
                     boxShadow: '0 0 20px hsl(var(--neon-green) / 0.4)'
-                  }}>
+                  }}
+                >
                   <div className="text-center">
                     <div className="font-orbitron font-bold text-xl sm:text-2xl text-neon-green">195K+</div>
                     <div className="font-inter text-xs sm:text-sm text-muted-foreground">Community</div>
                   </div>
                 </div>
 
-                <div className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 bg-card/90 backdrop-blur-sm border border-neon-yellow/30 rounded-2xl p-3 sm:p-4 group-hover:scale-110 transition-transform duration-300"
+                <div
+                  className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 bg-card/90 backdrop-blur-sm border border-neon-yellow/30 rounded-2xl p-3 sm:p-4 group-hover:scale-110 transition-transform duration-300"
                   style={{
                     boxShadow: '0 0 20px hsl(var(--neon-yellow) / 0.4)'
-                  }}>
+                  }}
+                >
                   <div className="text-center">
                     <div className="font-orbitron font-bold text-xl sm:text-2xl text-neon-yellow">2020</div>
                     <div className="font-inter text-xs sm:text-sm text-muted-foreground">Founded</div>
                   </div>
                 </div>
               </div>
+
+
             </div>
           </div>
         </section>
