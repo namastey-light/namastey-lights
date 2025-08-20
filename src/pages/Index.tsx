@@ -261,11 +261,14 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <div className="animate-float">
             <h1 className="font-orbitron font-bold text-5xl md:text-7xl lg:text-8xl mb-8 leading-tight">
-              <span className="text-[#ffffff]">Create</span>{' '}
+              <span className="text-[#CCFF33] font-dancing-script drop-shadow-[0_0_12px_#CCFF33]">
+                Create
+              </span>{' '}
+
               <br className="hidden sm:block" />
-              <span className="text-white">Stunning</span>{' '}
+              <span className="text-white font-orbitron">Stunning</span>{' '}
               <br className="hidden sm:block" />
-              <span className="text-[#ffffff] font-monoton drop-shadow-[0_0_60px_#ffffff]">
+              <span className="text-[#ffffff] font-edu-cursive drop-shadow-[0_0_60px_#ffffff]">
                 Neon Signs</span>
             </h1>
           </div>
@@ -381,7 +384,7 @@ const Index = () => {
         </section>
 
         {/* Categories Showcase */}
-        <section className="py-[10px] relative z-10">
+        <section className="py-[50px] relative z-10">
           <div className="max-w-9xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="text-center mb-16 animate-fade-in">
               <h2 className="font-orbitron font-bold text-4xl md:text-5xl mb-6 text-neon-white "
@@ -541,7 +544,7 @@ const Index = () => {
         </section>
 
         {/* Bestsellers Carousel */}
-        <section className="py-[10px] relative z-10">
+        <section className="py-[50px] relative z-10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="text-center mb-16 animate-fade-in">
               <h2 className="font-orbitron font-bold text-4xl md:text-5xl mb-6 text-neon-white"
@@ -793,7 +796,7 @@ const Index = () => {
         </section>
 
         {/* Who We Are Section */}
-        <section className="py-20 relative z-10">
+        <section className="py-[50px] relative z-10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               {/* Left Content */}
@@ -1044,7 +1047,7 @@ const Index = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-[40px] relative z-10">
+        <section className="py-[50px] relative z-10">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
             <div className="animate-fade-in">
               <h2 className="font-orbitron font-bold text-4xl md:text-5xl mb-6 text-neon-white"
