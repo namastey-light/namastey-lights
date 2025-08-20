@@ -266,7 +266,7 @@ const Index = () => {
               <span className="text-white">Stunning</span>{' '}
               <br className="hidden sm:block" />
               <span className="text-[#ffffff] font-monoton drop-shadow-[0_0_60px_#ffffff]">
-Neon Signs</span>
+                Neon Signs</span>
             </h1>
           </div>
 
@@ -306,17 +306,17 @@ Neon Signs</span>
 
       {/* simple black bg */}
       <div className="bg-background">
-        
+
 
         {/* Why Choose Us Section */}
-        <section className="py-20 relative z-10">
+        <section className="py-[10px] relative z-10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="text-center mb-16 animate-fade-in">
 
 
               <h2 className="font-orbitron font-bold text-4xl md:text-5xl mb-6 text-neon-white"
                 style={{
-                  
+
                 }}>
                 Why Choose{' '}
                 <span
@@ -381,12 +381,12 @@ Neon Signs</span>
         </section>
 
         {/* Categories Showcase */}
-        <section className="py-20 relative z-10">
+        <section className="py-[10px] relative z-10">
           <div className="max-w-9xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="text-center mb-16 animate-fade-in">
               <h2 className="font-orbitron font-bold text-4xl md:text-5xl mb-6 text-neon-white "
                 style={{
-                  
+
                 }}>
                 Popular Categories
               </h2>
@@ -408,10 +408,10 @@ Neon Signs</span>
                     <div className="relative p-0.5 rounded-3xl overflow-hidden"
                       style={{
                         background: `linear-gradient(135deg, 
-                           hsl(var(--neon-blue) / 0.7), 
-                           hsl(var(--neon-green) / 0.7), 
+                           hsl(var(--neon-white) / 0.7), 
+                           hsl(var(--neon-white) / 0.7), 
                            hsl(var(--neon-white) / 0.5),
-                           hsl(var(--neon-blue) / 0.7)
+                           hsl(var(--neon-white) / 0.7)
                          )`
                       }}>
                       <div className="relative p-6 rounded-3xl backdrop-blur-sm text-center overflow-hidden"
@@ -433,8 +433,8 @@ Neon Signs</span>
                           style={{
                             background: `
                              linear-gradient(135deg, 
-                               hsl(var(--neon-blue) / 0.06) 0%, 
-                               hsl(var(--neon-green) / 0.06) 50%,
+                               hsl(var(--neon-white) / 0.06) 0%, 
+                               hsl(var(--neon-white) / 0.06) 50%,
                                hsl(var(--neon-white) / 0.03) 100%
                              )
                            `,
@@ -446,7 +446,7 @@ Neon Signs</span>
                         <div className="relative z-10">
                           <div className="aspect-square bg-gradient-to-br from-muted to-muted/50 rounded-2xl mb-4 overflow-hidden relative"
                             style={{
-                              boxShadow: '0 0 20px hsl(var(--neon-blue) / 0.3)'
+                              boxShadow: '0 0 20px hsl(var(--neon-white) / 0.3)'
                             }}>
                             <img
                               src={category.image}
@@ -457,9 +457,9 @@ Neon Signs</span>
                               style={{
                                 background: `
                                  linear-gradient(45deg, 
-                                   hsl(var(--neon-blue) / 0.1) 0%, 
+                                   hsl(var(--neon-white) / 0.1) 0%, 
                                    transparent 50%,
-                                   hsl(var(--neon-green) / 0.1) 100%
+                                   hsl(var(--neon-white) / 0.1) 100%
                                  )
                                `
                               }}>
@@ -471,13 +471,13 @@ Neon Signs</span>
                               style={{
                                 background: `
                                  linear-gradient(135deg, 
-                                   hsl(var(--neon-blue) / 0.3) 0%, 
-                                   hsl(var(--neon-green) / 0.3) 100%
+                                   hsl(var(--neon-white) / 0.3) 0%, 
+                                   hsl(var(--neon-white) / 0.3) 100%
                                  )
                                `,
                                 boxShadow: `
-                                 0 0 20px hsl(var(--neon-blue) / 0.4),
-                                 inset 0 0 20px hsl(var(--neon-green) / 0.2)
+                                 0 0 20px hsl(var(--neon-white) / 0.4),
+                                 inset 0 0 20px hsl(var(--neon-white) / 0.2)
                                `
                               }}>
                               <Icon className="w-6 h-6 text-neon-white group-hover:rotate-12 transition-all duration-300" />
@@ -486,22 +486,22 @@ Neon Signs</span>
 
                           <h3 className="font-rajdhani font-bold text-lg mb-2 group-hover:text-transparent transition-all duration-300"
                             style={{
-                              background: 'linear-gradient(135deg, hsl(var(--neon-blue)), hsl(var(--neon-green)))',
+                              background: 'linear-gradient(135deg, hsl(var(--neon-white)), hsl(var(--neon-white)))',
                               WebkitBackgroundClip: 'text',
                               backgroundClip: 'text',
                             }}>
                             {category.name}
                           </h3>
 
-                          <p className="subtitle-cursive text-sm mb-3 group-hover:text-foreground/80 transition-colors duration-300">
+                          <p className="font-inter text-sm text-muted-foreground mb-3 group-hover:text-foreground/80 transition-colors duration-300">
                             {category.description}
                           </p>
 
                           <span className="text-xs font-medium px-3 py-1 rounded-full"
                             style={{
-                              background: 'linear-gradient(135deg, hsl(var(--neon-blue) / 0.2), hsl(var(--neon-green) / 0.2))',
-                              border: '1px solid hsl(var(--neon-blue) / 0.3)',
-                              color: 'hsl(var(--neon-blue))'
+                              background: 'linear-gradient(135deg, hsl(var(--neon-white) / 0.2), hsl(var(--neon-white) / 0.2))',
+                              border: '1px solid hsl(var(--neon-white) / 0.3)',
+                              color: 'hsl(var(--neon-white))'
                             }}>
                             {category.count}
                           </span>
@@ -510,7 +510,7 @@ Neon Signs</span>
                         {/* Multicolor bottom glow */}
                         <div className="absolute inset-x-0 bottom-0 h-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                           style={{
-                            background: 'linear-gradient(90deg, hsl(var(--neon-blue)), hsl(var(--neon-green)), hsl(var(--neon-white)), hsl(var(--neon-blue)))',
+                            background: 'linear-gradient(90deg, hsl(var(--neon-white)), hsl(var(--neon-white)), hsl(var(--neon-white)), hsl(var(--neon-white)))',
                             backgroundSize: '200% 100%',
                             animation: 'gradientShift 3s ease infinite'
                           }}>
@@ -519,7 +519,7 @@ Neon Signs</span>
                         {/* Outer glow effect */}
                         <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                           style={{
-                            boxShadow: '0 0 60px hsl(var(--neon-blue) / 0.4), 0 0 100px hsl(var(--neon-green) / 0.2)'
+                            boxShadow: '0 0 60px hsl(var(--neon-white) / 0.4), 0 0 100px hsl(var(--neon-white) / 0.2)'
                           }}>
                         </div>
                       </div>
@@ -530,7 +530,7 @@ Neon Signs</span>
             </div>
 
             <div className="text-center mt-12">
-              <Button asChild className="btn-neon group hover:shadow-lg hover:shadow-neon-pink/30 transition-shadow duration-300">
+              <Button asChild className="btn-neon group hover:shadow-lg hover:shadow-neon-white/30 transition-shadow duration-300">
                 <Link to="/products">
                   View All Categories
                   <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
@@ -541,12 +541,12 @@ Neon Signs</span>
         </section>
 
         {/* Bestsellers Carousel */}
-        <section className="py-20 relative z-10">
+        <section className="py-[10px] relative z-10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="text-center mb-16 animate-fade-in">
               <h2 className="font-orbitron font-bold text-4xl md:text-5xl mb-6 text-neon-white"
                 style={{
-                  
+
                 }}>
                 Bestselling Neon Signs
               </h2>
@@ -740,12 +740,12 @@ Neon Signs</span>
         </section>
 
         {/* How It Works Process */}
-        <section className="py-20 relative z-10">
+        <section className="py-[50px] relative z-10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="text-center mb-16 animate-fade-in">
               <h2 className="font-orbitron font-bold text-4xl md:text-5xl mb-6 text-neon-white"
                 style={{
-                  
+
                 }}>
                 How It Works
               </h2>
@@ -802,12 +802,12 @@ Neon Signs</span>
 
                   <h2 className="font-orbitron font-bold text-3xl sm:text-4xl md:text-5xl mb-6"
                     style={{
-                      
+
                     }}>
                     Who{' '}
                     <span className="bg-gradient-to-r from-neon-green to-neon-yellow bg-clip-text text-transparent"
                       style={{
-                        
+
                       }}>
                       are we?
                     </span>
@@ -908,12 +908,12 @@ Neon Signs</span>
         </section>
 
         {/* Testimonials */}
-        <section className="py-20 relative z-10">
+        <section className="py-[50px] relative z-10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="text-center mb-16 animate-fade-in">
               <h2 className="font-orbitron font-bold text-4xl md:text-5xl mb-6 text-neon-white"
                 style={{
-                  
+
                 }}>
                 What Our Customers Say
               </h2>
@@ -1044,12 +1044,12 @@ Neon Signs</span>
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 relative z-10">
+        <section className="py-[40px] relative z-10">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
             <div className="animate-fade-in">
               <h2 className="font-orbitron font-bold text-4xl md:text-5xl mb-6 text-neon-white"
                 style={{
-                  
+
                 }}>
                 Ready to Light Up Your Space?
               </h2>
