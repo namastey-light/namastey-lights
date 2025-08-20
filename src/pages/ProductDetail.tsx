@@ -10,13 +10,13 @@ import NeonCard from '@/components/ui/NeonCard';
 import { useCart } from '@/contexts/CartContext';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
-import { 
-  ArrowLeft, 
-  ShoppingCart, 
-  Zap, 
-  Star, 
-  Shield, 
-  Truck, 
+import {
+  ArrowLeft,
+  ShoppingCart,
+  Zap,
+  Star,
+  Shield,
+  Truck,
   Award,
   Plus,
   Minus,
@@ -29,7 +29,7 @@ const ProductDetail = () => {
   const navigate = useNavigate();
   const { addItem, openCart } = useCart();
   const { toast } = useToast();
-  
+
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
   const [selectedSize, setSelectedSize] = useState('M');
@@ -105,7 +105,7 @@ const ProductDetail = () => {
     );
   }
 
-  const productImages = product.product_images?.length > 0 
+  const productImages = product.product_images?.length > 0
     ? product.product_images.map(img => img.image_url)
     : ['/placeholder.svg'];
 
@@ -132,9 +132,9 @@ const ProductDetail = () => {
   const calculatePrice = () => {
     const selectedSizeData = sizes.find(s => s.id === selectedSize);
     let basePrice = selectedSizeData?.price || getDisplayPrice(product);
-    
+
     const dimmerPrice = hasDimmer ? 500 : 0;
-    
+
     return basePrice + dimmerPrice;
   };
 
@@ -147,7 +147,7 @@ const ProductDetail = () => {
   const handleAddToCart = () => {
     const finalPrice = calculatePrice();
     const selectedSizeData = sizes.find(s => s.id === selectedSize);
-    
+
     addItem({
       id: `${product.id}-${selectedSize}-${selectedColor}-${hasDimmer}-${Date.now()}`,
       name: `${product.name} (${selectedSizeData?.name})`,
@@ -202,7 +202,7 @@ const ProductDetail = () => {
       {/* Background gradient */}
       <div className="fixed inset-0 bg-gradient-to-br from-purple-900/20 via-background to-pink-900/20 pointer-events-none"></div>
       <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_center,rgba(120,80,255,0.1)_0%,transparent_50%)]"></div>
-      
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Breadcrumb */}
         <div className="flex items-center gap-2 text-sm text-muted-foreground mb-8">
@@ -225,14 +225,14 @@ const ProductDetail = () => {
           {/* Product Images */}
           <div className="space-y-4">
             <div className="relative p-0.5 rounded-3xl overflow-hidden"
-                 style={{
-                   background: `linear-gradient(135deg, 
+              style={{
+                background: `linear-gradient(135deg, 
                      hsl(var(--neon-orange) / 0.6), 
                      hsl(var(--neon-purple) / 0.6), 
                      hsl(var(--neon-pink) / 0.6),
                      hsl(var(--neon-orange) / 0.6)
                    )`
-                 }}>
+              }}>
               <div className="aspect-square bg-muted rounded-3xl overflow-hidden">
                 <img
                   src={productImages[selectedImageIndex]}
@@ -241,18 +241,17 @@ const ProductDetail = () => {
                 />
               </div>
             </div>
-            
+
             {productImages.length > 1 && (
               <div className="grid grid-cols-3 gap-4">
                 {productImages.map((image, index) => (
                   <button
                     key={index}
                     onClick={() => setSelectedImageIndex(index)}
-                    className={`relative p-0.5 rounded-2xl overflow-hidden transition-all duration-300 ${
-                      selectedImageIndex === index ? 'scale-105' : 'hover:scale-105'
-                    }`}
+                    className={`relative p-0.5 rounded-2xl overflow-hidden transition-all duration-300 ${selectedImageIndex === index ? 'scale-105' : 'hover:scale-105'
+                      }`}
                     style={{
-                      background: selectedImageIndex === index 
+                      background: selectedImageIndex === index
                         ? `linear-gradient(135deg, hsl(var(--neon-pink) / 0.8), hsl(var(--neon-purple) / 0.8))`
                         : `linear-gradient(135deg, hsl(var(--border)), hsl(var(--border)))`
                     }}
@@ -283,22 +282,22 @@ const ProductDetail = () => {
                   </Badge>
                 )}
               </div>
-              
+
               <h1 className="font-orbitron font-bold text-3xl md:text-4xl mb-4 bg-gradient-to-r from-pink-400 via-purple-400 to-blue-400 bg-clip-text text-transparent">
                 {product.name}
               </h1>
-              
+
               <div className="flex items-center gap-4 mb-4">
                 <div className="flex items-center">
                   {[...Array(5)].map((_, i) => (
                     <Star
                       key={i}
-                      className={`w-5 h-5 ${i < 4 ? 'text-yellow-400 fill-current' : 'text-gray-300'}`}
+                      className={`w-5 h-5 ${i < Math.floor(product.rating) ? 'text-yellow-400 fill-current' : 'text-gray-300'}`}
                     />
                   ))}
                 </div>
                 <span className="text-muted-foreground">
-                  4.{Math.floor(Math.random() * 9)} ({Math.floor(Math.random() * 300) + 50} reviews)
+                  {product.rating.toFixed(1)} ({product.review_count} reviews)
                 </span>
               </div>
 
@@ -313,15 +312,7 @@ const ProductDetail = () => {
                 )}
               </div>
 
-              {/* Payment Options */}
-              <div className="bg-green-500/10 border border-green-500/20 rounded-lg p-4 mb-6">
-                <p className="text-sm text-green-400">
-                  or Pay ₹{Math.floor(calculatePrice() / 3)} now. Rest in 0% Interest EMIs 🌟 <strong>snapmint</strong>
-                </p>
-                <p className="text-xs text-muted-foreground mt-1">
-                  UPI & Cards Accepted, Online approval in 2 minutes
-                </p>
-              </div>
+
 
               <p className="text-muted-foreground leading-relaxed mb-6">
                 {product.description || `Fancoelite® Neon Signs can be in multiple sizes, can last 50,000+ hours, custom made with quality Neon LED Lights. Choose from a wide range of colours like Red, Pink, Blue, Ice Blue, Orange, White, Warm White, Purple, Yellow! Customise Neon Signs with your name, word, letter, logo or quote. Install it on a wall of bedroom, balcony, hall, terrace, office space or workspace.`}
@@ -341,11 +332,10 @@ const ProductDetail = () => {
                     <button
                       key={size.id}
                       onClick={() => setSelectedSize(size.id)}
-                      className={`p-3 rounded-lg border-2 transition-all text-left ${
-                        selectedSize === size.id 
-                          ? 'border-neon-blue bg-neon-blue/10' 
+                      className={`p-3 rounded-lg border-2 transition-all text-left ${selectedSize === size.id
+                          ? 'border-neon-blue bg-neon-blue/10'
                           : 'border-border hover:border-muted-foreground'
-                      }`}
+                        }`}
                     >
                       <div className="font-medium">{size.name}</div>
                       <div className="text-sm text-muted-foreground">{size.width}</div>
@@ -365,7 +355,7 @@ const ProductDetail = () => {
                     {colors.map((color) => (
                       <SelectItem key={color.id} value={color.id}>
                         <div className="flex items-center gap-2">
-                          <div 
+                          <div
                             className="w-4 h-4 rounded-full border"
                             style={{ backgroundColor: color.hex }}
                           />
@@ -414,7 +404,7 @@ const ProductDetail = () => {
 
             {/* Action Buttons */}
             <div className="space-y-4">
-              <Button 
+              <Button
                 className="w-full font-semibold py-3 text-lg rounded-2xl"
                 style={{
                   background: 'linear-gradient(135deg, hsl(var(--neon-orange)), hsl(var(--neon-purple)))',
@@ -426,8 +416,8 @@ const ProductDetail = () => {
               >
                 {product.stock_quantity === 0 ? 'OUT OF STOCK' : 'ADD TO CART'}
               </Button>
-              
-              
+
+
             </div>
 
             {/* Trust Badges */}
@@ -455,8 +445,7 @@ const ProductDetail = () => {
               About Your Neon Sign:
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-8">
-              Neon Attack's neon signs are handcrafted with advanced 2nd gen LED on high-quality 6MM transparent acrylic. 
-              Energy-efficient, durable, and easy to install—perfect for any space!
+              Every Namastey Lights sign is built on 6MM clear acrylic with advanced LEDs that shine bright while saving energy. Strong, lightweight, and hassle-free to install—perfect to vibe up your space!
             </p>
 
             {/* LED Neon Strip Image and Description */}
@@ -464,15 +453,13 @@ const ProductDetail = () => {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                 <div>
                   <h4 className="font-orbitron font-bold text-xl mb-4 text-neon-pink">
-                    Meet 2nd Gen LED Neon - 2X Brighter & Built to Last!
+                    🚀 2nd Gen LED Neon is here – Brighter than ever, tough as always!
                   </h4>
                   <p className="text-muted-foreground mb-4">
-                    Our revolutionary 2nd Gen LED Neon is twice as bright, 80% more energy-efficient, and built to 
-                    outlast the rest. Plus, with adjustable brightness controls, and the option for waterproof durability, 
-                    this is the ultimate neon upgrade you've been waiting for!
+                    Light it up smarter! Our 2nd Gen LED Neon gives you double the shine, saves energy, and lasts way longer. Control the glow to match your mood, and even go waterproof for the perfect indoor-outdoor vibe.
                   </p>
                   <p className="text-muted-foreground">
-                    Say goodbye to dull, outdated neon—this is the future!
+                    No more boring, faded neon—this is where the future shines.
                   </p>
                 </div>
                 <div className="aspect-video bg-muted rounded-xl overflow-hidden">
@@ -491,11 +478,10 @@ const ProductDetail = () => {
                 The Box Contains:
               </h4>
               <p className="text-muted-foreground mb-6">
-                Our neon lights are ready to shine straight from the box!
+                From package to wall in minutes — let your space glow instantly.
               </p>
               <p className="text-muted-foreground">
-                Each sign is mounted on clear acrylic for support and comes with pre-drilled holes. Stainless steel mounting 
-                screws are included, making wall installation quick and easy.
+                Strong acrylic backing, precision-drilled holes, and stainless steel screws included — because hanging your neon should be as easy as switching it on.
               </p>
             </div>
 
@@ -550,20 +536,63 @@ const ProductDetail = () => {
           </h2>
           <div className="space-y-4">
             {[
-              { question: "How much does a customized neon sign cost?", answer: "Pricing varies based on size and customization options." },
-              { question: "How long will it take to deliver my neon sign?", answer: "Standard delivery takes 7-10 business days." },
-              { question: "If I customize a sign using the online neon sign maker, what will be its exact size?", answer: "The exact dimensions will be provided before finalizing your order." },
-              { question: "Does the neon sign buzz?", answer: "No, our LED neon signs are completely silent." },
-              { question: "Can you have quality LED neon signs without the cords?", answer: "Yes, we offer battery-powered options for cord-free installation." },
-              { question: "I have my own design/logo. Can I get it customised into a neon sign?", answer: "Absolutely! We can create custom designs from your artwork." },
-              { question: "Can you do a rush order?", answer: "Yes, rush orders are available for an additional fee." },
-              { question: "What are the small marks on my sign?", answer: "These are cutting marks and are normal for LED neon strips." }
+              { question: "How much does a custom neon sign cost?", answer: "The price depends on the size, style, and design details you choose." },
+              { question: "How long does delivery usually take?", answer: "Most orders arrive within 7–10 business days after confirmation." },
+              { question: "What size will my customized neon sign be?", answer: "You’ll receive the exact dimensions before we finalize your order." },
+              { question: "Do LED neon signs make noise?", answer: "Nope! Our LED neon signs are 100% silent and buzz-free." },
+              { question: "Can I get a neon sign without visible cords?", answer: "Yes, we also offer battery-powered models for a clean, cord-free look." },
+              { question: "Can you make a neon sign from my logo or design?", answer: "Absolutely! Share your artwork and we’ll bring it to life in neon." },
+              { question: "Do you accept urgent/rush orders?", answer: "Yes, we can fast-track production for an additional charge." },
+              { question: "Why are there tiny marks on my sign?", answer: "Those are normal cutting marks from LED tubing and don’t affect quality." }
             ].map((faq, index) => (
               <div key={index} className="border-b border-white/10 pb-4">
                 <h4 className="font-medium text-lg mb-2">{faq.question}</h4>
                 <p className="text-muted-foreground text-sm">{faq.answer}</p>
               </div>
             ))}
+          </div>
+
+        </div>
+
+        {/* Similar Products */}
+        <div className="mb-[25px]">
+          <h2 className="font-orbitron font-bold text-3xl mb-2 text-center">
+            Similar <NeonText color="pink">Products</NeonText>
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-[30px]">
+            {similarProducts.map((item) => {
+              const itemPrimaryImage = item.product_images?.[0]?.image_url || '/placeholder.svg';
+
+              return (
+                <NeonCard key={item.id} className="group cursor-pointer">
+                  <Link to={`/products/${item.id}`}>
+                    <div className="aspect-square bg-muted rounded-lg mb-4 overflow-hidden">
+                      <img
+                        src={itemPrimaryImage}
+                        alt={item.name}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+
+                    <h3 className="font-rajdhani font-semibold text-lg mb-2 group-hover:text-neon-pink transition-colors">
+                      {item.name}
+                    </h3>
+
+                    <div className="flex items-center gap-3">
+                      <span className="font-bold text-xl text-neon-blue">
+                        ₹{getDisplayPrice(item).toLocaleString()}
+                      </span>
+                      {getDisplayMRP(item) && getDisplayMRP(item) > getDisplayPrice(item) && (
+                        <span className="text-sm text-muted-foreground line-through">
+                          ₹{getDisplayMRP(item).toLocaleString()}
+                        </span>
+                      )}
+                    </div>
+                  </Link>
+                </NeonCard>
+              );
+            })}
           </div>
         </div>
       </div>

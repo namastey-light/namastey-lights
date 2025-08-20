@@ -54,6 +54,8 @@ export function ProductManagement() {
     extra_large_price: "",
     category_id: "",
     stock_quantity: "",
+    rating: "",
+    review_count: "",
     is_active: true,
   });
   const { toast } = useToast();
@@ -208,6 +210,8 @@ export function ProductManagement() {
         extra_large_mrp: formData.extra_large_mrp ? parseFloat(formData.extra_large_mrp) : null,
         extra_large_price: formData.extra_large_price ? parseFloat(formData.extra_large_price) : null,
         stock_quantity: parseInt(formData.stock_quantity),
+        rating: formData.rating ? parseFloat(formData.rating) : 4.0,
+        review_count: formData.review_count ? parseInt(formData.review_count) : 0,
         category_id: formData.category_id,
         is_active: formData.is_active,
       };
@@ -271,6 +275,8 @@ export function ProductManagement() {
       extra_large_price: "",
       category_id: "",
       stock_quantity: "",
+      rating: "",
+      review_count: "",
       is_active: true,
     });
     setSelectedImages([]);
@@ -324,6 +330,8 @@ export function ProductManagement() {
       extra_large_price: product.extra_large_price?.toString() || "",
       category_id: product.category_id || "",
       stock_quantity: product.stock_quantity.toString(),
+      rating: product.rating?.toString() || "",
+      review_count: product.review_count?.toString() || "",
       is_active: product.is_active,
     });
     
@@ -562,6 +570,40 @@ export function ProductManagement() {
                   onChange={(e) => setFormData({ ...formData, stock_quantity: e.target.value })}
                   required
                 />
+              </div>
+
+              {/* Rating and Review Count Section */}
+              <div className="space-y-4">
+                <Label className="text-base font-semibold">Rating & Reviews</Label>
+                
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <Label htmlFor="rating">Rating (0-5) *</Label>
+                    <Input
+                      id="rating"
+                      type="number"
+                      step="0.1"
+                      min="0"
+                      max="5"
+                      value={formData.rating}
+                      onChange={(e) => setFormData({ ...formData, rating: e.target.value })}
+                      placeholder="4.0"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor="review_count">Review Count *</Label>
+                    <Input
+                      id="review_count"
+                      type="number"
+                      min="0"
+                      value={formData.review_count}
+                      onChange={(e) => setFormData({ ...formData, review_count: e.target.value })}
+                      placeholder="50"
+                      required
+                    />
+                  </div>
+                </div>
               </div>
 
               {/* Image Upload Section */}

@@ -205,18 +205,18 @@ const Products = () => {
           </div>
         ) : (
           <>
-            <div className={`grid gap-6 ${viewMode === 'grid' ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4' : 'grid-cols-1'}`}>
+            <div className={`grid gap-6 ${viewMode === 'grid' ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3' : 'grid-cols-1'}`}>
               {filteredProducts.map((product, index) => {
                 const primaryImage = product.product_images[0]?.image_url || '/placeholder.svg';
 
                 return (
                   <div 
                     key={product.id} 
-                    className="group relative transition-all duration-500 hover:-translate-y-3 hover:scale-105"
+                    className="group relative transition-all duration-500 hover:-translate-y-3 hover:scale-105 h-[580px]"
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
                     {/* Premium multicolor product card with proper rounded border */}
-                    <div className="relative p-0.5 rounded-3xl overflow-hidden"
+                    <div className="relative p-0.5 rounded-3xl overflow-hidden h-full"
                          style={{
                            background: `linear-gradient(135deg, 
                              hsl(var(--neon-orange) / 0.6), 
@@ -225,7 +225,7 @@ const Products = () => {
                              hsl(var(--neon-orange) / 0.6)
                            )`
                          }}>
-                      <div className="relative p-6 rounded-3xl backdrop-blur-sm overflow-hidden"
+                      <div className="relative p-6 rounded-3xl backdrop-blur-sm overflow-hidden h-full flex flex-col"
                            style={{
                              background: `
                                linear-gradient(135deg, 
@@ -253,7 +253,7 @@ const Products = () => {
                            }}>
                       </div>
                       
-                      <div className="relative z-10">
+                      <div className="relative z-10 flex flex-col h-full">
                         <Link to={`/products/${product.id}`}>
                           <div className="aspect-square bg-gradient-to-br from-muted to-muted/50 rounded-2xl mb-4 overflow-hidden relative"
                                style={{
@@ -300,7 +300,7 @@ const Products = () => {
                           </h3>
                         </Link>
                         
-                        <p className="text-muted-foreground text-sm mb-4 group-hover:text-foreground/80 transition-colors duration-300">
+                        <p className="text-muted-foreground text-sm mb-4 group-hover:text-foreground/80 transition-colors duration-300 line-clamp-3 h-[4.5rem] overflow-hidden">
                           {product.description || 'No description available'}
                         </p>
 
@@ -309,15 +309,15 @@ const Products = () => {
                             {[...Array(5)].map((_, i) => (
                               <Star
                                 key={i}
-                                className={`w-4 h-4 transition-colors duration-300 ${i < 4 ? 'text-yellow-400 fill-current group-hover:text-yellow-300' : 'text-gray-300'}`}
+                                className={`w-4 h-4 transition-colors duration-300 ${i < Math.floor(product.rating) ? 'text-yellow-400 fill-current group-hover:text-yellow-300' : 'text-gray-300'}`}
                                 style={{
-                                  filter: i < 4 ? 'drop-shadow(0 0 8px hsl(var(--neon-yellow) / 0.6))' : 'none'
+                                  filter: i < Math.floor(product.rating) ? 'drop-shadow(0 0 8px hsl(var(--neon-yellow) / 0.6))' : 'none'
                                 }}
                               />
                             ))}
                           </div>
                           <span className="text-sm text-muted-foreground group-hover:text-foreground/80 transition-colors duration-300">
-                            4.{Math.floor(Math.random() * 9)} ({Math.floor(Math.random() * 300) + 50} reviews)
+                            {product.rating.toFixed(1)} ({product.review_count} reviews)
                           </span>
                         </div>
 
@@ -341,6 +341,9 @@ const Products = () => {
                             Stock: {product.stock_quantity}
                           </div>
                         </div>
+                        
+                        {/* Spacer to push content to bottom */}
+                        <div className="flex-grow"></div>
                         
                         <div className="flex gap-3 mb-3">
                           <Button 

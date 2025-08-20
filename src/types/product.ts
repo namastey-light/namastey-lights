@@ -13,6 +13,8 @@ export interface Product {
   category_id: string | null;
   stock_quantity: number;
   is_active: boolean;
+  rating: number;
+  review_count: number;
   created_at: string;
   updated_at: string;
   categories?: { name: string };
