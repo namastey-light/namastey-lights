@@ -268,7 +268,7 @@ const Index = () => {
               <br className="hidden sm:block" />
               <span className="text-white font-orbitron">Stunning</span>{' '}
               <br className="hidden sm:block" />
-              <span className="text-[#ffffff] font-edu-cursive drop-shadow-[0_0_60px_#ffffff]">
+              <span className="text-[#ffffff] font-serif drop-shadow-[0_0_60px_#ffffff] font-bold">
                 Neon Signs</span>
             </h1>
           </div>
