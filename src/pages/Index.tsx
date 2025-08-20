@@ -263,10 +263,10 @@ const Index = () => {
             <h1 className="font-orbitron font-bold text-5xl md:text-7xl lg:text-8xl mb-8 leading-tight">
               <span className="text-[#CCFF33] font-dancing-script drop-shadow-[0_0_12px_#CCFF33]">
                 Create
-              </span>{' '}
+              </span>{'  '}
 
               <br className="hidden sm:block" />
-              <span className="text-white font-serif font-bold">Stunning</span>{' '}
+              <span className="text-white font-serif font-bold">Stunning</span>{'  '}
               <br className="hidden sm:block" />
               <span className="text-[#ffffff] font-edu-cursive drop-shadow-[0_0_60px_#ffffff]">
                 Neon Signs</span>
