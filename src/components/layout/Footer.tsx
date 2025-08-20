@@ -60,7 +60,7 @@ const Footer = () => {
                 </span>
               </span>
             </Link>
-            <p className="font-inter text-muted-foreground mb-6 max-w-md">
+            <p className="subtitle-cursive text-xl mb-6 max-w-md">
               Creating stunning custom neon signs and LED lights with premium quality materials. 
               Transform your space with our vibrant, long-lasting neon designs.
             </p>

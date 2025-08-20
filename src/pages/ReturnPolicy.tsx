@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 const ReturnPolicy = () => {
   return (
-    <div className="min-h-screen pt-8">
+    <div className="min-h-screen pt-8 bg-background">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center mb-12">
           <h1 className="font-orbitron font-bold text-4xl md:text-5xl mb-4">

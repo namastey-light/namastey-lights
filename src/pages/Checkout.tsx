@@ -299,7 +299,7 @@ const Checkout = () => {
 
   if (state.items.length === 0) {
     return (
-      <div className="min-h-screen pt-16 flex items-center justify-center">
+      <div className="min-h-screen pt-16 flex items-center justify-center bg-background">
         <div className="text-center">
           <h1 className="font-orbitron font-bold text-3xl mb-4">
             Your cart is empty
@@ -316,7 +316,7 @@ const Checkout = () => {
   }
 
   return (
-    <div className="min-h-screen pt-8">
+    <div className="min-h-screen pt-8 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <h1 className="font-orbitron font-bold text-4xl text-center mb-8">
           <NeonText color="pink">Secure</NeonText>{' '}

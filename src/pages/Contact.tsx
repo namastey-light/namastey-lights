@@ -44,7 +44,7 @@ const Contact = () => {
           <h1 className="font-orbitron font-bold text-4xl md:text-6xl mb-6 bg-gradient-to-r from-orange-400 via-orange-500 to-red-500 bg-clip-text text-transparent">
             Get in Touch
           </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="subtitle-cursive text-xl max-w-2xl mx-auto">
             Have questions about our neon signs? Need a custom quote? We're here to help you create the perfect lighting solution.
           </p>
         </div>
@@ -146,22 +146,22 @@ const Contact = () => {
               <CardContent>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   <div className="text-center">
-                    <h4 className="font-semibold text-neon-blue mb-2">How long does delivery take?</h4>
-                    <p className="text-sm text-muted-foreground">
+                    <h4 className="subtitle-cursive text-xl text-neon-blue mb-2">How long does delivery take?</h4>
+                    <p className="text-sm subtitle-cursive">
                       Standard delivery is 7-10 business days. Custom designs may take 10-14 days depending on complexity.
                     </p>
                   </div>
 
                   <div className="text-center">
-                    <h4 className="font-semibold text-neon-blue mb-2">Do you offer installation services?</h4>
-                    <p className="text-sm text-muted-foreground">
+                    <h4 className="subtitle-cursive text-xl text-neon-blue mb-2">Do you offer installation services?</h4>
+                    <p className="text-sm subtitle-cursive">
                       Yes! We provide professional installation services in major cities. Contact us for availability in your area.
                     </p>
                   </div>
 
                   <div className="text-center">
-                    <h4 className="font-semibold text-neon-blue mb-2">What's the warranty on your neon?</h4>
-                    <p className="text-sm text-muted-foreground">
+                    <h4 className="subtitle-cursive text-xl text-neon-blue mb-2">What's the warranty on your neon?</h4>
+                    <p className="text-sm subtitle-cursive">
                       All our neon signs come with a 12-month warranty covering manufacturing defects and LED failures.
                     </p>
                   </div>

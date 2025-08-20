@@ -198,10 +198,8 @@ const ProductDetail = () => {
   };
 
   return (
-    <div className="min-h-screen pt-8 relative overflow-hidden">
-      {/* Background gradient */}
-      <div className="fixed inset-0 bg-gradient-to-br from-purple-900/20 via-background to-pink-900/20 pointer-events-none"></div>
-      <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_center,rgba(120,80,255,0.1)_0%,transparent_50%)]"></div>
+    <div className="min-h-screen pt-8 bg-background">
+
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Breadcrumb */}
@@ -314,7 +312,7 @@ const ProductDetail = () => {
 
 
 
-              <p className="text-muted-foreground leading-relaxed mb-6">
+              <p className="subtitle-cursive text-l leading-relaxed mb-6">
                 {product.description || `Fancoelite® Neon Signs can be in multiple sizes, can last 50,000+ hours, custom made with quality Neon LED Lights. Choose from a wide range of colours like Red, Pink, Blue, Ice Blue, Orange, White, Warm White, Purple, Yellow! Customise Neon Signs with your name, word, letter, logo or quote. Install it on a wall of bedroom, balcony, hall, terrace, office space or workspace.`}
               </p>
 
@@ -444,7 +442,7 @@ const ProductDetail = () => {
             <h3 className="font-rajdhani font-semibold text-2xl mb-6 text-neon-blue">
               About Your Neon Sign:
             </h3>
-            <p className="text-muted-foreground leading-relaxed mb-8">
+            <p className="subtitle-cursive text-xl leading-relaxed mb-8">
               Every Namastey Lights sign is built on 6MM clear acrylic with advanced LEDs that shine bright while saving energy. Strong, lightweight, and hassle-free to install—perfect to vibe up your space!
             </p>
 
@@ -455,10 +453,10 @@ const ProductDetail = () => {
                   <h4 className="font-orbitron font-bold text-xl mb-4 text-neon-pink">
                     🚀 2nd Gen LED Neon is here – Brighter than ever, tough as always!
                   </h4>
-                  <p className="text-muted-foreground mb-4">
+                  <p className="subtitle-cursive text-xl mb-4">
                     Light it up smarter! Our 2nd Gen LED Neon gives you double the shine, saves energy, and lasts way longer. Control the glow to match your mood, and even go waterproof for the perfect indoor-outdoor vibe.
                   </p>
-                  <p className="text-muted-foreground">
+                  <p className="subtitle-cursive text-l">
                     No more boring, faded neon—this is where the future shines.
                   </p>
                 </div>
@@ -477,10 +475,10 @@ const ProductDetail = () => {
               <h4 className="font-rajdhani font-semibold text-xl mb-4 text-neon-blue">
                 The Box Contains:
               </h4>
-              <p className="text-muted-foreground mb-6">
+              <p className="subtitle-cursive text-xl mb-6">
                 From package to wall in minutes — let your space glow instantly.
               </p>
-              <p className="text-muted-foreground">
+              <p className="subtitle-cursive text-xl">
                 Strong acrylic backing, precision-drilled holes, and stainless steel screws included — because hanging your neon should be as easy as switching it on.
               </p>
             </div>
@@ -521,7 +519,7 @@ const ProductDetail = () => {
                         className="w-full h-full object-cover"
                       />
                     </div>
-                    <p className="text-sm text-muted-foreground">{item.title}</p>
+                    <p className="subtitle-cursive text-sm">{item.title}</p>
                   </div>
                 ))}
               </div>
@@ -546,8 +544,8 @@ const ProductDetail = () => {
               { question: "Why are there tiny marks on my sign?", answer: "Those are normal cutting marks from LED tubing and don’t affect quality." }
             ].map((faq, index) => (
               <div key={index} className="border-b border-white/10 pb-4">
-                <h4 className="font-medium text-lg mb-2">{faq.question}</h4>
-                <p className="text-muted-foreground text-sm">{faq.answer}</p>
+                <h4 className="subtitle-cursive text-xl mb-2">{faq.question}</h4>
+                <p className="subtitle-cursive text-sm">{faq.answer}</p>
               </div>
             ))}
           </div>

@@ -306,11 +306,9 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Unified background for all remaining sections */}
-      <div className="relative overflow-hidden">
-        {/* Same background as product page */}
-        <div className="fixed inset-0 bg-gradient-to-br from-purple-900/20 via-background to-pink-900/20 pointer-events-none"></div>
-        <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_center,rgba(120,80,255,0.1)_0%,transparent_50%)]"></div>
+      {/* simple black bg */}
+      <div className="bg-background">
+        
 
         {/* Why Choose Us Section */}
         <section className="py-20 relative z-10">
@@ -340,7 +338,7 @@ const Index = () => {
               </h2>
 
 
-              <p className="font-inter text-xl text-muted-foreground max-w-2xl mx-auto">
+              <p className="subtitle-cursive text-xl max-w-2xl mx-auto">
                 We combine premium materials, expert craftsmanship, and innovative design to create neon signs that shine bright and last long.
               </p>
             </div>
@@ -370,7 +368,7 @@ const Index = () => {
                       </h3>
 
                       {/* Description */}
-                      <p className="font-inter text-sm text-muted-foreground text-center leading-relaxed">
+                      <p className="subtitle-cursive text-sm text-center leading-relaxed">
                         {feature.description}
                       </p>
 
@@ -394,7 +392,7 @@ const Index = () => {
                 }}>
                 Popular Categories
               </h2>
-              <p className="font-inter text-xl text-muted-foreground max-w-2xl mx-auto">
+              <p className="subtitle-cursive text-xl max-w-2xl mx-auto">
                 Discover our most loved neon sign categories, each designed to perfectly match your space and style.
               </p>
             </div>
@@ -497,7 +495,7 @@ const Index = () => {
                             {category.name}
                           </h3>
 
-                          <p className="font-inter text-sm text-muted-foreground mb-3 group-hover:text-foreground/80 transition-colors duration-300">
+                          <p className="subtitle-cursive text-sm mb-3 group-hover:text-foreground/80 transition-colors duration-300">
                             {category.description}
                           </p>
 
@@ -554,7 +552,7 @@ const Index = () => {
                 }}>
                 Bestselling Neon Signs
               </h2>
-              <p className="font-inter text-xl text-muted-foreground max-w-2xl mx-auto">
+              <p className="subtitle-cursive text-xl max-w-2xl mx-auto">
                 Our most popular designs loved by thousands of customers worldwide.
               </p>
             </div>
@@ -562,7 +560,7 @@ const Index = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {bestsellingProducts.length === 0 ? (
                 <div className="col-span-full text-center py-12">
-                  <p className="text-muted-foreground">No bestselling products configured yet.</p>
+                  <p className="text-muted-foreground">No bestselling products yet.</p>
                 </div>
               ) : (
                 bestsellingProducts.map((product, index) => (
@@ -753,7 +751,7 @@ const Index = () => {
                 }}>
                 How It Works
               </h2>
-              <p className="font-inter text-xl text-muted-foreground max-w-2xl mx-auto">
+              <p className="subtitle-cursive text-xl max-w-2xl mx-auto">
                 From concept to delivery, we make creating your perfect neon sign simple and stress-free.
               </p>
             </div>
@@ -787,7 +785,7 @@ const Index = () => {
                     {step.title}
                   </h3>
 
-                  <p className="font-inter text-muted-foreground text-sm group-hover:text-foreground/80 transition-colors duration-300">
+                  <p className="subtitle-cursive text-l group-hover:text-foreground/80 transition-colors duration-300">
                     {step.description}
                   </p>
                 </div>
@@ -823,11 +821,11 @@ const Index = () => {
                 </div>
 
                 <div className="space-y-6">
-                  <p className="font-inter text-base sm:text-lg text-muted-foreground leading-relaxed">
+                  <p className="  sm:text-lg subtitle-cursive text-xl leading-relaxed">
                     After preparing for NEET and deciding to take a different path, I chose to build something of my own. With no team, no big backing, just determination and countless hours of hard work, I started this journey as a solo entrepreneur. From learning the craft to managing designs, production, and customer service, every step has been a challenge and a lesson.
                   </p>
 
-                  <p className="font-inter text-base sm:text-lg text-muted-foreground leading-relaxed">
+                  <p className="  sm:text-lg subtitle-cursive text-xl leading-relaxed">
                     Today, Namastey Lights stands as a symbol of creativity, resilience, and passion—bringing customized LED neon signs that add light and life to people’s homes, businesses, and celebrations across India.
                   </p>
                 </div>
@@ -921,7 +919,7 @@ const Index = () => {
                 }}>
                 What Our Customers Say
               </h2>
-              <p className="font-inter text-xl text-muted-foreground max-w-2xl mx-auto">
+              <p className="subtitle-cursive text-xl max-w-2xl mx-auto">
                 Real reviews from real customers who transformed their spaces with our neon signs.
               </p>
             </div>
@@ -1057,7 +1055,7 @@ const Index = () => {
                 }}>
                 Ready to Light Up Your Space?
               </h2>
-              <p className="font-inter text-xl text-muted-foreground mb-8">
+              <p className="subtitle-cursive text-xl mb-8">
                 Join thousands of satisfied customers and create your perfect neon sign today.
               </p>
 

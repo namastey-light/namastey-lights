@@ -161,18 +161,14 @@ const Customize = () => {
   };
 
   return (
-    <div className="min-h-screen relative overflow-hidden">
-      {/* Background gradient */}
-      <div className="fixed inset-0 bg-gradient-to-br from-purple-900/20 via-background to-pink-900/20 pointer-events-none"></div>
-      <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_center,rgba(120,80,255,0.1)_0%,transparent_50%)]"></div>
-      
+    <div className="min-h-screen bg-background">
       {/* Hero Section */}
       <section className="relative z-10 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="font-orbitron font-bold text-4xl md:text-6xl mb-6 bg-gradient-to-r from-orange-400 via-orange-500 to-red-500 bg-clip-text text-transparent">
             Customize Your Neon
           </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-0">
+          <p className="subtitle-cursive text-xl max-w-2xl mx-auto mb-0">
             Design your perfect neon sign with our real-time customizer. See your creation come to life!
           </p>
         </div>

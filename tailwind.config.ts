@@ -110,6 +110,7 @@ export default {
 				'rubik-glitch': ['Rubik Glitch', 'cursive'],
 				'rock-salt': ['Rock Salt', 'cursive'],
 				'special-elite': ['Special Elite', 'cursive'],
+				'edu-cursive' :['Edu NSW ACT Hand', 'cursive'],
 			}
 		}
 	},
