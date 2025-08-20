@@ -349,6 +349,8 @@ export type Database = {
           medium_mrp: number | null
           medium_price: number | null
           name: string
+          rating: number | null
+          review_count: number | null
           small_mrp: number | null
           small_price: number | null
           stock_quantity: number | null
@@ -367,6 +369,8 @@ export type Database = {
           medium_mrp?: number | null
           medium_price?: number | null
           name: string
+          rating?: number | null
+          review_count?: number | null
           small_mrp?: number | null
           small_price?: number | null
           stock_quantity?: number | null
@@ -385,6 +389,8 @@ export type Database = {
           medium_mrp?: number | null
           medium_price?: number | null
           name?: string
+          rating?: number | null
+          review_count?: number | null
           small_mrp?: number | null
           small_price?: number | null
           stock_quantity?: number | null
