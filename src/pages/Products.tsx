@@ -212,7 +212,7 @@ const Products = () => {
                 return (
                   <div 
                     key={product.id} 
-                    className="group relative transition-all duration-500 hover:-translate-y-3 hover:scale-105 h-[580px]"
+                    className="group relative transition-all duration-500 hover:-translate-y-3 hover:scale-105 h-[630px]"
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
                     {/* Premium multicolor product card with proper rounded border */}
@@ -299,11 +299,6 @@ const Products = () => {
                             {product.name}
                           </h3>
                         </Link>
-                        
-                        <p className="text-muted-foreground text-sm mb-4 group-hover:text-foreground/80 transition-colors duration-300 line-clamp-3 h-[4.5rem] overflow-hidden">
-                          {product.description || 'No description available'}
-                        </p>
-
                         <div className="flex items-center gap-2 mb-4">
                           <div className="flex items-center">
                             {[...Array(5)].map((_, i) => (
