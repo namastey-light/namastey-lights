@@ -212,7 +212,7 @@ const Products = () => {
                 return (
                   <div 
                     key={product.id} 
-                    className="group relative transition-all duration-500 hover:-translate-y-3 hover:scale-105 h-[630px]"
+                    className="group relative transition-all duration-500 hover:-translate-y-3 hover:scale-105 h-auto md:min-h-[650px]"
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
                     {/* Premium multicolor product card with proper rounded border */}
@@ -336,10 +336,7 @@ const Products = () => {
                             Stock: {product.stock_quantity}
                           </div>
                         </div>
-                        
-                        {/* Spacer to push content to bottom */}
-                        <div className="flex-grow"></div>
-                        
+        
                         <div className="flex gap-3 mb-3">
                           <Button 
                             asChild
