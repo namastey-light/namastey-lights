@@ -257,23 +257,49 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section with premium neon cartoon background */}
-      <section className="hero-premium-bg min-h-screen flex items-center justify-center relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      <section className="bg-background py-[20px] md:py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="animate-float">
-            <h1 className="font-orbitron font-bold text-5xl md:text-7xl lg:text-8xl mb-8 leading-tight">
-              <span className="text-[#CCFF33] font-orbitron drop-shadow-[0_0_12px_#CCFF33]">
-                Create
-              </span>{'  '}
-
-              <br className="hidden sm:block" />
-              <span className="text-white font-mono font-bold">Stunning</span>{'  '}
-              <br className="hidden sm:block" />
-              <span className="text-[#ffffff] font-edu-cursive drop-shadow-[0_0_60px_#ffffff]">
-                Neon Signs</span>
+            <h1 className="font-orbitron font-bold text-3xl md:text-5xl lg:text-6xl mb-4 leading-tight">
+              <span className="text-[#CCFF33] font-dancing-script drop-shadow-[0_0_12px_#CCFF33]">Create</span>{' '}
+              <br></br>
+              <span className="text-white font-orbitron font-bold">Stunning</span>{' '}
+              <span className="text-[#ffffff] font-edu-cursive drop-shadow-[0_0_60px_#ffffff]">Neon Signs</span>
             </h1>
+          </div>
+        </div>
+      </section>
+
+      {/* Large Banner Section */}
+      <section className="bg-background px-4 sm:px-6 lg:px-8 pb-8 md:pb-12">
+        <div className="max-w-7xl mx-auto">
+          {/* Desktop / Tablet Banner */}
+          <div className="relative hidden md:flex rounded-2xl md:rounded-3xl overflow-hidden min-h-[300px] md:min-h-[400px] lg:min-h-[500px] items-center justify-center border-2 ">
+            <img
+              src="\lovable-uploads\Neon-Carnival-Sale-1500x577.png"
+              alt="Banner"
+              className="w-full h-full object-contain pointer-events-none select-none"
+              loading="lazy"
+            />
+          </div>
+
+          {/* Mobile Banner (Square) */}
+          <div className="relative flex md:hidden rounded-2xl overflow-hidden aspect-square items-center justify-center border-2  border-muted-foreground/30">
+            <img
+              src="\lovable-uploads\Neon-Carnival-Sale-Popup.jpg"
+              alt="Mobile Banner"
+              className="w-full h-full object-contain pointer-events-none select-none"
+              loading="lazy"
+            />
           </div>
 
 
+        </div>
+      </section>
+
+      {/* Action Buttons Section */}
+      <section className="bg-background pb-8 md:pb-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Button asChild className="btn-neon text-lg px-8 py-4">
               <Link to="/products">
@@ -282,27 +308,12 @@ const Index = () => {
               </Link>
             </Button>
 
-            <Button asChild className="btn-neon text-lg px-8 py-4">
+            <Button asChild className="btn-outline-neon text-lg px-8 py-4">
               <Link to="/customize">
                 <Zap className="mr-2 w-5 h-5" />
                 Customize Your Neon
               </Link>
             </Button>
-          </div>
-
-          <div className="mt-16 flex flex-wrap justify-center gap-8 text-sm text-muted-foreground">
-            <div className="flex items-center gap-2">
-              <Users className="w-4 h-4 text-neon-white" />
-              5000+ Happy Customers
-            </div>
-            <div className="flex items-center gap-2">
-              <Shield className="w-4 h-4 text-neon-white" />
-              12-Month Warranty
-            </div>
-            <div className="flex items-center gap-2">
-              <Truck className="w-4 h-4 text-neon-white" />
-              Fast Delivery
-            </div>
           </div>
         </div>
       </section>
