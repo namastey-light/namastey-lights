@@ -10,7 +10,7 @@ const TermsOfService = () => {
             <NeonText color="pink">Terms of</NeonText>{' '}
             <NeonText color="blue">Service</NeonText>
           </h1>
-          <p className="text-muted-foreground text-lg">
+          <p className="subtitle-cursive text-lg">
             Please read these terms carefully before using our services
           </p>
         </div>

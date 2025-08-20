@@ -10,7 +10,7 @@ const PrivacyPolicy = () => {
             <NeonText color="pink">Privacy</NeonText>{' '}
             <NeonText color="blue">Policy</NeonText>
           </h1>
-          <p className="text-muted-foreground text-lg">
+          <p className="subtitle-cursive text-lg">
             Your privacy is important to us at Namastey lights
           </p>
         </div>

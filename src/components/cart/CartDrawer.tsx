@@ -37,60 +37,70 @@ const CartDrawer = () => {
               </div>
             ) : (
               state.items.map((item) => (
-                <div key={item.id} className="flex items-center space-x-4 p-4 rounded-lg bg-card/50 border border-white/10">
-                  <img
-                    src={item.image}
-                    alt={item.name}
-                    className="w-16 h-16 object-cover rounded-lg flex-shrink-0"
-                  />
-                  
-                  <div className="flex-1 min-w-0">
-                    <h3 className="font-medium text-sm truncate">{item.name}</h3>
+                <div key={item.id} className="p-4 rounded-lg bg-card/50 border border-white/10">
+                  {/* Mobile and Desktop Layout */}
+                  <div className="flex items-start space-x-3">
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="w-16 h-16 object-cover rounded-lg flex-shrink-0"
+                    />
                     
-                    {item.type === 'custom' && item.customConfig && (
-                      <div className="text-xs text-muted-foreground mt-1">
-                        <p className="truncate">Text: "{item.customConfig.text}"</p>
-                        <p>Size: {item.customConfig.size} | Color: {item.customConfig.color}</p>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-start justify-between">
+                        <div className="flex-1 min-w-0 pr-2">
+                          <h3 className="font-medium text-sm truncate">{item.name}</h3>
+                          
+                          {item.type === 'custom' && item.customConfig && (
+                            <div className="text-xs text-muted-foreground mt-1">
+                              <p className="truncate">Text: "{item.customConfig.text}"</p>
+                              <p>Size: {item.customConfig.size} | Color: {item.customConfig.color}</p>
+                            </div>
+                          )}
+                        </div>
+                        
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          className="w-8 h-8 p-0 text-destructive flex-shrink-0"
+                          onClick={() => removeItem(item.id)}
+                        >
+                          <Trash2 className="w-4 h-4" />
+                        </Button>
                       </div>
-                    )}
-                    
-                    <p className="text-neon-blue font-semibold mt-1">
-                      {formatPrice(item.price)}
-                    </p>
+                      
+                      {/* Price and Quantity Controls Row */}
+                      <div className="flex items-center justify-between mt-3">
+                        <p className="text-neon-blue font-semibold">
+                          {formatPrice(item.price)}
+                        </p>
+                        
+                        <div className="flex items-center space-x-2">
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            className="w-8 h-8 p-0"
+                            onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                          >
+                            <Minus className="w-3 h-3" />
+                          </Button>
+                          
+                          <span className="w-8 text-center text-sm font-medium">
+                            {item.quantity}
+                          </span>
+                          
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            className="w-8 h-8 p-0"
+                            onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                          >
+                            <Plus className="w-3 h-3" />
+                          </Button>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-
-                  <div className="flex items-center space-x-2 flex-shrink-0">
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="w-8 h-8 p-0"
-                      onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                    >
-                      <Minus className="w-3 h-3" />
-                    </Button>
-                    
-                    <span className="w-8 text-center text-sm font-medium">
-                      {item.quantity}
-                    </span>
-                    
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="w-8 h-8 p-0"
-                      onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                    >
-                      <Plus className="w-3 h-3" />
-                    </Button>
-                  </div>
-
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    className="w-8 h-8 p-0 text-destructive flex-shrink-0"
-                    onClick={() => removeItem(item.id)}
-                  >
-                    <Trash2 className="w-4 h-4" />
-                  </Button>
                 </div>
               ))
             )}

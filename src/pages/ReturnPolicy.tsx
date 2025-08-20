@@ -10,7 +10,7 @@ const ReturnPolicy = () => {
             <NeonText color="pink">Return</NeonText>{' '}
             <NeonText color="blue">Policy</NeonText>
           </h1>
-          <p className="text-muted-foreground text-lg">
+          <p className="subtitle-cursive text-lg">
             Your satisfaction is our priority at Namastey lights
           </p>
         </div>
