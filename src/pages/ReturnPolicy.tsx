@@ -11,7 +11,7 @@ const ReturnPolicy = () => {
             <NeonText color="blue">Policy</NeonText>
           </h1>
           <p className="text-muted-foreground text-lg">
-            Your satisfaction is our priority at NeonCraft
+            Your satisfaction is our priority at Namastey lights
           </p>
         </div>
 
@@ -22,7 +22,7 @@ const ReturnPolicy = () => {
             </CardHeader>
             <CardContent className="space-y-4">
               <p>
-                At NeonCraft, we want you to be completely satisfied with your purchase. Due to the custom nature 
+                At Namastey lights, we want you to be completely satisfied with your purchase. Due to the custom nature 
                 of our neon signs, returns are subject to specific conditions outlined below.
               </p>
             </CardContent>
@@ -41,7 +41,6 @@ const ReturnPolicy = () => {
                 <li><strong>Manufacturing Defects:</strong> If the product has defects in materials or workmanship</li>
                 <li><strong>Shipping Damage:</strong> If the product arrives damaged due to shipping</li>
                 <li><strong>Incorrect Order:</strong> If we made an error in your custom specifications</li>
-                <li><strong>Quality Issues:</strong> If the product doesn't meet our quality standards</li>
               </ul>
               <p className="mt-4">
                 <strong>Note:</strong> Returns are not accepted for changes of mind, incorrect design specifications 
@@ -187,13 +186,13 @@ const ReturnPolicy = () => {
                 If you have questions about returns or need assistance, please contact our customer service team:
               </p>
               <div className="mt-4 space-y-2">
-                <p><strong>Email:</strong> hello@neoncraft.com</p>
-                <p><strong>Phone:</strong> +91 98765 43210</p>
+                <p><strong>Email:</strong> believebrightcare@gmail.com</p>
+                <p><strong>Phone:</strong> +91 83848 84622</p>
                 <p><strong>Business Hours:</strong> Monday - Saturday, 10:00 AM - 7:00 PM IST</p>
                 <p><strong>Response Time:</strong> Within 24 hours</p>
               </div>
               <p className="text-sm text-muted-foreground mt-4">
-                Last updated: January 2025
+                Last updated: August 2025
               </p>
             </CardContent>
           </Card>

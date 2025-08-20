@@ -22,7 +22,7 @@ const ShippingInfo = () => {
             </CardHeader>
             <CardContent className="space-y-4">
               <p>
-                At NeonCraft, we ensure your custom neon signs reach you safely and on time. We offer various 
+                At Namastey lights, we ensure your custom neon signs reach you safely and on time. We offer various 
                 shipping options to meet your delivery needs across India and internationally.
               </p>
             </CardContent>
@@ -35,7 +35,7 @@ const ShippingInfo = () => {
             <CardContent className="space-y-4">
               <h4 className="font-semibold">Delivery Areas:</h4>
               <ul className="list-disc list-inside space-y-2">
-                <li><strong>Mumbai & Pune:</strong> Next-day delivery available</li>
+                <li><strong>Badaun</strong> Next-day delivery available</li>
                 <li><strong>Major Cities:</strong> Delhi, Bangalore, Chennai, Kolkata, Hyderabad (2-3 days)</li>
                 <li><strong>Other Cities:</strong> 4-7 business days</li>
                 <li><strong>Remote Areas:</strong> 7-10 business days (additional charges may apply)</li>
@@ -61,7 +61,7 @@ const ShippingInfo = () => {
               </p>
               <ul className="list-disc list-inside space-y-2">
                 <li><strong>Available Countries:</strong> UAE, USA, UK, Canada, Australia, Singapore</li>
-                <li><strong>Delivery Time:</strong> 10-15 business days</li>
+                <li><strong>Delivery Time:</strong> 15-20 business days</li>
                 <li><strong>Shipping Cost:</strong> Calculated based on destination and product size</li>
                 <li><strong>Customs & Duties:</strong> Customer responsibility</li>
                 <li><strong>Documentation:</strong> Commercial invoice and customs declaration included</li>
@@ -181,14 +181,6 @@ const ShippingInfo = () => {
                 <li>Ground floor delivery included; stairs delivery extra charge</li>
                 <li>Assembly service available at additional cost</li>
               </ul>
-              
-              <h4 className="font-semibold mt-4">Installation Service:</h4>
-              <ul className="list-disc list-inside space-y-2">
-                <li>Professional installation available in Mumbai and Pune</li>
-                <li>Installation charges: ₹1,500 - ₹5,000 based on complexity</li>
-                <li>Electrical work by certified electricians only</li>
-                <li>Installation booking required 48 hours in advance</li>
-              </ul>
             </CardContent>
           </Card>
 
@@ -219,14 +211,14 @@ const ShippingInfo = () => {
                 For shipping-related queries or support:
               </p>
               <div className="mt-4 space-y-2">
-                <p><strong>Email:</strong> hello@neoncraft.com</p>
-                <p><strong>Phone:</strong> +91 98765 43210</p>
-                <p><strong>WhatsApp:</strong> +91 98765 43210</p>
+                <p><strong>Email:</strong> believebrightcare@gmail.com</p>
+                <p><strong>Phone:</strong> +91 83848 84622</p>
+                <p><strong>WhatsApp:</strong> +91 83848 84622</p>
                 <p><strong>Business Hours:</strong> Monday - Saturday, 10:00 AM - 7:00 PM IST</p>
                 <p><strong>Emergency Support:</strong> Available for delivery issues</p>
               </div>
               <p className="text-sm text-muted-foreground mt-4">
-                Last updated: January 2025
+                Last updated: August 2025
               </p>
             </CardContent>
           </Card>

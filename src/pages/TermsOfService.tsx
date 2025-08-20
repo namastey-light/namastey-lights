@@ -22,7 +22,7 @@ const TermsOfService = () => {
             </CardHeader>
             <CardContent className="space-y-4">
               <p>
-                By accessing and using NeonCraft's website and services, you accept and agree to be bound by the terms 
+                By accessing and using Namastey lights website and services, you accept and agree to be bound by the terms 
                 and provision of this agreement. If you do not agree to these terms, please do not use our services.
               </p>
             </CardContent>
@@ -34,7 +34,7 @@ const TermsOfService = () => {
             </CardHeader>
             <CardContent className="space-y-4">
               <p>
-                NeonCraft specializes in creating custom neon signs and LED lights with premium quality materials. 
+                Namastey lights specializes in creating custom neon signs and LED lights with premium quality materials. 
                 Our services include:
               </p>
               <ul className="list-disc list-inside space-y-2">
@@ -42,7 +42,6 @@ const TermsOfService = () => {
                 <li>Ready-made neon sign products</li>
                 <li>Design consultation and customization tools</li>
                 <li>Installation guidance and support</li>
-                <li>Repair and maintenance services</li>
               </ul>
             </CardContent>
           </Card>
@@ -111,7 +110,7 @@ const TermsOfService = () => {
               </p>
               <ul className="list-disc list-inside space-y-2">
                 <li>All products come with a 1-year warranty against manufacturing defects</li>
-                <li>LED strips have a 2-year warranty for optimal performance</li>
+                <li>LED strips have a 12-month warranty for optimal performance</li>
                 <li>Warranty does not cover damage from misuse, accidents, or normal wear</li>
                 <li>Installation must follow our provided guidelines to maintain warranty</li>
                 <li>We reserve the right to inspect products for warranty claims</li>
@@ -132,7 +131,7 @@ const TermsOfService = () => {
                 <li>We retain rights to our manufacturing processes and techniques</li>
                 <li>You are responsible for ensuring your designs don't infringe on others' rights</li>
                 <li>We may refuse orders that contain copyrighted or trademarked content without permission</li>
-                <li>NeonCraft reserves the right to showcase completed projects for marketing purposes</li>
+                <li>Namastey lights reserves the right to showcase completed projects for marketing purposes</li>
               </ul>
             </CardContent>
           </Card>
@@ -148,8 +147,6 @@ const TermsOfService = () => {
               <ul className="list-disc list-inside space-y-2">
                 <li>Maximum liability is limited to the purchase price of the product</li>
                 <li>We are not liable for indirect, incidental, or consequential damages</li>
-                <li>Installation and electrical work should be performed by qualified professionals</li>
-                <li>We are not responsible for damages resulting from improper installation</li>
                 <li>Force majeure events are beyond our control and may affect delivery</li>
               </ul>
             </CardContent>
@@ -164,7 +161,7 @@ const TermsOfService = () => {
                 Order cancellation and modification policies:
               </p>
               <ul className="list-disc list-inside space-y-2">
-                <li>Orders can be cancelled within 24 hours of placement</li>
+                <li>Orders can be cancelled within 24 hours of placement by contact Us</li>
                 <li>Once production begins, cancellation is not possible</li>
                 <li>Design modifications may incur additional charges</li>
                 <li>Ready-made products can be cancelled before shipping</li>
@@ -180,7 +177,7 @@ const TermsOfService = () => {
             <CardContent className="space-y-4">
               <p>
                 These terms are governed by the laws of India. Any disputes will be resolved in the courts of 
-                Mumbai, Maharashtra, India.
+                Badaun, Uttar pradesh, India.
               </p>
             </CardContent>
           </Card>
@@ -194,12 +191,12 @@ const TermsOfService = () => {
                 For questions about these Terms of Service, please contact us:
               </p>
               <div className="mt-4 space-y-2">
-                <p><strong>Email:</strong> hello@neoncraft.com</p>
-                <p><strong>Phone:</strong> +91 98765 43210</p>
-                <p><strong>Address:</strong> Mumbai, Maharashtra, India</p>
+                <p><strong>Email:</strong> believebrightcare@gmail.com</p>
+                <p><strong>Phone:</strong> +91 83848 84622</p>
+                <p><strong>Address:</strong> Badaun, Uttar pradesh, India</p>
               </div>
               <p className="text-sm text-muted-foreground mt-4">
-                Last updated: January 2025
+                Last updated: August 2025
               </p>
             </CardContent>
           </Card>

@@ -11,7 +11,7 @@ const PrivacyPolicy = () => {
             <NeonText color="blue">Policy</NeonText>
           </h1>
           <p className="text-muted-foreground text-lg">
-            Your privacy is important to us at NeonCraft
+            Your privacy is important to us at Namastey lights
           </p>
         </div>
 
@@ -22,7 +22,7 @@ const PrivacyPolicy = () => {
             </CardHeader>
             <CardContent className="space-y-4">
               <p>
-                At NeonCraft, we collect information to provide better services to our customers. We collect the following types of information:
+                At Namastey lights, we collect information to provide better services to our customers. We collect the following types of information:
               </p>
               <ul className="list-disc list-inside space-y-2">
                 <li><strong>Personal Information:</strong> Name, email address, phone number, and shipping address when you place an order</li>
@@ -100,7 +100,7 @@ const PrivacyPolicy = () => {
                 <li>Request data portability</li>
               </ul>
               <p>
-                To exercise these rights, please contact us at hello@neoncraft.com or +91 98765 43210.
+                To exercise these rights, please contact us at believebrightcare@gmail.com or +91 83848 84622.
               </p>
             </CardContent>
           </Card>
@@ -127,7 +127,7 @@ const PrivacyPolicy = () => {
                 by posting the new policy on this page and updating the "Last updated" date.
               </p>
               <p className="text-sm text-muted-foreground">
-                Last updated: January 2025
+                Last updated: August 2025
               </p>
             </CardContent>
           </Card>
@@ -141,9 +141,9 @@ const PrivacyPolicy = () => {
                 If you have any questions about this Privacy Policy or our data practices, please contact us:
               </p>
               <div className="mt-4 space-y-2">
-                <p><strong>Email:</strong> hello@neoncraft.com</p>
-                <p><strong>Phone:</strong> +91 98765 43210</p>
-                <p><strong>Address:</strong> Mumbai, Maharashtra, India</p>
+                <p><strong>Email:</strong> believebrightcare@gmail.com</p>
+                <p><strong>Phone:</strong> +91 83848 84622</p>
+                <p><strong>Address:</strong>  Badaun, Uttar pradesh, India</p>
               </div>
             </CardContent>
           </Card>
