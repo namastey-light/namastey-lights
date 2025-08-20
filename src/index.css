@@ -354,7 +354,10 @@
 
   .subtitle-cursive{
     color: hsl(var(--warm-white));
-    font-family: 'Edu NSW ACT Hand', cursive;
+     font-family: "Federant", serif;
+  font-weight: 400;
+  font-style: normal;
+
   }
 }
 
