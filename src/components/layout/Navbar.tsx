@@ -35,21 +35,21 @@ const Navbar = () => {
             />
             <span className="text-xl transition-colors duration-300">
               <span 
-                className="font-rajdhani font-bold text-foreground group-hover:text-neon-orange uppercase tracking-wider transition-all duration-300"
+                className="font-rajdhani font-bold text-foreground group-hover:text-neon-white uppercase tracking-wider transition-all duration-300"
                 style={{
-                  textShadow: '0 0 5px hsl(var(--neon-orange) / 0.8), 0 0 10px hsl(var(--neon-orange) / 0.6), 0 0 20px hsl(var(--neon-orange) / 0.4), 0 0 40px hsl(var(--neon-orange) / 0.3), 0 0 60px hsl(var(--neon-orange) / 0.2)'
+                  textShadow: '0 0 5px hsl(var(--neon-white) / 0.8), 0 0 10px hsl(var(--neon-white) / 0.6), 0 0 20px hsl(var(--neon-white) / 0.4), 0 0 40px hsl(var(--neon-white) / 0.3), 0 0 60px hsl(var(--neon-white) / 0.2)'
                 }}
               >
                 NAMASTEY
               </span>
               <span 
-                className="text-neon-orange ml-1 lowercase tracking-wide transition-all duration-300" 
+                className="text-neon-white ml-1 lowercase tracking-wide transition-all duration-300" 
                 style={{ 
                   fontFamily: 'Dancing Script, cursive', 
                   fontSize: '1.4em',
                   fontWeight: '600',
                   fontStyle: 'italic',
-                  textShadow: '0 0 5px hsl(var(--neon-orange) / 0.9), 0 0 10px hsl(var(--neon-orange) / 0.7), 0 0 20px hsl(var(--neon-orange) / 0.5), 0 0 35px hsl(var(--neon-orange) / 0.3), 0 0 50px hsl(var(--neon-orange) / 0.2)'
+                  textShadow: '0 0 5px hsl(var(--neon-white) / 0.9), 0 0 10px hsl(var(--neon-white) / 0.7), 0 0 20px hsl(var(--neon-white) / 0.5), 0 0 35px hsl(var(--neon-white) / 0.3), 0 0 50px hsl(var(--neon-white) / 0.2)'
                 }}
               >
                 lights
@@ -65,8 +65,8 @@ const Navbar = () => {
                 to={item.href}
                 className={`font-inter font-medium transition-all duration-300 ${
                   isActive(item.href)
-                    ? 'text-neon-orange neon-text'
-                    : 'text-foreground hover:text-neon-blue'
+                    ? 'text-neon-white neon-text'
+                    : 'text-foreground hover:text-neon-white'
                 }`}
               >
                 {item.name}
@@ -87,7 +87,7 @@ const Navbar = () => {
               {cartCount > 0 && (
                 <Badge 
                   variant="destructive" 
-                  className="absolute -top-2 -right-2 w-5 h-5 p-0 flex items-center justify-center text-xs bg-neon-orange border-neon-orange"
+                  className="absolute -top-2 -right-2 w-5 h-5 p-0 flex items-center justify-center text-xs bg-neon-white border-neon-white text-black"
                 >
                   {cartCount}
                 </Badge>
@@ -116,8 +116,8 @@ const Navbar = () => {
                   to={item.href}
                   className={`font-inter font-medium px-4 py-2 rounded-lg transition-all duration-300 ${
                     isActive(item.href)
-                      ? 'text-neon-orange bg-neon-orange/10 neon-text'
-                      : 'text-foreground hover:text-neon-blue hover:bg-white/5'
+                      ? 'text-neon-white bg-neon-white/10 neon-text'
+                      : 'text-foreground hover:text-neon-white hover:bg-white'
                   }`}
                   onClick={() => setIsOpen(false)}
                 >

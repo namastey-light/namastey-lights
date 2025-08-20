@@ -194,13 +194,13 @@ const BannerCarousel = () => {
 
                 {/* Special Offer Badge */}
                 <div className="absolute top-3 left-3">
-                  <div className="bg-gradient-to-r from-red-500 to-orange-500 text-white px-2 py-1 rounded-full text-xs font-bold shadow-lg">
+                  <div className="bg-gradient-to-r from-neon-white to-neon-white text-background px-2 py-1 rounded-full text-xs font-bold shadow-lg">
                     🎉 OFFER
                   </div>
                 </div>
 
                 {/* Hover effect overlay */}
-                <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 to-red-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-r from-neon-white/10 to-red-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
             </div>
           ))}

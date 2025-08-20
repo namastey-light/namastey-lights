@@ -261,17 +261,15 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <div className="animate-float">
             <h1 className="font-orbitron font-bold text-5xl md:text-7xl lg:text-8xl mb-8 leading-tight">
-              <span className="text-orange-500">Create</span>{' '}
+              <span className="text-[#ffffff]">Create</span>{' '}
               <br className="hidden sm:block" />
               <span className="text-white">Stunning</span>{' '}
               <br className="hidden sm:block" />
-              <span className="text-[#FFD966] font-monoton drop-shadow-[0_0_50px_#FFD966]">Neon Signs</span>
+              <span className="text-[#ffffff] font-monoton drop-shadow-[0_0_60px_#ffffff]">
+Neon Signs</span>
             </h1>
           </div>
 
-          <p className="font-dancing-script text-2xl md:text-3xl lg:text-4xl text-lime-400 mb-12 max-w-4xl mx-auto leading-relaxed font-medium tracking-wide italic">
-            Light up your vibe with custom neon signs that glow for years
-          </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Button asChild className="btn-neon text-lg px-8 py-4">
@@ -281,7 +279,7 @@ const Index = () => {
               </Link>
             </Button>
 
-            <Button asChild className="btn-outline-neon text-lg px-8 py-4">
+            <Button asChild className="btn-neon text-lg px-8 py-4">
               <Link to="/customize">
                 <Zap className="mr-2 w-5 h-5" />
                 Customize Your Neon
@@ -291,15 +289,15 @@ const Index = () => {
 
           <div className="mt-16 flex flex-wrap justify-center gap-8 text-sm text-muted-foreground">
             <div className="flex items-center gap-2">
-              <Users className="w-4 h-4 text-neon-blue" />
+              <Users className="w-4 h-4 text-neon-white" />
               5000+ Happy Customers
             </div>
             <div className="flex items-center gap-2">
-              <Shield className="w-4 h-4 text-neon-blue" />
+              <Shield className="w-4 h-4 text-neon-white" />
               12-Month Warranty
             </div>
             <div className="flex items-center gap-2">
-              <Truck className="w-4 h-4 text-neon-blue" />
+              <Truck className="w-4 h-4 text-neon-white" />
               Fast Delivery
             </div>
           </div>
@@ -316,19 +314,19 @@ const Index = () => {
             <div className="text-center mb-16 animate-fade-in">
 
 
-              <h2 className="font-orbitron font-bold text-4xl md:text-5xl mb-6 bg-gradient-to-r from-orange-400 via-orange-500 to-red-500 bg-clip-text text-transparent"
+              <h2 className="font-orbitron font-bold text-4xl md:text-5xl mb-6 text-neon-white"
                 style={{
-                  textShadow: '0 0 10px hsl(25 100% 60% / 0.8), 0 0 20px hsl(25 100% 60% / 0.6), 0 0 30px hsl(25 100% 60% / 0.4)'
+                  
                 }}>
                 Why Choose{' '}
                 <span
                   className="text-white font-bold"
                   style={{
                     textShadow: `
-      0 0 8px rgba(255, 255, 255, 0.8), 
-      0 0 16px rgba(255, 255, 255, 0.6), 
-      0 0 24px rgba(255, 255, 255, 0.4), 
-      0 0 40px rgba(255, 255, 255, 0.3)
+      0 0 0px rgba(255, 255, 255, 0.8), 
+      0 0 5px rgba(255, 255, 255, 0.6), 
+      0 0 14px rgba(255, 255, 255, 0.4), 
+      0 0 20px rgba(255, 255, 255, 0.3)
     `
                   }}
                 >
@@ -353,17 +351,17 @@ const Index = () => {
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
                     {/* Minimal clean card */}
-                    <div className="relative p-6 rounded-2xl border border-white/10 bg-card/50 backdrop-blur-sm hover:border-orange-400/30 hover:bg-card/70 transition-all duration-300">
+                    <div className="relative p-6 rounded-2xl border border-white/10 bg-card/50 backdrop-blur-sm hover:border-neon-white/30 hover:bg-card/70 transition-all duration-300">
 
                       {/* Simple icon container */}
                       <div className="mb-4 flex justify-center">
                         <div className="p-3 rounded-xl bg-gradient-to-br from-orange-400/20 to-red-500/20 group-hover:from-orange-400/30 group-hover:to-red-500/30 transition-all duration-300">
-                          <Icon className="w-6 h-6 text-orange-400 group-hover:text-orange-300 transition-colors duration-300" />
+                          <Icon className="w-6 h-6 text-neon-white group-hover:text-neon-white transition-colors duration-300" />
                         </div>
                       </div>
 
                       {/* Title with theme gradient */}
-                      <h3 className="font-rajdhani font-bold text-lg mb-3 text-center bg-gradient-to-r from-orange-400 via-orange-500 to-red-500 bg-clip-text text-transparent">
+                      <h3 className="font-rajdhani font-bold text-lg mb-3 text-center text-neon-white">
                         {feature.title}
                       </h3>
 
@@ -386,9 +384,9 @@ const Index = () => {
         <section className="py-20 relative z-10">
           <div className="max-w-9xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="text-center mb-16 animate-fade-in">
-              <h2 className="font-orbitron font-bold text-4xl md:text-5xl mb-6 bg-gradient-to-r from-orange-400 via-orange-500 to-red-500 bg-clip-text text-transparent"
+              <h2 className="font-orbitron font-bold text-4xl md:text-5xl mb-6 text-neon-white "
                 style={{
-                  textShadow: '0 0 10px hsl(25 100% 60% / 0.8), 0 0 20px hsl(25 100% 60% / 0.6), 0 0 30px hsl(25 100% 60% / 0.4)'
+                  
                 }}>
                 Popular Categories
               </h2>
@@ -532,7 +530,7 @@ const Index = () => {
             </div>
 
             <div className="text-center mt-12">
-              <Button asChild className="btn-outline-neon group hover:shadow-lg hover:shadow-neon-pink/30 transition-shadow duration-300">
+              <Button asChild className="btn-neon group hover:shadow-lg hover:shadow-neon-pink/30 transition-shadow duration-300">
                 <Link to="/products">
                   View All Categories
                   <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
@@ -546,9 +544,9 @@ const Index = () => {
         <section className="py-20 relative z-10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="text-center mb-16 animate-fade-in">
-              <h2 className="font-orbitron font-bold text-4xl md:text-5xl mb-6 bg-gradient-to-r from-orange-400 via-orange-500 to-red-500 bg-clip-text text-transparent"
+              <h2 className="font-orbitron font-bold text-4xl md:text-5xl mb-6 text-neon-white"
                 style={{
-                  textShadow: '0 0 10px hsl(25 100% 60% / 0.8), 0 0 20px hsl(25 100% 60% / 0.6), 0 0 30px hsl(25 100% 60% / 0.4)'
+                  
                 }}>
                 Bestselling Neon Signs
               </h2>
@@ -745,9 +743,9 @@ const Index = () => {
         <section className="py-20 relative z-10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="text-center mb-16 animate-fade-in">
-              <h2 className="font-orbitron font-bold text-4xl md:text-5xl mb-6 bg-gradient-to-r from-orange-400 via-orange-500 to-red-500 bg-clip-text text-transparent"
+              <h2 className="font-orbitron font-bold text-4xl md:text-5xl mb-6 text-neon-white"
                 style={{
-                  textShadow: '0 0 10px hsl(25 100% 60% / 0.8), 0 0 20px hsl(25 100% 60% / 0.6), 0 0 30px hsl(25 100% 60% / 0.4)'
+                  
                 }}>
                 How It Works
               </h2>
@@ -768,7 +766,7 @@ const Index = () => {
                       className={`absolute ${
                         // mobile me vertical line, desktop me horizontal
                         "left-1/2 top-full w-0.5 h-12 md:top-8 md:left-full md:w-full md:h-0.5"
-                        } bg-gradient-to-b md:bg-gradient-to-r from-neon-pink via-neon-blue to-neon-pink 
+                        } bg-gradient-to-b md:bg-gradient-to-r from-neon-white via-neon-white to-neon-white 
     transform md:translate-x-4`}
                     ></div>
                   )}
@@ -781,7 +779,7 @@ const Index = () => {
                     </div>
                   </div>
 
-                  <h3 className="font-rajdhani font-semibold text-xl mb-3 text-neon-blue group-hover:text-neon-pink transition-colors duration-300">
+                  <h3 className="font-rajdhani font-semibold text-xl mb-3 text-neon-white group-hover:text-neon-white transition-colors duration-300">
                     {step.title}
                   </h3>
 
@@ -804,18 +802,18 @@ const Index = () => {
 
                   <h2 className="font-orbitron font-bold text-3xl sm:text-4xl md:text-5xl mb-6"
                     style={{
-                      textShadow: '0 0 8px hsl(120 100% 75% / 0.8), 0 0 16px hsl(120 100% 75% / 0.6), 0 0 24px hsl(120 100% 75% / 0.4)'
+                      
                     }}>
                     Who{' '}
                     <span className="bg-gradient-to-r from-neon-green to-neon-yellow bg-clip-text text-transparent"
                       style={{
-                        textShadow: '0 0 8px hsl(54 100% 75% / 0.8), 0 0 16px hsl(54 100% 75% / 0.6), 0 0 24px hsl(54 100% 75% / 0.4)'
+                        
                       }}>
                       are we?
                     </span>
                   </h2>
 
-                  <p className="font-rajdhani font-bold text-lg sm:text-xl md:text-2xl text-neon-blue mb-8">
+                  <p className="font-rajdhani font-bold text-lg sm:text-xl md:text-2xl text-neon-white mb-8">
                     My name is Khan, and Namastey Lights is not just a brand—it’s my dream turned into reality.
                   </p>
                 </div>
@@ -837,7 +835,7 @@ const Index = () => {
                       Shop Ready Made Signs
                     </Link>
                   </Button>
-                  <Button asChild className="btn-outline-neon text-lg px-6 sm:px-8 py-4">
+                  <Button asChild className="btn-neon text-lg px-6 sm:px-8 py-4">
                     <Link to="/contact">
                       Learn More About Us
                     </Link>
@@ -851,7 +849,7 @@ const Index = () => {
                   className="relative rounded-3xl overflow-hidden"
                   style={{
                     boxShadow:
-                      '0 0 40px hsl(var(--neon-green) / 0.3), 0 0 80px hsl(var(--neon-yellow) / 0.2)'
+                      '0 0 40px hsl(var(--neon-white) / 0.3), 0 0 80px hsl(var(--neon-yellow) / 0.2)'
                   }}
                 >
                   <video
@@ -869,9 +867,9 @@ const Index = () => {
                     style={{
                       background: `
           linear-gradient(45deg, 
-            hsl(var(--neon-green) / 0.3) 0%, 
+            hsl(var(--neon-white) / 0.3) 0%, 
             transparent 50%,
-            hsl(var(--neon-yellow) / 0.3) 100%
+            hsl(var(--neon-white) / 0.3) 100%
           )
         `
                     }}
@@ -880,25 +878,25 @@ const Index = () => {
 
                 {/* Floating stats - responsive positioning */}
                 <div
-                  className="absolute -top-4 -left-4 sm:-top-6 sm:-left-6 bg-card/90 backdrop-blur-sm border border-neon-green/30 rounded-2xl p-3 sm:p-4 group-hover:scale-110 transition-transform duration-300"
+                  className="absolute -top-4 -left-4 sm:-top-6 sm:-left-6 bg-card/90 backdrop-blur-sm border border-neon-white/30 rounded-2xl p-3 sm:p-4 group-hover:scale-110 transition-transform duration-300"
                   style={{
-                    boxShadow: '0 0 20px hsl(var(--neon-green) / 0.4)'
+                    boxShadow: '0 0 20px hsl(var(--neon-white) / 0.4)'
                   }}
                 >
                   <div className="text-center">
-                    <div className="font-orbitron font-bold text-xl sm:text-2xl text-neon-green">10K+</div>
+                    <div className="font-orbitron font-bold text-xl sm:text-2xl text-neon-white">10K+</div>
                     <div className="font-inter text-xs sm:text-sm text-muted-foreground">Community</div>
                   </div>
                 </div>
 
                 <div
-                  className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 bg-card/90 backdrop-blur-sm border border-neon-yellow/30 rounded-2xl p-3 sm:p-4 group-hover:scale-110 transition-transform duration-300"
+                  className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 bg-card/90 backdrop-blur-sm border border-neon-white/30 rounded-2xl p-3 sm:p-4 group-hover:scale-110 transition-transform duration-300"
                   style={{
-                    boxShadow: '0 0 20px hsl(var(--neon-yellow) / 0.4)'
+                    boxShadow: '0 0 20px hsl(var(--neon-white) / 0.4)'
                   }}
                 >
                   <div className="text-center">
-                    <div className="font-orbitron font-bold text-xl sm:text-2xl text-neon-yellow">2025</div>
+                    <div className="font-orbitron font-bold text-xl sm:text-2xl text-neon-white">2025</div>
                     <div className="font-inter text-xs sm:text-sm text-muted-foreground">Founded</div>
                   </div>
                 </div>
@@ -913,9 +911,9 @@ const Index = () => {
         <section className="py-20 relative z-10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="text-center mb-16 animate-fade-in">
-              <h2 className="font-orbitron font-bold text-4xl md:text-5xl mb-6 bg-gradient-to-r from-orange-400 via-orange-500 to-red-500 bg-clip-text text-transparent"
+              <h2 className="font-orbitron font-bold text-4xl md:text-5xl mb-6 text-neon-white"
                 style={{
-                  textShadow: '0 0 10px hsl(25 100% 60% / 0.8), 0 0 20px hsl(25 100% 60% / 0.6), 0 0 30px hsl(25 100% 60% / 0.4)'
+                  
                 }}>
                 What Our Customers Say
               </h2>
@@ -1049,9 +1047,9 @@ const Index = () => {
         <section className="py-20 relative z-10">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
             <div className="animate-fade-in">
-              <h2 className="font-orbitron font-bold text-4xl md:text-5xl mb-6 bg-gradient-to-r from-orange-400 via-orange-500 to-red-500 bg-clip-text text-transparent"
+              <h2 className="font-orbitron font-bold text-4xl md:text-5xl mb-6 text-neon-white"
                 style={{
-                  textShadow: '0 0 10px hsl(25 100% 60% / 0.8), 0 0 20px hsl(25 100% 60% / 0.6), 0 0 30px hsl(25 100% 60% / 0.4)'
+                  
                 }}>
                 Ready to Light Up Your Space?
               </h2>
@@ -1067,7 +1065,7 @@ const Index = () => {
                   </Link>
                 </Button>
 
-                <Button asChild className="btn-outline-neon text-lg px-8 py-4 group hover:shadow-2xl hover:shadow-neon-blue/40 transition-shadow duration-500">
+                <Button asChild className="btn-neon text-lg px-8 py-4 group hover:shadow-2xl hover:shadow-neon-blue/40 transition-shadow duration-500">
                   <Link to="/contact">
                     Get a Quote
                     <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />

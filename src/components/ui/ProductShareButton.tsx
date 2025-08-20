@@ -114,7 +114,7 @@ const ProductShareButton = ({ productId, productName, productImage }: ProductSha
               variant="ghost"
               size="sm"
               onClick={handleNativeShare}
-              className="justify-start gap-2 hover:bg-orange-500/10 hover:text-orange-400"
+              className="justify-start gap-2 hover:bg-neon-white/10 hover:text-neon-white"
             >
               <Share2 className="w-4 h-4" />
               More Options
