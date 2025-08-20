@@ -278,7 +278,7 @@ const Index = () => {
             <img
               src="\lovable-uploads\Neon-Carnival-Sale-1500x577.png"
               alt="Banner"
-              className="w-full h-full object-contain pointer-events-none select-none"
+              className="w-full h-full object-cover pointer-events-none select-none"
               loading="lazy"
             />
           </div>
@@ -286,9 +286,9 @@ const Index = () => {
           {/* Mobile Banner (Square) */}
           <div className="relative flex md:hidden rounded-2xl overflow-hidden aspect-square items-center justify-center border-2  border-muted-foreground/30">
             <img
-              src="\lovable-uploads\Neon-Carnival-Sale-Popup.jpg"
+              src="\lovable-uploads\mobile-banner.jpg"
               alt="Mobile Banner"
-              className="w-full h-full object-contain pointer-events-none select-none"
+              className="w-full h-full object-cover pointer-events-none select-none"
               loading="lazy"
             />
           </div>
