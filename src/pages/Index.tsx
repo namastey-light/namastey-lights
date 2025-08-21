@@ -1128,17 +1128,20 @@ const Index = () => {
       >
         <div className="flex items-center shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
           {/* Order On text bubble */}
-          <div className="bg-neon-white text-gray-900 px-[5px] py-[1px] square-l-full border-2 border-green-500/20 font-medium text-l mx-1">
+          {/* <div className="bg-neon-white text-gray-900 px-[5px] py-[1px] square-l-full border-2 border-green-500/20 font-medium text-l mx-1">
             Order On
-          </div>
+          </div> */}
           
           {/* WhatsApp icon circle */}
-          <div className="bg-green-500 hover:bg-green-600 rounded-full p-3 border-2 border-green-400/20 hover:border-green-300/40 transition-colors duration-300 relative">
-            {/* Neon glow effect */}
-            <div className="absolute inset-0 rounded-full bg-green-400/30 blur-lg scale-110 opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
-            
-            <MessageCircle className="w-6 h-6 text-white relative z-10" />
-          </div>
+<div className="relative group">
+  <div className="bg-green-500 hover:bg-green-600 rounded-full p-3 border-2 border-green-400/20 hover:border-green-300/40 transition-colors duration-300 relative animate-blink">
+    {/* Neon glow effect */}
+    <div className="absolute inset-0 rounded-full bg-green-400/30 blur-lg scale-110 opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
+    
+    <MessageCircle className="w-6 h-6 text-white relative z-10" />
+  </div>
+</div>
+
         </div>
       </a>
     </div>
