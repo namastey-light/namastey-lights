@@ -226,7 +226,7 @@ const Index = () => {
     {
       name: 'Karan Malhotra',
       rating: 5,
-      review: "Absolutely amazing quality. I ordered a name sign for my studio, and it glows perfectly. Definitely worth every rupee!",
+      review: "Absolutely amazing quality and stunning craftsmanship. I ordered a name sign for my studio, and it glows perfectly bright with vibrant colors. Definitely worth spent!",
       image: '/lovable-uploads/p3.jpg',
       location: 'Mumbai'
     },
@@ -308,7 +308,7 @@ const Index = () => {
               </Link>
             </Button>
 
-            <Button asChild className="btn-outline-neon text-lg px-8 py-4">
+            <Button asChild className="btn-neon text-lg px-8 py-4">
               <Link to="/customize">
                 <Zap className="mr-2 w-5 h-5" />
                 Customize Your Neon
@@ -355,22 +355,23 @@ const Index = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Mobile: Horizontal scroll, Desktop: Grid */}
+            <div className="flex overflow-x-auto gap-6 pb-4 md:pb-0 md:grid md:grid-cols-2 lg:grid-cols-4 md:overflow-visible scrollbar-hide py-4 md:py-0">
               {features.map((feature, index) => {
                 const Icon = feature.icon;
                 return (
                   <div
                     key={index}
-                    className="group relative transition-all duration-300 hover:-translate-y-1"
+                    className="group relative transition-all duration-300 md:hover:-translate-y-1 md:hover:scale-105 flex-shrink-0 w-80 md:w-auto"
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
                     {/* Minimal clean card */}
-                    <div className="relative p-6 rounded-2xl border border-white/10 bg-card/50 backdrop-blur-sm hover:border-neon-white/30 hover:bg-card/70 transition-all duration-300">
+                    <div className="relative p-6 rounded-2xl border border-white/10 bg-card/50 backdrop-blur-sm md:hover:border-neon-white/30 md:hover:bg-card/70 transition-all duration-300">
 
                       {/* Simple icon container */}
                       <div className="mb-4 flex justify-center">
-                        <div className="p-3 rounded-xl bg-gradient-to-br from-orange-400/20 to-red-500/20 group-hover:from-orange-400/30 group-hover:to-red-500/30 transition-all duration-300">
-                          <Icon className="w-6 h-6 text-neon-white group-hover:text-neon-white transition-colors duration-300" />
+                        <div className="p-3 rounded-xl bg-gradient-to-br from-orange-400/20 to-red-500/20 md:group-hover:from-orange-400/30 md:group-hover:to-red-500/30 transition-all duration-300">
+                          <Icon className="w-6 h-6 text-neon-white md:group-hover:text-neon-white transition-colors duration-300" />
                         </div>
                       </div>
 
@@ -385,11 +386,19 @@ const Index = () => {
                       </p>
 
                       {/* Subtle bottom accent */}
-                      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-orange-400 to-red-500 group-hover:w-16 transition-all duration-300"></div>
+                      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-orange-400 to-red-500 md:group-hover:w-16 transition-all duration-300"></div>
                     </div>
                   </div>
                 );
               })}
+            </div>
+            
+            {/* Swipe Indicator for Mobile */}
+            <div className="flex md:hidden justify-center mt-6">
+              <div className="flex items-center gap-2 text-muted-foreground text-sm">
+                <span>Swipe to view more</span>
+                <ArrowRight className="w-4 h-4" />
+              </div>
             </div>
           </div>
         </section>
@@ -409,13 +418,14 @@ const Index = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+            {/* Mobile: Horizontal scroll, Desktop: Grid */}
+            <div className="flex overflow-x-auto gap-6 pb-4 md:pb-0 md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 md:overflow-visible scrollbar-hide py-6 md:py-0">
               {categories.map((category, index) => {
                 const Icon = category.icon;
                 return (
                   <div
                     key={index}
-                    className="group relative cursor-pointer transition-all duration-500 hover:-translate-y-4 hover:scale-105"
+                    className="group relative cursor-pointer transition-all duration-500 md:hover:-translate-y-4 md:hover:scale-105 flex-shrink-0 w-80 md:w-auto"
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
                     {/* Premium multicolor category card with proper rounded border */}
@@ -443,7 +453,7 @@ const Index = () => {
                         }}>
 
                         {/* Animated multicolor overlay */}
-                        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                        <div className="absolute inset-0 opacity-0 md:group-hover:opacity-100 transition-opacity duration-500"
                           style={{
                             background: `
                              linear-gradient(135deg, 
@@ -465,9 +475,9 @@ const Index = () => {
                             <img
                               src={category.image}
                               alt={category.name}
-                              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                              className="w-full h-full object-cover md:group-hover:scale-110 transition-transform duration-700"
                             />
-                            <div className="absolute inset-0 group-hover:opacity-100 transition-opacity duration-500"
+                            <div className="absolute inset-0 md:group-hover:opacity-100 transition-opacity duration-500"
                               style={{
                                 background: `
                                  linear-gradient(45deg, 
@@ -498,7 +508,7 @@ const Index = () => {
                             </div>
                           </div>
 
-                          <h3 className="font-rajdhani font-bold text-lg mb-2 group-hover:text-transparent transition-all duration-300"
+                          <h3 className="font-rajdhani font-bold text-lg mb-2 md:group-hover:text-transparent transition-all duration-300"
                             style={{
                               background: 'linear-gradient(135deg, hsl(var(--neon-white)), hsl(var(--neon-white)))',
                               WebkitBackgroundClip: 'text',
@@ -507,7 +517,7 @@ const Index = () => {
                             {category.name}
                           </h3>
 
-                          <p className="font-inter text-sm text-muted-foreground mb-3 group-hover:text-foreground/80 transition-colors duration-300">
+                          <p className="font-inter text-sm text-muted-foreground mb-3 md:group-hover:text-foreground/80 transition-colors duration-300">
                             {category.description}
                           </p>
 
@@ -522,7 +532,7 @@ const Index = () => {
                         </div>
 
                         {/* Multicolor bottom glow */}
-                        <div className="absolute inset-x-0 bottom-0 h-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                        <div className="absolute inset-x-0 bottom-0 h-1 opacity-0 md:group-hover:opacity-100 transition-opacity duration-500"
                           style={{
                             background: 'linear-gradient(90deg, hsl(var(--neon-white)), hsl(var(--neon-white)), hsl(var(--neon-white)), hsl(var(--neon-white)))',
                             backgroundSize: '200% 100%',
@@ -531,7 +541,7 @@ const Index = () => {
                         </div>
 
                         {/* Outer glow effect */}
-                        <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                        <div className="absolute inset-0 rounded-3xl opacity-0 md:group-hover:opacity-100 transition-opacity duration-500"
                           style={{
                             boxShadow: '0 0 60px hsl(var(--neon-white) / 0.4), 0 0 100px hsl(var(--neon-white) / 0.2)'
                           }}>
@@ -541,6 +551,14 @@ const Index = () => {
                   </div>
                 );
               })}
+            </div>
+
+            {/* Swipe Indicator for Mobile */}
+            <div className="flex md:hidden justify-center mt-6">
+              <div className="flex items-center gap-2 text-muted-foreground text-sm">
+                <span>Swipe to explore categories</span>
+                <ArrowRight className="w-4 h-4" />
+              </div>
             </div>
 
             <div className="text-center mt-12">
@@ -936,11 +954,12 @@ const Index = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Mobile: Horizontal scroll, Desktop: Grid */}
+            <div className="flex overflow-x-auto gap-8 pb-4 md:pb-0 md:grid md:grid-cols-3 md:overflow-visible scrollbar-hide py-6 md:py-0">
               {testimonials.map((testimonial, index) => (
                 <div
                   key={index}
-                  className="group relative transition-all duration-500 hover:-translate-y-3 hover:scale-105"
+                  className="group relative transition-all duration-500 md:hover:-translate-y-3 md:hover:scale-105 flex-shrink-0 w-80 md:w-auto"
                   style={{ animationDelay: `${index * 0.15}s` }}
                 >
                   {/* Premium multicolor testimonial card with proper rounded border */}
@@ -967,7 +986,7 @@ const Index = () => {
                       }}>
 
                       {/* Animated gradient overlay */}
-                      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                      <div className="absolute inset-0 opacity-0 md:group-hover:opacity-100 transition-opacity duration-500"
                         style={{
                           background: `
                            linear-gradient(135deg, 
@@ -983,7 +1002,7 @@ const Index = () => {
 
                       <div className="relative z-10">
                         <div className="flex items-center mb-6">
-                          <div className="w-12 h-12 rounded-full mr-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
+                          <div className="w-12 h-12 rounded-full mr-4 flex items-center justify-center md:group-hover:scale-110 transition-transform duration-300"
                             style={{
                               background: `
                                linear-gradient(135deg, 
@@ -1003,7 +1022,7 @@ const Index = () => {
                             />
                           </div>
                           <div>
-                            <h4 className="font-rajdhani font-bold text-lg group-hover:text-transparent transition-all duration-300"
+                            <h4 className="font-rajdhani font-bold text-lg md:group-hover:text-transparent transition-all duration-300"
                               style={{
                                 background: 'linear-gradient(135deg, hsl(var(--neon-purple)), hsl(var(--neon-blue)))',
                                 WebkitBackgroundClip: 'text',
@@ -1011,7 +1030,7 @@ const Index = () => {
                               }}>
                               {testimonial.name}
                             </h4>
-                            <p className="text-sm text-muted-foreground group-hover:text-foreground/80 transition-colors duration-300">
+                            <p className="text-sm text-muted-foreground md:group-hover:text-foreground/80 transition-colors duration-300">
                               {testimonial.location}
                             </p>
                           </div>
@@ -1021,7 +1040,7 @@ const Index = () => {
                           {[...Array(testimonial.rating)].map((_, i) => (
                             <Star
                               key={i}
-                              className="w-4 h-4 text-yellow-400 fill-current group-hover:text-yellow-300 transition-colors duration-300"
+                              className="w-4 h-4 text-yellow-400 fill-current md:group-hover:text-yellow-300 transition-colors duration-300"
                               style={{
                                 filter: 'drop-shadow(0 0 8px hsl(var(--neon-yellow) / 0.6))'
                               }}
@@ -1029,13 +1048,13 @@ const Index = () => {
                           ))}
                         </div>
 
-                        <p className="font-inter text-muted-foreground italic group-hover:text-foreground/90 transition-colors duration-300">
+                        <p className="font-inter text-muted-foreground italic md:group-hover:text-foreground/90 transition-colors duration-300">
                           "{testimonial.review}"
                         </p>
                       </div>
 
                       {/* Multicolor bottom glow */}
-                      <div className="absolute inset-x-0 bottom-0 h-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                      <div className="absolute inset-x-0 bottom-0 h-1 opacity-0 md:group-hover:opacity-100 transition-opacity duration-500"
                         style={{
                           background: 'linear-gradient(90deg, hsl(var(--neon-purple)), hsl(var(--neon-white)), hsl(var(--neon-blue)), hsl(var(--neon-purple)))',
                           backgroundSize: '200% 100%',
@@ -1044,7 +1063,7 @@ const Index = () => {
                       </div>
 
                       {/* Outer glow effect */}
-                      <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                      <div className="absolute inset-0 rounded-3xl opacity-0 md:group-hover:opacity-100 transition-opacity duration-500"
                         style={{
                           boxShadow: '0 0 50px hsl(var(--neon-purple) / 0.4), 0 0 100px hsl(var(--neon-blue) / 0.3)'
                         }}>
@@ -1053,6 +1072,14 @@ const Index = () => {
                   </div>
                 </div>
               ))}
+            </div>
+            
+            {/* Swipe Indicator for Mobile */}
+            <div className="flex md:hidden justify-center mt-6">
+              <div className="flex items-center gap-2 text-muted-foreground text-sm">
+                <span>Swipe to read more reviews</span>
+                <ArrowRight className="w-4 h-4" />
+              </div>
             </div>
           </div>
         </section>
