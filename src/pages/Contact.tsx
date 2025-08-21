@@ -57,7 +57,7 @@ const Contact = () => {
             <Card className="neon-card">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 justify-center">
-                  <Clock className="w-5 h-5 text-neon-blue" />
+                  <Clock className="w-5 h-5 text-neon-white" />
                   Business Hours
                 </CardTitle>
               </CardHeader>
@@ -65,11 +65,11 @@ const Contact = () => {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
                   <div className="space-y-1">
                     <span className="font-medium">Monday - Friday</span>
-                    <p className="text-neon-blue">9:00 AM - 8:00 PM</p>
+                    <p className="text-neon-white">9:00 AM - 8:00 PM</p>
                   </div>
                   <div className="space-y-1">
                     <span className="font-medium">Saturday</span>
-                    <p className="text-neon-blue">10:00 AM - 6:00 PM</p>
+                    <p className="text-neon-white">10:00 AM - 6:00 PM</p>
                   </div>
                   <div className="space-y-1">
                     <span className="font-medium">Sunday</span>
@@ -88,18 +88,18 @@ const Contact = () => {
                 <Card key={index} className="neon-card group hover:neon-glow transition-all duration-300">
                   <CardContent className="p-6 text-center">
                     <div className="flex flex-col items-center space-y-4">
-                      <div className="p-4 rounded-lg bg-neon-blue/20">
-                        <Icon className="w-8 h-8 text-neon-blue" />
+                      <div className="p-4 rounded-lg bg-neon-white/20">
+                        <Icon className="w-8 h-8 text-neon-white" />
                       </div>
                       <div>
                         <h3 className="font-semibold text-lg mb-2">{contact.title}</h3>
-                        <p className="text-neon-pink font-medium text-lg">{contact.details}</p>
+                        <p className="text-neon-white font-medium text-lg">{contact.details}</p>
                         <p className="text-sm text-muted-foreground mt-1">{contact.description}</p>
                       </div>
 
                       {contact.action !== '#' && (
                         <Button
-                          className="btn-outline-neon w-full"
+                          className="btn-neon w-full"
                           onClick={() => window.open(contact.action, '_blank')}
                         >
                           Contact
@@ -122,12 +122,12 @@ const Contact = () => {
                 <Card className="neon-card group hover:neon-glow transition-all duration-300 max-w-md mx-auto">
                   <CardContent className="p-1 text-center">
                     <div className="flex flex-col items-center space-y-6">
-                      <div className="p-6 rounded-lg bg-neon-blue/20">
-                        <Icon className="w-12 h-12 text-neon-blue" />
+                      <div className="p-6 rounded-lg bg-neon-white/20">
+                        <Icon className="w-12 h-12 text-neon-white" />
                       </div>
                       <div>
                         <h3 className="font-semibold text-2xl mb-3">{visitUsContact.title}</h3>
-                        <p className="text-neon-pink font-medium text-xl">{visitUsContact.details}</p>
+                        <p className="text-neon-white font-medium text-xl">{visitUsContact.details}</p>
                         <p className="text-muted-foreground mt-2">{visitUsContact.description}</p>
                       </div>
                     </div>

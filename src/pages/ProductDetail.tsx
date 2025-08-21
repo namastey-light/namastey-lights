@@ -115,18 +115,19 @@ const ProductDetail = () => {
     { id: 'S', name: 'Small', width: '0.5ft width × 0.5ft height', price: getPriceBySize(product, 'small') },
     { id: 'M', name: 'Medium', width: '1ft width × 1ft height', price: getPriceBySize(product, 'medium') },
     { id: 'L', name: 'Large', width: '1.5ft width × 1.5ft height', price: getPriceBySize(product, 'large') },
-    { id: 'XL', name: 'Extra Large', width: '2ft width × 2ft height', price: getPriceBySize(product, 'extra_large') },
   ];
 
   const colors = [
-    { id: 'Blue', name: 'Blue', hex: '#00bfff' },
-    { id: 'Pink', name: 'Pink', hex: '#ff1493' },
-    { id: 'Purple', name: 'Purple', hex: '#9945ff' },
-    { id: 'White', name: 'White', hex: '#ffffff' },
-    { id: 'Red', name: 'Red', hex: '#ff0000' },
-    { id: 'Green', name: 'Green', hex: '#00ff00' },
-    { id: 'Yellow', name: 'Yellow', hex: '#ffff00' },
-    { id: 'Orange', name: 'Orange', hex: '#ffa500' },
+    { id: 'blue', name: 'Ice Blue', class: 'neon-text-blue', hex: '#00bfff' },
+    { id: 'pink', name: 'Pink', class: 'neon-text-pink', hex: '#ff1493' },
+    { id: 'purple', name: 'Purple', class: 'neon-text-purple', hex: '#9945ff' },
+    { id: 'white', name: 'White', class: 'neon-text-white', hex: '#ffffff' },
+    { id: 'red', name: 'Red', class: 'neon-text-red', hex: '#ff0000' },
+    { id: 'green', name: 'Green', class: 'neon-text-green', hex: '#00ff00' },
+    { id: 'yellow', name: 'Yellow', class: 'neon-text-yellow', hex: '#ffff00' },
+    { id: 'orange', name: 'Orange', class: 'neon-text-white', hex: '#f5f5dc' },
+    { id: 'navy', name: 'Navy Blue', class: 'neon-text-navy', hex: '#000080' },
+    { id: 'warm-white', name: 'Warm White', class: 'neon-text-warm-white', hex: '#fdf6e3' },
   ];
 
   const calculatePrice = () => {
@@ -214,7 +215,7 @@ const ProductDetail = () => {
             Back
           </Button>
           <span>/</span>
-          <Link to="/products" className="hover:text-neon-blue transition-colors">Products</Link>
+          <Link to="/products" className="hover:text-neon-white transition-colors">Products</Link>
           <span>/</span>
           <span>{product.name}</span>
         </div>
@@ -225,10 +226,10 @@ const ProductDetail = () => {
             <div className="relative p-0.5 rounded-3xl overflow-hidden"
               style={{
                 background: `linear-gradient(135deg, 
-                     hsl(var(--neon-orange) / 0.6), 
-                     hsl(var(--neon-purple) / 0.6), 
-                     hsl(var(--neon-pink) / 0.6),
-                     hsl(var(--neon-orange) / 0.6)
+                     hsl(var(--neon-white) / 0.6), 
+                     hsl(var(--neon-white) / 0.6), 
+                     hsl(var(--neon-white) / 0.6),
+                     hsl(var(--neon-white) / 0.6)
                    )`
               }}>
               <div className="aspect-square bg-muted rounded-3xl overflow-hidden">
@@ -250,7 +251,7 @@ const ProductDetail = () => {
                       }`}
                     style={{
                       background: selectedImageIndex === index
-                        ? `linear-gradient(135deg, hsl(var(--neon-pink) / 0.8), hsl(var(--neon-purple) / 0.8))`
+                        ? `linear-gradient(135deg, hsl(var(--neon-white) / 0.8), hsl(var(--neon-white) / 0.8))`
                         : `linear-gradient(135deg, hsl(var(--border)), hsl(var(--border)))`
                     }}
                   >
@@ -271,7 +272,7 @@ const ProductDetail = () => {
           <div className="space-y-6">
             <div>
               <div className="flex items-center gap-2 mb-2">
-                <Badge className="bg-neon-pink/20 text-neon-pink">
+                <Badge className="bg-gray-900/20 text-neon-white">
                   {product.categories?.name || 'Neon Signs'}
                 </Badge>
                 {product.stock_quantity > 0 && (
@@ -281,7 +282,7 @@ const ProductDetail = () => {
                 )}
               </div>
 
-              <h1 className="font-orbitron font-bold text-3xl md:text-4xl mb-4 bg-gradient-to-r from-pink-400 via-purple-400 to-blue-400 bg-clip-text text-transparent">
+              <h1 className="font-orbitron font-bold text-3xl md:text-4xl mb-4 bg-gradient-to-r from-neon-white via-neon-white to-blue-400 bg-clip-text text-transparent">
                 {product.name}
               </h1>
 
@@ -300,7 +301,7 @@ const ProductDetail = () => {
               </div>
 
               <div className="flex items-center gap-4 mb-6">
-                <span className="font-bold text-3xl text-neon-blue">
+                <span className="font-bold text-3xl text-neon-white">
                   ₹{calculatePrice().toLocaleString()}
                 </span>
                 {calculateMRP() && calculateMRP() > calculatePrice() && (
@@ -331,13 +332,13 @@ const ProductDetail = () => {
                       key={size.id}
                       onClick={() => setSelectedSize(size.id)}
                       className={`p-3 rounded-lg border-2 transition-all text-left ${selectedSize === size.id
-                          ? 'border-neon-blue bg-neon-blue/10'
+                          ? 'border-neon-white bg-neon-white/10'
                           : 'border-border hover:border-muted-foreground'
                         }`}
                     >
                       <div className="font-medium">{size.name}</div>
                       <div className="text-sm text-muted-foreground">{size.width}</div>
-                      <div className="text-sm text-neon-blue">₹{size.price.toLocaleString()}</div>
+                      <div className="text-sm text-neon-white">₹{size.price.toLocaleString()}</div>
                     </button>
                   ))}
                 </div>
@@ -393,7 +394,7 @@ const ProductDetail = () => {
                       />
                       <span>Brightness Controller</span>
                     </div>
-                    <span className="text-neon-blue font-medium">₹500</span>
+                    <span className="text-neon-white font-medium">₹500</span>
                   </label>
                 </div>
               </div>
@@ -405,9 +406,9 @@ const ProductDetail = () => {
               <Button
                 className="w-full font-semibold py-3 text-lg rounded-2xl"
                 style={{
-                  background: 'linear-gradient(135deg, hsl(var(--neon-orange)), hsl(var(--neon-purple)))',
+                  background: 'linear-gradient(135deg, hsl(var(--neon-white)), hsl(var(--neon-white)))',
                   color: 'hsl(var(--background))',
-                  boxShadow: '0 0 20px hsl(var(--neon-orange) / 0.4)'
+                  boxShadow: '0 0 20px hsl(var(--neon-white) / 0.4)'
                 }}
                 onClick={handleAddToCart}
                 disabled={product.stock_quantity === 0}
@@ -421,15 +422,15 @@ const ProductDetail = () => {
             {/* Trust Badges */}
             <div className="grid grid-cols-3 gap-4 pt-6 border-t border-white/10">
               <div className="text-center">
-                <Shield className="w-6 h-6 text-neon-blue mx-auto mb-2" />
+                <Shield className="w-6 h-6 text-neon-white mx-auto mb-2" />
                 <p className="text-xs text-muted-foreground">12 Month Warranty</p>
               </div>
               <div className="text-center">
-                <Truck className="w-6 h-6 text-neon-blue mx-auto mb-2" />
+                <Truck className="w-6 h-6 text-neon-white mx-auto mb-2" />
                 <p className="text-xs text-muted-foreground">Fast Delivery</p>
               </div>
               <div className="text-center">
-                <Award className="w-6 h-6 text-neon-blue mx-auto mb-2" />
+                <Award className="w-6 h-6 text-neon-white mx-auto mb-2" />
                 <p className="text-xs text-muted-foreground">Premium Quality</p>
               </div>
             </div>
@@ -439,7 +440,7 @@ const ProductDetail = () => {
         {/* About Your Neon Sign */}
         <div className="mb-16">
           <NeonCard>
-            <h3 className="font-rajdhani font-semibold text-2xl mb-6 text-neon-blue">
+            <h3 className="font-rajdhani font-semibold text-2xl mb-6 text-neon-white">
               About Your Neon Sign:
             </h3>
             <p className="subtitle-cursive text-xl leading-relaxed mb-8">
@@ -472,7 +473,7 @@ const ProductDetail = () => {
 
             {/* The Box Contains */}
             <div className="mb-8">
-              <h4 className="font-rajdhani font-semibold text-xl mb-4 text-neon-blue">
+              <h4 className="font-rajdhani font-semibold text-xl mb-4 text-neon-white">
                 The Box Contains:
               </h4>
               <p className="subtitle-cursive text-xl mb-6">
@@ -485,7 +486,7 @@ const ProductDetail = () => {
 
             {/* Installation Guide */}
             <div>
-              <h4 className="font-rajdhani font-semibold text-xl mb-6 text-neon-blue">
+              <h4 className="font-rajdhani font-semibold text-xl mb-6 text-neon-white">
                 Here's how you can install our neon signs on your wall:
               </h4>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

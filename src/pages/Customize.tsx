@@ -18,49 +18,59 @@ const Customize = () => {
   const { toast } = useToast();
   
   const [customText, setCustomText] = useState('YOUR TEXT');
-  const [selectedFont, setSelectedFont] = useState('orbitron');
+  const [selectedFont, setSelectedFont] = useState('passionate');
   const [selectedColor, setSelectedColor] = useState('pink');
   const [selectedSize, setSelectedSize] = useState('M');
   const [hasDimmer, setHasDimmer] = useState(false);
   const [backingShape, setBackingShape] = useState('cut-to-shape');
 
   const fonts = [
-    { id: 'orbitron', name: 'Orbitron', family: 'font-orbitron' },
-    { id: 'rajdhani', name: 'Rajdhani', family: 'font-rajdhani' },
-    { id: 'passion-one', name: 'Passion One', family: 'font-passion-one' },
-    { id: 'dancing-script', name: 'Dancing Script', family: 'font-dancing-script' },
-    { id: 'flavors', name: 'Flavors', family: 'font-flavors' },
-    { id: 'ewert', name: 'Ewert', family: 'font-ewert' },
-    { id: 'fugaz-one', name: 'Fugaz One', family: 'font-fugaz-one' },
-    { id: 'monoton', name: 'Monoton', family: 'font-monoton' },
-    { id: 'abril-fatface', name: 'Abril Fatface', family: 'font-abril-fatface' },
-    { id: 'playfair-display', name: 'Playfair Display', family: 'font-playfair-display' },
-    { id: 'press-start', name: 'Press Start 2P', family: 'font-press-start' },
-    { id: 'audiowide', name: 'Audiowide', family: 'font-audiowide' },
-    { id: 'permanent-marker', name: 'Permanent Marker', family: 'font-permanent-marker' },
-    { id: 'rubik-glitch', name: 'Rubik Glitch', family: 'font-rubik-glitch' },
-    { id: 'rock-salt', name: 'Rock Salt', family: 'font-rock-salt' },
-    { id: 'special-elite', name: 'Special Elite', family: 'font-special-elite' },
-    { id: 'sans', name: 'Modern Sans', family: 'font-sans' },
-    { id: 'mono', name: 'Digital Mono', family: 'font-mono' },
+    { id: 'passionate', name: 'Passionate', family: 'font-passionate' },
+    { id: 'dreamy', name: 'Dreamy', family: 'font-dreamy' },
+    { id: 'flowy', name: 'Flowy', family: 'font-flowy' },
+    { id: 'original', name: 'Original', family: 'font-original' },
+    { id: 'classic', name: 'Classic', family: 'font-classic' },
+    { id: 'breeze', name: 'Breeze', family: 'font-breeze' },
+    { id: 'funky', name: 'Funky', family: 'font-funky' },
+    { id: 'chic', name: 'Chic', family: 'font-chic' },
+    { id: 'delight', name: 'Delight', family: 'font-delight' },
+    { id: 'classy', name: 'Classy', family: 'font-classy' },
+    { id: 'romantic', name: 'Romantic', family: 'font-romantic' },
+    { id: 'robo', name: 'ROBO', family: 'font-robo' },
+    { id: 'charming', name: 'Charming', family: 'font-charming' },
+    { id: 'quirky', name: 'Quirky', family: 'font-quirky' },
+    { id: 'stylish', name: 'Stylish', family: 'font-stylish' },
+    { id: 'sassy', name: 'Sassy', family: 'font-sassy' },
+    { id: 'glam', name: 'Glam', family: 'font-glam' },
+    { id: 'dope', name: 'DOPE', family: 'font-dope' },
+    { id: 'chemistry', name: 'Chemistry', family: 'font-chemistry' },
+    { id: 'realistic', name: 'Realistic', family: 'font-realistic' },
+    { id: 'sparky', name: 'Sparky', family: 'font-sparky' },
+    { id: 'vibey', name: 'Vibey', family: 'font-vibey' },
+    { id: 'la-fi', name: 'La Fi', family: 'font-la-fi' },
+    { id: 'bossy', name: 'Bossy', family: 'font-bossy' },
+    { id: 'iconic', name: 'ICONIC', family: 'font-iconic' },
+    { id: 'jolly', name: 'Jolly', family: 'font-jolly' },
+    { id: 'modern', name: 'MODERN', family: 'font-modern' },
   ];
 
   const colors = [
-    { id: 'blue', name: 'Blue', class: 'neon-text-blue', hex: '#00bfff' },
+    { id: 'blue', name: 'Ice Blue', class: 'neon-text-blue', hex: '#00bfff' },
     { id: 'pink', name: 'Pink', class: 'neon-text-pink', hex: '#ff1493' },
     { id: 'purple', name: 'Purple', class: 'neon-text-purple', hex: '#9945ff' },
     { id: 'white', name: 'White', class: 'neon-text-white', hex: '#ffffff' },
     { id: 'red', name: 'Red', class: 'neon-text-red', hex: '#ff0000' },
     { id: 'green', name: 'Green', class: 'neon-text-green', hex: '#00ff00' },
     { id: 'yellow', name: 'Yellow', class: 'neon-text-yellow', hex: '#ffff00' },
-    { id: 'orange', name: 'Orange', class: 'neon-text-orange', hex: '#ff8000' },
+    { id: 'orange', name: 'Orange', class: 'neon-text-white', hex: '#f5f5dc' },
+    { id: 'navy', name: 'Navy Blue', class: 'neon-text-navy', hex: '#000080' },
+    { id: 'warm-white', name: 'Warm White', class: 'neon-text-warm-white', hex: '#fdf6e3' },
   ];
 
   const sizes = [
-    { id: 'S', name: 'Small', width: '30cm', basePrice: 1999 },
-    { id: 'M', name: 'Medium', width: '50cm', basePrice: 2999 },
-    { id: 'L', name: 'Large', width: '70cm', basePrice: 4499 },
-    { id: 'XL', name: 'Extra Large', width: '100cm', basePrice: 6999 },
+    { id: 'S', name: 'Small', width: '18"×10"', basePrice: 1999 },
+    { id: 'M', name: 'Medium', width: '24"×13"', basePrice: 2999 },
+    { id: 'L', name: 'Large', width: '30"×15"', basePrice: 4499 },
   ];
 
   const calculatePrice = () => {
@@ -184,14 +194,14 @@ const Customize = () => {
           {/* Preview Section */}
           <div className="space-y-6">
             <div className="relative p-0.5 rounded-3xl overflow-hidden"
-                 style={{
-                   background: `linear-gradient(135deg, 
-                     hsl(var(--neon-orange) / 0.6), 
-                     hsl(var(--neon-purple) / 0.6), 
-                     hsl(var(--neon-pink) / 0.6),
-                     hsl(var(--neon-orange) / 0.6)
+              style={{
+                background: `linear-gradient(135deg, 
+                     hsl(var(--neon-white) / 0.6), 
+                     hsl(var(--neon-white) / 0.6), 
+                     hsl(var(--neon-white) / 0.6),
+                     hsl(var(--neon-white) / 0.6)
                    )`
-                 }}>
+              }}>
               <Card className="rounded-3xl backdrop-blur-sm" style={{
                 background: `linear-gradient(135deg, 
                   hsl(var(--card) / 0.9) 0%, 
@@ -202,68 +212,65 @@ const Customize = () => {
                 boxShadow: `0 8px 32px hsl(220 15% 3% / 0.4)`
               }}>
                 <CardHeader>
-                  <CardTitle className="flex items-center gap-2 bg-gradient-to-r from-orange-400 to-purple-400 bg-clip-text text-transparent">
-                    <Zap className="w-5 h-5 text-neon-blue" />
+                  <CardTitle className="flex items-center gap-2 bg-gradient-to-r from-neon-white to-neon-white bg-clip-text text-transparent">
+                    <Zap className="w-5 h-5 text-neon-white" />
                     Live Preview
                   </CardTitle>
                 </CardHeader>
-              <CardContent>
-                <div 
-                  className="rounded-lg min-h-[250px] sm:min-h-[300px] flex items-center justify-center px-4 sm:px-8 bg-cover bg-center relative neon-preview-container overflow-hidden"
-                  style={{ 
-                    backgroundImage: `url('/lovable-uploads/760ea302-8469-42c7-8a14-29f704bfcb19.png')`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    backgroundRepeat: 'no-repeat'
-                  }}
-                >
-                  <div className="absolute inset-0 bg-black/20 rounded-lg"></div>
-                  <div 
-                    className={`relative z-10 text-center ${selectedFontData?.family} ${selectedColorData?.class} break-words max-w-full flex items-center justify-center`}
-                    style={{ 
-                      fontSize: selectedSize === 'S' ? 'clamp(1.5rem, 4vw, 2rem)' : 
-                               selectedSize === 'M' ? 'clamp(2rem, 6vw, 3rem)' : 
-                               selectedSize === 'L' ? 'clamp(2.5rem, 8vw, 4rem)' : 
-                               'clamp(3rem, 10vw, 5rem)',
-                      // Keep Customize preview Blue independent of global theme
-                      color: selectedColor === 'blue' ? 'hsl(195 100% 75%)' : undefined,
-                      textShadow: '0 0 20px currentColor, 0 0 40px currentColor, 0 0 60px currentColor, 2px 2px 4px rgba(0,0,0,0.8)',
-                      lineHeight: '1.2',
-                      wordBreak: 'break-word',
-                      hyphens: 'auto',
-                      width: '100%',
-                      height: '100%',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center'
+                <CardContent>
+                  <div
+                    className="rounded-lg min-h-[250px] sm:min-h-[300px] flex items-center justify-center px-4 sm:px-8 bg-cover bg-center relative neon-preview-container overflow-hidden"
+                    style={{
+                      backgroundImage: `url('/lovable-uploads/WhatsApp Image 2025-08-21 at 17.48.22_b0915fcf.jpg')`,
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center',
+                      backgroundRepeat: 'no-repeat'
                     }}
                   >
-                    {customText || 'YOUR TEXT'}
+                    <div className="absolute inset-0 bg-black/20 rounded-lg"></div>
+                    <div
+                      className={`absolute top-4 left-1/2 transform -translate-x-1/2 z-10 text-center ${selectedFontData?.family} ${selectedColorData?.class}`}
+                      style={{
+                        fontSize: selectedSize === 'S' ? 'clamp(1.5rem, 4vw, 2rem)' :
+                          selectedSize === 'M' ? 'clamp(2rem, 6vw, 3rem)' :
+                            selectedSize === 'L' ? 'clamp(2.5rem, 8vw, 4rem)' :
+                              'clamp(3rem, 10vw, 5rem)',
+                        color: selectedColorData?.hex,
+                        textShadow: 'none',
+                        lineHeight: '1.2',
+                        wordBreak: 'break-word',
+                        hyphens: 'auto',
+                        width: '100%',
+                        paddingTop: '1.5rem'
+                      }}
+                    >
+                      {customText || 'YOUR TEXT'}
+                    </div>
+
                   </div>
-                </div>
-                
-                <div className="mt-4 flex justify-between items-center">
-                  <Button variant="outline" className="btn-outline-neon" onClick={handleDownloadPreview}>
-                    <Download className="w-4 h-4 mr-2" />
-                    Download Preview
-                  </Button>
-                  <Badge variant="secondary" className="text-lg px-4 py-2">
-                    {sizes.find(s => s.id === selectedSize)?.width}
-                  </Badge>
-                </div>
-              </CardContent>
+
+                  <div className="mt-4 flex justify-between items-center">
+                    <Button variant="outline" className="btn-neon" onClick={handleDownloadPreview}>
+                      <Download className="w-4 h-4 mr-2" />
+                      Download Preview
+                    </Button>
+                    <Badge variant="secondary" className="text-lg px-4 py-2">
+                      {sizes.find(s => s.id === selectedSize)?.width}
+                    </Badge>
+                  </div>
+                </CardContent>
               </Card>
             </div>
 
             {/* Price Breakdown */}
             <div className="relative p-0.5 rounded-3xl overflow-hidden"
-                 style={{
-                   background: `linear-gradient(135deg, 
-                     hsl(var(--neon-pink) / 0.6), 
-                     hsl(var(--neon-blue) / 0.6), 
-                     hsl(var(--neon-purple) / 0.6)
+              style={{
+                background: `linear-gradient(135deg, 
+                     hsl(var(--neon-white) / 0.6), 
+                     hsl(var(--neon-white) / 0.6), 
+                     hsl(var(--neon-white) / 0.6)
                    )`
-                 }}>
+              }}>
               <Card className="rounded-3xl backdrop-blur-sm" style={{
                 background: `linear-gradient(135deg, 
                   hsl(var(--card) / 0.9) 0%, 
@@ -273,40 +280,40 @@ const Customize = () => {
                 boxShadow: `0 8px 32px hsl(220 15% 3% / 0.4)`
               }}>
                 <CardHeader>
-                  <CardTitle className="bg-gradient-to-r from-pink-400 to-blue-400 bg-clip-text text-transparent">Price Breakdown</CardTitle>
+                  <CardTitle className="bg-gradient-to-r from-neon-white to-neon-white bg-clip-text text-transparent">Price Breakdown</CardTitle>
                 </CardHeader>
-              <CardContent className="space-y-3">
-                <div className="flex justify-between">
-                  <span>Base Price ({selectedSize})</span>
-                  <span>₹{sizes.find(s => s.id === selectedSize)?.basePrice.toLocaleString()}</span>
-                </div>
-                
-                {customText.length > 10 && (
+                <CardContent className="space-y-3">
                   <div className="flex justify-between">
-                    <span>Extra Characters ({customText.length - 10})</span>
-                    <span>₹{((customText.length - 10) * 50).toLocaleString()}</span>
+                    <span>Base Price ({selectedSize})</span>
+                    <span>₹{sizes.find(s => s.id === selectedSize)?.basePrice.toLocaleString()}</span>
                   </div>
-                )}
-                
-                {hasDimmer && (
-                  <div className="flex justify-between">
-                    <span>Dimmer Add-on</span>
-                    <span>₹499</span>
+
+                  {customText.length > 10 && (
+                    <div className="flex justify-between">
+                      <span>Extra Characters ({customText.length - 10})</span>
+                      <span>₹{((customText.length - 10) * 50).toLocaleString()}</span>
+                    </div>
+                  )}
+
+                  {hasDimmer && (
+                    <div className="flex justify-between">
+                      <span>Dimmer Add-on</span>
+                      <span>₹499</span>
+                    </div>
+                  )}
+
+                  {backingShape === 'rectangle' && (
+                    <div className="flex justify-between">
+                      <span>Rectangle Backing</span>
+                      <span>₹299</span>
+                    </div>
+                  )}
+
+                  <div className="border-t pt-3 flex justify-between font-bold text-lg">
+                    <span>Total</span>
+                    <p color="white">₹{calculatePrice().toLocaleString()}</p>
                   </div>
-                )}
-                
-                {backingShape === 'rectangle' && (
-                  <div className="flex justify-between">
-                    <span>Rectangle Backing</span>
-                    <span>₹299</span>
-                  </div>
-                )}
-                
-                <div className="border-t pt-3 flex justify-between font-bold text-lg">
-                  <span>Total</span>
-                  <NeonText color="blue">₹{calculatePrice().toLocaleString()}</NeonText>
-                </div>
-              </CardContent>
+                </CardContent>
               </Card>
             </div>
           </div>
@@ -314,13 +321,13 @@ const Customize = () => {
           {/* Customization Controls */}
           <div className="space-y-6">
             <div className="relative p-0.5 rounded-3xl overflow-hidden"
-                 style={{
-                   background: `linear-gradient(135deg, 
-                     hsl(var(--neon-purple) / 0.6), 
-                     hsl(var(--neon-orange) / 0.6), 
-                     hsl(var(--neon-pink) / 0.6)
+              style={{
+                background: `linear-gradient(135deg, 
+                     hsl(var(--neon-white) / 0.6), 
+                     hsl(var(--neon-white) / 0.6), 
+                     hsl(var(--neon-white) / 0.6)
                    )`
-                 }}>
+              }}>
               <Card className="rounded-3xl backdrop-blur-sm" style={{
                 background: `linear-gradient(135deg, 
                   hsl(var(--card) / 0.9) 0%, 
@@ -330,155 +337,153 @@ const Customize = () => {
                 boxShadow: `0 8px 32px hsl(220 15% 3% / 0.4)`
               }}>
                 <CardHeader>
-                  <CardTitle className="bg-gradient-to-r from-purple-400 to-orange-400 bg-clip-text text-transparent">Text Settings</CardTitle>
+                  <CardTitle className="bg-gradient-to-r from-neon-white to-neon-white bg-clip-text text-transparent">Text Settings</CardTitle>
                 </CardHeader>
-              <CardContent className="space-y-4">
-                <div>
-                  <label className="block text-sm font-medium mb-2">Your Text</label>
-                  <Textarea
-                    placeholder="Enter your custom text..."
-                    value={customText}
-                    onChange={(e) => setCustomText(e.target.value)}
-                    className="min-h-[100px]"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium mb-2">Font Style</label>
-                  <Select value={selectedFont} onValueChange={setSelectedFont}>
-                    <SelectTrigger>
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {fonts.map((font) => (
-                        <SelectItem key={font.id} value={font.id}>
-                          <span className={font.family}>{font.name}</span>
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium mb-2">Neon Color</label>
-                  <div className="grid grid-cols-4 gap-3">
-                    {colors.map((color) => (
-                      <button
-                        key={color.id}
-                        onClick={() => setSelectedColor(color.id)}
-                        className={`p-3 rounded-lg border-2 transition-all ${
-                          selectedColor === color.id 
-                            ? 'border-neon-orange neon-glow' 
-                            : 'border-border hover:border-muted-foreground'
-                        }`}
-                      >
-                        <div className="flex flex-col items-center gap-2">
-                          <div 
-                            className="w-6 h-6 rounded-full border-2 border-white/20"
-                            style={{ backgroundColor: color.hex }}
-                          />
-                          <span className="text-xs font-medium">{color.name}</span>
-                        </div>
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              </CardContent>
-              </Card>
-            </div>
-
-            <div className="relative p-0.5 rounded-3xl overflow-hidden"
-                 style={{
-                   background: `linear-gradient(135deg, 
-                     hsl(var(--neon-orange) / 0.6), 
-                     hsl(var(--neon-blue) / 0.6), 
-                     hsl(var(--neon-pink) / 0.6)
-                   )`
-                 }}>
-              <Card className="rounded-3xl backdrop-blur-sm" style={{
-                background: `linear-gradient(135deg, 
-                  hsl(var(--card) / 0.9) 0%, 
-                  hsl(220 15% 12% / 0.85) 30%,
-                  hsl(var(--card) / 0.9) 70%
-                )`,
-                boxShadow: `0 8px 32px hsl(220 15% 3% / 0.4)`
-              }}>
-                <CardHeader>
-                  <CardTitle className="bg-gradient-to-r from-orange-400 to-blue-400 bg-clip-text text-transparent">Size & Options</CardTitle>
-                </CardHeader>
-              <CardContent className="space-y-4">
-                <div>
-                  <label className="block text-sm font-medium mb-2">Size</label>
-                  <div className="grid grid-cols-2 gap-3">
-                    {sizes.map((size) => (
-                      <button
-                        key={size.id}
-                        onClick={() => setSelectedSize(size.id)}
-                        className={`p-3 rounded-lg border-2 transition-all ${
-                          selectedSize === size.id 
-                            ? 'border-neon-blue neon-glow' 
-                            : 'border-border hover:border-muted-foreground'
-                        }`}
-                      >
-                        <div className="text-left">
-                          <div className="font-medium">{size.name}</div>
-                          <div className="text-sm text-muted-foreground">{size.width}</div>
-                          <div className="text-sm text-neon-blue">₹{size.basePrice.toLocaleString()}</div>
-                        </div>
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="space-y-3">
-                  <label className="flex items-center gap-3">
-                    <input
-                      type="checkbox"
-                      checked={hasDimmer}
-                      onChange={(e) => setHasDimmer(e.target.checked)}
-                      className="w-4 h-4"
+                <CardContent className="space-y-4">
+                  <div>
+                    <label className="block text-sm font-medium mb-2">Your Text</label>
+                    <Textarea
+                      placeholder="Enter your custom text..."
+                      value={customText}
+                      onChange={(e) => setCustomText(e.target.value)}
+                      className="min-h-[100px]"
                     />
-                    <span>Add Dimmer Control (+₹499)</span>
-                  </label>
+                  </div>
 
                   <div>
-                    <label className="block text-sm font-medium mb-2">Backing Shape</label>
-                    <Select value={backingShape} onValueChange={setBackingShape}>
+                    <label className="block text-sm font-medium mb-2">Font Style</label>
+                    <Select value={selectedFont} onValueChange={setSelectedFont}>
                       <SelectTrigger>
                         <SelectValue />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="cut-to-shape">Cut to Shape (Free)</SelectItem>
-                        <SelectItem value="rectangle">Rectangle (+₹299)</SelectItem>
+                        {fonts.map((font) => (
+                          <SelectItem key={font.id} value={font.id}>
+                            <span className={font.family}>{font.name}</span>
+                          </SelectItem>
+                        ))}
                       </SelectContent>
                     </Select>
                   </div>
-                </div>
-              </CardContent>
+
+                  <div>
+                    <label className="block text-sm font-medium mb-2">Neon Color</label>
+                    <div className="grid grid-cols-4 gap-3">
+                      {colors.map((color) => (
+                        <button
+                          key={color.id}
+                          onClick={() => setSelectedColor(color.id)}
+                          className={`p-3 rounded-lg border-2 transition-all ${selectedColor === color.id
+                              ? 'border-neon-orange neon-glow'
+                              : 'border-border hover:border-muted-foreground'
+                            }`}
+                        >
+                          <div className="flex flex-col items-center gap-2">
+                            <div
+                              className="w-6 h-6 rounded-full border-2 border-white/20"
+                              style={{ backgroundColor: color.hex }}
+                            />
+                            <span className="text-xs font-medium">{color.name}</span>
+                          </div>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            <div className="relative p-0.5 rounded-3xl overflow-hidden"
+              style={{
+                background: `linear-gradient(135deg, 
+                     hsl(var(--neon-white) / 0.6), 
+                     hsl(var(--neon-white) / 0.6), 
+                     hsl(var(--neon-white) / 0.6)
+                   )`
+              }}>
+              <Card className="rounded-3xl backdrop-blur-sm" style={{
+                background: `linear-gradient(135deg, 
+                  hsl(var(--card) / 0.9) 0%, 
+                  hsl(220 15% 12% / 0.85) 30%,
+                  hsl(var(--card) / 0.9) 70%
+                )`,
+                boxShadow: `0 8px 32px hsl(220 15% 3% / 0.4)`
+              }}>
+                <CardHeader>
+                  <CardTitle className="bg-gradient-to-r from-neon-white to-neon-white bg-clip-text text-transparent">Size & Options</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div>
+                    <label className="block text-sm font-medium mb-2">Size (inch)</label>
+                    <div className="grid grid-cols-2 gap-3">
+                      {sizes.map((size) => (
+                        <button
+                          key={size.id}
+                          onClick={() => setSelectedSize(size.id)}
+                          className={`p-3 rounded-lg border-2 transition-all ${selectedSize === size.id
+                              ? 'border-neon-orange'
+                              : 'border-border hover:border-muted-foreground'
+                            }`}
+                        >
+                          <div className="text-left">
+                            <div className="font-medium">{size.name}</div>
+                            <div className="text-sm text-muted-foreground">{size.width}</div>
+                            <div className="text-sm text-neon-white">₹{size.basePrice.toLocaleString()}</div>
+                          </div>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="space-y-3">
+                    <label className="flex items-center gap-3">
+                      <input
+                        type="checkbox"
+                        checked={hasDimmer}
+                        onChange={(e) => setHasDimmer(e.target.checked)}
+                        className="w-4 h-4"
+                      />
+                      <span>Add Dimmer Control (+₹499)</span>
+                    </label>
+
+                    <div>
+                      <label className="block text-sm font-medium mb-2">Backing Shape</label>
+                      <Select value={backingShape} onValueChange={setBackingShape}>
+                        <SelectTrigger>
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="cut-to-shape">Cut to Shape (Free)</SelectItem>
+                          <SelectItem value="rectangle">Rectangle (+₹299)</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                  </div>
+                </CardContent>
               </Card>
             </div>
 
             {/* Action Buttons */}
             <div className="flex gap-4">
-              <Button 
+              <Button
                 className="flex-1 font-semibold py-3 text-lg rounded-2xl"
                 style={{
-                  background: 'linear-gradient(135deg, hsl(var(--neon-orange)), hsl(var(--neon-purple)))',
+                  background: 'linear-gradient(135deg, hsl(var(--neon-white)), hsl(var(--neon-white)))',
                   color: 'hsl(var(--background))',
-                  boxShadow: '0 0 20px hsl(var(--neon-orange) / 0.4)'
+                  boxShadow: '0 0 20px hsl(var(--neon-white) / 0.4)'
                 }}
                 onClick={handleAddToCart}
               >
                 <ShoppingCart className="w-4 h-4 mr-2" />
                 Add to Cart
               </Button>
-              <Button 
+              <Button
                 className="flex-1 font-semibold py-3 text-lg rounded-2xl"
                 style={{
                   background: 'transparent',
-                  border: '2px solid hsl(var(--neon-purple))',
-                  color: 'hsl(var(--neon-purple))',
-                  boxShadow: '0 0 20px hsl(var(--neon-purple) / 0.3)'
+                  border: '2px solid hsl(var(--neon-white))',
+                  color: 'hsl(var(--neon-white))',
+                  boxShadow: '0 0 20px hsl(var(--neon-white) / 0.3)'
                 }}
                 onClick={handleBuyNow}
               >

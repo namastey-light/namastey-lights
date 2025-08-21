@@ -57,6 +57,7 @@
     --neon-orange: 25 100% 60%;
     --neon-white: 0 0% 100%;
     --warm-white: 35 15% 85%;
+    --neon-blue: 240 100% 30%;
 
     /* Neon Gradients */
     --gradient-neon: linear-gradient(135deg, hsl(var(--neon-orange)), hsl(25 100% 70%), hsl(25 100% 55%));
@@ -182,6 +183,24 @@
       0 0 10px hsl(var(--neon-white)),
       0 0 20px hsl(var(--neon-white)),
       0 0 40px hsl(var(--neon-white));
+  }
+
+  .neon-text-navy {
+    color: hsl(var(--neon-navy));
+    text-shadow: 
+      0 0 5px hsl(var(--neon-navy)),
+      0 0 10px hsl(var(--neon-navy)),
+      0 0 20px hsl(var(--neon-navy)),
+      0 0 40px hsl(var(--neon-navy));
+  }
+
+  .neon-text-warm-white {
+    color: hsl(var(--warm-white));
+    text-shadow: 
+      0 0 5px hsl(var(--warm-white)),
+      0 0 10px hsl(var(--warm-white)),
+      0 0 20px hsl(var(--warm-white)),
+      0 0 40px hsl(var(--warm-white));
   }
 
   /* Neon Borders & Glows */

@@ -217,10 +217,10 @@ const Products = () => {
                     <div className="relative p-0.5 rounded-3xl overflow-hidden h-full"
                          style={{
                            background: `linear-gradient(135deg, 
-                             hsl(var(--neon-orange) / 0.6), 
-                             hsl(var(--neon-purple) / 0.6), 
-                             hsl(var(--neon-pink) / 0.6),
-                             hsl(var(--neon-orange) / 0.6)
+                             hsl(var(--neon-white) / 0.6), 
+                             hsl(var(--neon-white) / 0.6), 
+                             hsl(var(--neon-white) / 0.6),
+                             hsl(var(--neon-white) / 0.6)
                            )`
                          }}>
                       <div className="relative p-6 rounded-3xl backdrop-blur-sm overflow-hidden h-full flex flex-col"
@@ -241,9 +241,9 @@ const Products = () => {
                            style={{
                              background: `
                                linear-gradient(135deg, 
-                                 hsl(var(--neon-orange) / 0.08) 0%, 
-                                 hsl(var(--neon-purple) / 0.08) 50%,
-                                 hsl(var(--neon-pink) / 0.08) 100%
+                                 hsl(var(--neon-white) / 0.08) 0%, 
+                                 hsl(var(--neon-white) / 0.08) 50%,
+                                 hsl(var(--neon-white) / 0.08) 100%
                                )
                              `,
                              backgroundSize: '200% 200%',
@@ -255,7 +255,7 @@ const Products = () => {
                         <Link to={`/products/${product.id}`}>
                           <div className="aspect-square bg-gradient-to-br from-muted to-muted/50 rounded-2xl mb-4 overflow-hidden relative"
                                style={{
-                                 boxShadow: '0 0 20px hsl(var(--neon-orange) / 0.3)'
+                                 boxShadow: '0 0 20px hsl(var(--neon-white) / 0.3)'
                                }}>
                             <img
                               src={primaryImage}
@@ -266,31 +266,22 @@ const Products = () => {
                                  style={{
                                    background: `
                                      linear-gradient(45deg, 
-                                       hsl(var(--neon-orange) / 0.1) 0%, 
+                                       hsl(var(--neon-white) / 0.1) 0%, 
                                        transparent 50%,
-                                       hsl(var(--neon-purple) / 0.1) 100%
+                                       hsl(var(--neon-white) / 0.1) 100%
                                      )
                                    `
                                  }}>
                             </div>
                             
-                            {/* Category badge */}
-                            <Badge className="absolute top-3 left-3 backdrop-blur-sm group-hover:shadow-lg transition-all duration-300"
-                                   style={{
-                                     background: 'linear-gradient(135deg, hsl(var(--neon-orange) / 0.9), hsl(var(--neon-purple) / 0.9))',
-                                     border: '1px solid hsl(var(--neon-orange) / 0.5)',
-                                     color: 'hsl(var(--neon-white))',
-                                     boxShadow: '0 0 20px hsl(var(--neon-orange) / 0.5)'
-                                   }}>
-                              {product.categories?.name || 'General'}
-                            </Badge>
+                            
                           </div>
                         </Link>
                         
                         <Link to={`/products/${product.id}`}>
                           <h3 className="font-rajdhani font-bold text-lg mb-3 group-hover:text-transparent transition-all duration-300"
                               style={{
-                                background: 'linear-gradient(135deg, hsl(var(--neon-orange)), hsl(var(--neon-purple)))',
+                                background: 'linear-gradient(135deg, hsl(var(--neon-whitw)), hsl(var(--neon-whitw)))',
                                 WebkitBackgroundClip: 'text',
                                 backgroundClip: 'text',
                               }}>
@@ -356,9 +347,9 @@ const Products = () => {
                             size="sm"
                             style={{
                               background: 'transparent',
-                              border: '2px solid hsl(var(--neon-purple))',
-                              color: 'hsl(var(--neon-purple))',
-                              boxShadow: '0 0 20px hsl(var(--neon-purple) / 0.3)'
+                              border: '2px solid hsl(var(--neon-white))',
+                              color: 'hsl(var(--neon-whitw))',
+                              boxShadow: '0 0 20px hsl(var(--neon-whitw) / 0.3)'
                             }}
                           >
                             <Link to={`/products/${product.id}`}>
@@ -380,7 +371,7 @@ const Products = () => {
                       {/* Multicolor bottom glow */}
                       <div className="absolute inset-x-0 bottom-0 h-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                            style={{
-                             background: 'linear-gradient(90deg, hsl(var(--neon-orange)), hsl(var(--neon-purple)), hsl(var(--neon-pink)), hsl(var(--neon-orange)))',
+                             background: 'linear-gradient(90deg, hsl(var(--neon-white)), hsl(var(--neon-whitw)), hsl(var(--neon-white)), hsl(var(--neon-white)))',
                              backgroundSize: '200% 100%',
                              animation: 'gradientShift 2s ease infinite'
                            }}>
@@ -389,7 +380,7 @@ const Products = () => {
                       {/* Outer glow effect */}
                       <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                            style={{
-                             boxShadow: '0 0 50px hsl(var(--neon-orange) / 0.4), 0 0 100px hsl(var(--neon-purple) / 0.3)'
+                             boxShadow: '0 0 50px hsl(var(--neon-white) / 0.4), 0 0 100px hsl(var(--neon-white) / 0.3)'
                            }}>
                       </div>
                     </div>
