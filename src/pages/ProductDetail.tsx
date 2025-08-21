@@ -282,7 +282,7 @@ const ProductDetail = () => {
                 )}
               </div>
 
-              <h1 className="font-orbitron font-bold text-3xl md:text-4xl mb-4 bg-gradient-to-r from-neon-white via-neon-white to-blue-400 bg-clip-text text-transparent">
+              <h1 className="font-orbitron font-bold text-3xl md:text-4xl mb-4 bg-gradient-to-r from-neon-white via-neon-white to-neon-white bg-clip-text text-transparent">
                 {product.name}
               </h1>
 
@@ -317,9 +317,7 @@ const ProductDetail = () => {
                 {product.description || `Fancoelite® Neon Signs can be in multiple sizes, can last 50,000+ hours, custom made with quality Neon LED Lights. Choose from a wide range of colours like Red, Pink, Blue, Ice Blue, Orange, White, Warm White, Purple, Yellow! Customise Neon Signs with your name, word, letter, logo or quote. Install it on a wall of bedroom, balcony, hall, terrace, office space or workspace.`}
               </p>
 
-              <div className="mb-6">
-                <p className="text-sm font-medium mb-2">Size: 0.5ft width × 0.5ft height</p>
-              </div>
+              
             </div>
 
             {/* Product Options */}
@@ -346,14 +344,14 @@ const ProductDetail = () => {
 
               <div>
                 <label className="block text-sm font-medium mb-3">Color <span className="text-red-500">*</span></label>
-                <Select value={selectedColor} onValueChange={setSelectedColor}>
-                  <SelectTrigger>
+                <Select value={selectedColor} onValueChange={setSelectedColor} >
+                  <SelectTrigger className="bg-transperent text-white border border-gray-600">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
                     {colors.map((color) => (
                       <SelectItem key={color.id} value={color.id}>
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-2 ">
                           <div
                             className="w-4 h-4 rounded-full border"
                             style={{ backgroundColor: color.hex }}
@@ -386,7 +384,7 @@ const ProductDetail = () => {
               <div>
                 <label className="block text-sm font-medium mb-3">Addons</label>
                 <div className="space-y-3">
-                  <label className="flex items-center justify-between p-3 border rounded-lg">
+                  <label className="flex items-center justify-between p-3 border border-gray-600 rounded-lg">
                     <div className="flex items-center gap-3">
                       <Checkbox
                         checked={hasDimmer}
@@ -528,30 +526,7 @@ const ProductDetail = () => {
           </NeonCard>
         </div>
 
-        {/* FAQ Section */}
-        <div className="mb-16">
-          <h2 className="font-orbitron font-bold text-3xl mb-8 text-center">
-            FAQ
-          </h2>
-          <div className="space-y-4">
-            {[
-              { question: "How much does a custom neon sign cost?", answer: "The price depends on the size, style, and design details you choose." },
-              { question: "How long does delivery usually take?", answer: "Most orders arrive within 7–10 business days after confirmation." },
-              { question: "What size will my customized neon sign be?", answer: "You’ll receive the exact dimensions before we finalize your order." },
-              { question: "Do LED neon signs make noise?", answer: "Nope! Our LED neon signs are 100% silent and buzz-free." },
-              { question: "Can I get a neon sign without visible cords?", answer: "Yes, we also offer battery-powered models for a clean, cord-free look." },
-              { question: "Can you make a neon sign from my logo or design?", answer: "Absolutely! Share your artwork and we’ll bring it to life in neon." },
-              { question: "Do you accept urgent/rush orders?", answer: "Yes, we can fast-track production for an additional charge." },
-              { question: "Why are there tiny marks on my sign?", answer: "Those are normal cutting marks from LED tubing and don’t affect quality." }
-            ].map((faq, index) => (
-              <div key={index} className="border-b border-white/10 pb-4">
-                <h4 className="subtitle-cursive text-xl mb-2">{faq.question}</h4>
-                <p className="subtitle-cursive text-sm">{faq.answer}</p>
-              </div>
-            ))}
-          </div>
-
-        </div>
+        
 
         {/* Similar Products */}
         <div className="mb-[25px]">
@@ -579,7 +554,7 @@ const ProductDetail = () => {
                     </h3>
 
                     <div className="flex items-center gap-3">
-                      <span className="font-bold text-xl text-neon-blue">
+                      <span className="font-bold text-xl text-neon-white">
                         ₹{getDisplayPrice(item).toLocaleString()}
                       </span>
                       {getDisplayMRP(item) && getDisplayMRP(item) > getDisplayPrice(item) && (
@@ -592,6 +567,30 @@ const ProductDetail = () => {
                 </NeonCard>
               );
             })}
+          </div>
+        </div>
+
+        {/* FAQ Section */}
+        <div className="mb-16">
+          <h2 className="font-orbitron font-bold text-5xl mb-8 text-center">
+            FAQ
+          </h2>
+          <div className="space-y-4">
+            {[
+              { question: "How much does a custom neon sign cost?", answer: "The price depends on the size, style, and design details you choose." },
+              { question: "How long does delivery usually take?", answer: "Most orders arrive within 7–10 business days after confirmation." },
+              { question: "What size will my customized neon sign be?", answer: "You’ll receive the exact dimensions before we finalize your order." },
+              { question: "Do LED neon signs make noise?", answer: "Nope! Our LED neon signs are 100% silent and buzz-free." },
+              { question: "Can I get a neon sign without visible cords?", answer: "Yes, we also offer battery-powered models for a clean, cord-free look." },
+              { question: "Can you make a neon sign from my logo or design?", answer: "Absolutely! Share your artwork and we’ll bring it to life in neon." },
+              { question: "Do you accept urgent/rush orders?", answer: "Yes, we can fast-track production for an additional charge." },
+              { question: "Why are there tiny marks on my sign?", answer: "Those are normal cutting marks from LED tubing and don’t affect quality." }
+            ].map((faq, index) => (
+              <div key={index} className="border-b border-white/10 pb-4">
+                <h4 className="subtitle-cursive text-xl mb-2">{faq.question}</h4>
+                <p className="subtitle-cursive text-sm">{faq.answer}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>

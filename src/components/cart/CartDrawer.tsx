@@ -71,7 +71,7 @@ const CartDrawer = () => {
                       
                       {/* Price and Quantity Controls Row */}
                       <div className="flex items-center justify-between mt-3">
-                        <p className="text-neon-blue font-semibold">
+                        <p className="text-neon-white font-semibold">
                           {formatPrice(item.price)}
                         </p>
                         
@@ -111,7 +111,7 @@ const CartDrawer = () => {
             <div className="border-t border-white/10 p-6 space-y-4 flex-shrink-0 bg-background/95 backdrop-blur-sm">
               <div className="flex justify-between items-center text-lg font-semibold">
                 <span>Total:</span>
-                <span className="text-neon-blue">{formatPrice(state.totalPrice)}</span>
+                <span className="text-neon-white">{formatPrice(state.totalPrice)}</span>
               </div>
 
               <div className="space-y-3">

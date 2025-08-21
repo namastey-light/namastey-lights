@@ -8,7 +8,7 @@ const ShippingInfo = () => {
         <div className="text-center mb-12">
           <h1 className="font-orbitron font-bold text-4xl md:text-5xl mb-4">
             <NeonText color="pink">Shipping</NeonText>{' '}
-            <NeonText color="blue">Information</NeonText>
+            <NeonText color="white">Information</NeonText>
           </h1>
           <p className="subtitle-cursive text-lg">
             Everything you need to know about delivery of your neon signs

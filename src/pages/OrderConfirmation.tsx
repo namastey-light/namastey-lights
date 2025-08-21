@@ -28,7 +28,7 @@ const OrderConfirmation = () => {
           <CheckCircle className="w-16 h-16 text-neon-green mx-auto mb-4" />
           <h1 className="font-orbitron font-bold text-4xl mb-4">
             <NeonText color="green">Order</NeonText>{' '}
-            <NeonText color="blue">Confirmed!</NeonText>
+            <NeonText color="white">Confirmed!</NeonText>
           </h1>
           <p className="text-lg text-muted-foreground">
             Thank you for your order. We'll get started on your custom neon sign right away!
@@ -40,7 +40,7 @@ const OrderConfirmation = () => {
           <Card className="neon-card">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <Package className="w-5 h-5 text-neon-blue" />
+                <Package className="w-5 h-5 text-neon-white" />
                 Order Information
               </CardTitle>
             </CardHeader>
@@ -59,7 +59,7 @@ const OrderConfirmation = () => {
               </div>
               <div className="flex justify-between">
                 <span className="text-muted-foreground">Total Amount:</span>
-                <span className="font-bold text-neon-blue">
+                <span className="font-bold text-neon-white">
                   ₹{orderDetails?.totalAmount?.toLocaleString() || '0'}
                 </span>
               </div>
@@ -69,7 +69,7 @@ const OrderConfirmation = () => {
           <Card className="neon-card">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <Truck className="w-5 h-5 text-neon-blue" />
+                <Truck className="w-5 h-5 text-neon-white" />
                 Delivery Information
               </CardTitle>
             </CardHeader>
@@ -100,8 +100,8 @@ const OrderConfirmation = () => {
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="text-center">
-                <div className="w-12 h-12 bg-neon-blue/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <Phone className="w-6 h-6 text-neon-blue" />
+                <div className="w-12 h-12 bg-neon-white/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <Phone className="w-6 h-6 text-neon-white" />
                 </div>
                 <h3 className="font-medium mb-2">Confirmation Call</h3>
                 <p className="text-sm text-muted-foreground">
@@ -138,14 +138,14 @@ const OrderConfirmation = () => {
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-neon-blue" />
+                <Phone className="w-5 h-5 text-neon-white" />
                 <div>
                   <p className="font-medium">Call Us</p>
                   <p className="text-sm text-muted-foreground">+91 83848 84622</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-neon-blue" />
+                <Mail className="w-5 h-5 text-neon-white" />
                 <div>
                   <p className="font-medium">Email Us</p>
                   <p className="text-sm text-muted-foreground">believebrightcare@gmail.com</p>

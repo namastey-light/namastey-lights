@@ -50,8 +50,6 @@ export function ProductManagement() {
     medium_price: "",
     large_mrp: "",
     large_price: "",
-    extra_large_mrp: "",
-    extra_large_price: "",
     category_id: "",
     stock_quantity: "",
     rating: "",
@@ -207,8 +205,6 @@ export function ProductManagement() {
         medium_price: formData.medium_price ? parseFloat(formData.medium_price) : null,
         large_mrp: formData.large_mrp ? parseFloat(formData.large_mrp) : null,
         large_price: formData.large_price ? parseFloat(formData.large_price) : null,
-        extra_large_mrp: formData.extra_large_mrp ? parseFloat(formData.extra_large_mrp) : null,
-        extra_large_price: formData.extra_large_price ? parseFloat(formData.extra_large_price) : null,
         stock_quantity: parseInt(formData.stock_quantity),
         rating: formData.rating ? parseFloat(formData.rating) : 4.0,
         review_count: formData.review_count ? parseInt(formData.review_count) : 0,
@@ -271,8 +267,6 @@ export function ProductManagement() {
       medium_price: "",
       large_mrp: "",
       large_price: "",
-      extra_large_mrp: "",
-      extra_large_price: "",
       category_id: "",
       stock_quantity: "",
       rating: "",
@@ -326,8 +320,6 @@ export function ProductManagement() {
       medium_price: product.medium_price?.toString() || "",
       large_mrp: product.large_mrp?.toString() || "",
       large_price: product.large_price?.toString() || "",
-      extra_large_mrp: product.extra_large_mrp?.toString() || "",
-      extra_large_price: product.extra_large_price?.toString() || "",
       category_id: product.category_id || "",
       stock_quantity: product.stock_quantity.toString(),
       rating: product.rating?.toString() || "",
@@ -435,7 +427,7 @@ export function ProductManagement() {
                 
                 {/* Small Size */}
                 <div className="border rounded-lg p-4 space-y-3">
-                  <Label className="text-sm font-medium text-blue-600">Small Size (0.5ft x 0.5ft)</Label>
+                  <Label className="text-sm font-medium text-neon-white">Small Size (0.5ft x 0.5ft)</Label>
                   <div className="grid grid-cols-2 gap-4">
                     <div>
                       <Label htmlFor="small_mrp">MRP ₹</Label>
@@ -495,7 +487,7 @@ export function ProductManagement() {
 
                 {/* Large Size */}
                 <div className="border rounded-lg p-4 space-y-3">
-                  <Label className="text-sm font-medium text-blue-600">Large Size (1.5ft x 1.5ft)</Label>
+                  <Label className="text-sm font-medium text-neon-white">Large Size (1.5ft x 1.5ft)</Label>
                   <div className="grid grid-cols-2 gap-4">
                     <div>
                       <Label htmlFor="large_mrp">MRP ₹</Label>
@@ -522,34 +514,7 @@ export function ProductManagement() {
                   </div>
                 </div>
 
-                {/* Extra Large Size */}
-                <div className="border rounded-lg p-4 space-y-3">
-                  <Label className="text-sm font-medium text-blue-600">Extra Large Size (2ft x 2ft)</Label>
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <Label htmlFor="extra_large_mrp">MRP ₹</Label>
-                      <Input
-                        id="extra_large_mrp"
-                        type="number"
-                        step="0.01"
-                        value={formData.extra_large_mrp}
-                        onChange={(e) => setFormData({ ...formData, extra_large_mrp: e.target.value })}
-                        placeholder="900"
-                      />
-                    </div>
-                    <div>
-                      <Label htmlFor="extra_large_price">Selling Price ₹</Label>
-                      <Input
-                        id="extra_large_price"
-                        type="number"
-                        step="0.01"
-                        value={formData.extra_large_price}
-                        onChange={(e) => setFormData({ ...formData, extra_large_price: e.target.value })}
-                        placeholder="720"
-                      />
-                    </div>
-                  </div>
-                </div>
+                
               </div>
               
               <div>

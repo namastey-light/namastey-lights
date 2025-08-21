@@ -250,7 +250,7 @@ const Customize = () => {
                   </div>
 
                   <div className="mt-4 flex justify-between items-center">
-                    <Button variant="outline" className="btn-neon" onClick={handleDownloadPreview}>
+                    <Button variant="outline" className="btn" onClick={handleDownloadPreview}>
                       <Download className="w-4 h-4 mr-2" />
                       Download Preview
                     </Button>
@@ -343,6 +343,7 @@ const Customize = () => {
                   <div>
                     <label className="block text-sm font-medium mb-2">Your Text</label>
                     <Textarea
+                    
                       placeholder="Enter your custom text..."
                       value={customText}
                       onChange={(e) => setCustomText(e.target.value)}
@@ -351,9 +352,9 @@ const Customize = () => {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium mb-2">Font Style</label>
+                    <label className="block text-sm font-medium mb-2 ">Font Style</label>
                     <Select value={selectedFont} onValueChange={setSelectedFont}>
-                      <SelectTrigger>
+                      <SelectTrigger className="bg-transperent border border-gray-600">
                         <SelectValue />
                       </SelectTrigger>
                       <SelectContent>
@@ -449,7 +450,7 @@ const Customize = () => {
                     <div>
                       <label className="block text-sm font-medium mb-2">Backing Shape</label>
                       <Select value={backingShape} onValueChange={setBackingShape}>
-                        <SelectTrigger>
+                        <SelectTrigger className="bg-transperent border border-gray-600">
                           <SelectValue />
                         </SelectTrigger>
                         <SelectContent>

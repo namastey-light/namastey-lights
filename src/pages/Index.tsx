@@ -26,6 +26,8 @@ import {
   MessageCircle
 } from 'lucide-react';
 
+import { FaWhatsapp } from 'react-icons/fa';
+
 const Index = () => {
   const { addItem } = useCart();
   const { toast } = useToast();
@@ -604,10 +606,10 @@ const Index = () => {
                     <div className="relative p-0.5 rounded-3xl overflow-hidden"
                       style={{
                         background: `linear-gradient(135deg, 
-                         hsl(var(--neon-orange) / 0.6), 
-                         hsl(var(--neon-purple) / 0.6), 
-                         hsl(var(--neon-pink) / 0.6),
-                         hsl(var(--neon-orange) / 0.6)
+                         hsl(var(--neon-white) / 0.6), 
+                         hsl(var(--neon-white) / 0.6), 
+                         hsl(var(--neon-white) / 0.6),
+                         hsl(var(--neon-white) / 0.6)
                        )`
                       }}>
                       <div className="relative p-6 rounded-3xl backdrop-blur-sm overflow-hidden"
@@ -628,9 +630,9 @@ const Index = () => {
                           style={{
                             background: `
                            linear-gradient(135deg, 
-                             hsl(var(--neon-orange) / 0.08) 0%, 
-                             hsl(var(--neon-purple) / 0.08) 50%,
-                             hsl(var(--neon-pink) / 0.08) 100%
+                             hsl(var(--neon-white) / 0.08) 0%, 
+                             hsl(var(--neon-white) / 0.08) 50%,
+                             hsl(var(--neon-white) / 0.08) 100%
                            )
                          `,
                             backgroundSize: '200% 200%',
@@ -642,7 +644,7 @@ const Index = () => {
                           <Link to={`/products/${product.id}`}>
                             <div className="aspect-square bg-gradient-to-br from-muted to-muted/50 rounded-2xl mb-4 overflow-hidden relative"
                               style={{
-                                boxShadow: '0 0 20px hsl(var(--neon-orange) / 0.3)'
+                                boxShadow: '0 0 20px hsl(var(--neon-white) / 0.3)'
                               }}>
                               <img
                                 src={product.image}
@@ -653,9 +655,9 @@ const Index = () => {
                                 style={{
                                   background: `
                                  linear-gradient(45deg, 
-                                   hsl(var(--neon-orange) / 0.1) 0%, 
+                                   hsl(var(--neon-white) / 0.1) 0%, 
                                    transparent 50%,
-                                   hsl(var(--neon-purple) / 0.1) 100%
+                                   hsl(var(--neon-white) / 0.1) 100%
                                  )
                                `
                                 }}>
@@ -675,7 +677,7 @@ const Index = () => {
                           <Link to={`/products/${product.id}`}>
                             <h3 className="font-rajdhani font-bold text-lg mb-3 group-hover:text-transparent transition-all duration-300"
                               style={{
-                                background: 'linear-gradient(135deg, hsl(var(--neon-orange)), hsl(var(--neon-purple)))',
+                                background: 'linear-gradient(135deg, hsl(var(--neon-white)), hsl(var(--neon-white)))',
                                 WebkitBackgroundClip: 'text',
                                 backgroundClip: 'text',
                               }}>
@@ -701,7 +703,7 @@ const Index = () => {
                             <div className="flex items-center gap-2">
                               <span className="font-bold text-lg group-hover:text-transparent transition-all duration-300"
                                 style={{
-                                  background: 'linear-gradient(135deg, hsl(var(--neon-orange)), hsl(var(--neon-purple)))',
+                                  background: 'linear-gradient(135deg, hsl(var(--neon-white)), hsl(var(--neon-white))',
                                   WebkitBackgroundClip: 'text',
                                   backgroundClip: 'text',
                                 }}>
@@ -736,9 +738,9 @@ const Index = () => {
                               size="sm"
                               style={{
                                 background: 'transparent',
-                                border: '2px solid hsl(var(--neon-purple))',
-                                color: 'hsl(var(--neon-purple))',
-                                boxShadow: '0 0 20px hsl(var(--neon-purple) / 0.3)'
+                                border: '2px solid hsl(var(--neon-white))',
+                                color: 'hsl(var(--neon-white))',
+                                boxShadow: '0 0 20px hsl(var(--neon-white) / 0.3)'
                               }}
                             >
                               <Link to={`/products/${product.id}`}>
@@ -806,8 +808,8 @@ const Index = () => {
 
 
                   <div className="mb-6 flex justify-center">
-                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-neon-pink to-neon-blue flex items-center justify-center text-background font-bold text-xl relative group-hover:scale-110 transition-all duration-500 shadow-lg group-hover:shadow-2xl group-hover:shadow-neon-pink/40">
-                      <div className="absolute inset-0 rounded-full bg-gradient-to-br from-neon-pink to-neon-blue opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500"></div>
+                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-neon-pink to-neon-white flex items-center justify-center text-background font-bold text-xl relative group-hover:scale-110 transition-all duration-500 shadow-lg group-hover:shadow-2xl group-hover:shadow-neon-pink/40">
+                      <div className="absolute inset-0 rounded-full bg-gradient-to-br from-neon-pink to-neon-white opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500"></div>
                       <span className="relative z-10">{step.step}</span>
                     </div>
                   </div>
@@ -967,10 +969,10 @@ const Index = () => {
                   <div className="relative p-0.5 rounded-3xl overflow-hidden"
                     style={{
                       background: `linear-gradient(135deg, 
-                         hsl(var(--neon-purple) / 0.6), 
+                         hsl(var(--neon-white) / 0.6), 
                          hsl(var(--neon-white) / 0.4), 
-                         hsl(var(--neon-blue) / 0.6),
-                         hsl(var(--neon-purple) / 0.6)
+                         hsl(var(--neon-white) / 0.6),
+                         hsl(var(--neon-white) / 0.6)
                        )`
                     }}>
                     <div className="relative p-6 rounded-3xl backdrop-blur-sm overflow-hidden"
@@ -991,9 +993,9 @@ const Index = () => {
                         style={{
                           background: `
                            linear-gradient(135deg, 
-                             hsl(var(--neon-purple) / 0.08) 0%, 
+                             hsl(var(--neon-white) / 0.08) 0%, 
                              hsl(var(--neon-white) / 0.04) 50%,
-                             hsl(var(--neon-blue) / 0.08) 100%
+                             hsl(var(--neon-white) / 0.08) 100%
                            )
                          `,
                           backgroundSize: '200% 200%',
@@ -1007,13 +1009,13 @@ const Index = () => {
                             style={{
                               background: `
                                linear-gradient(135deg, 
-                                 hsl(var(--neon-purple) / 0.3) 0%, 
+                                 hsl(var(--neon-blue) / 0.3) 0%, 
                                  hsl(var(--neon-blue) / 0.3) 100%
                                )
                              `,
                               boxShadow: `
-                               0 0 20px hsl(var(--neon-purple) / 0.4),
-                               inset 0 0 20px hsl(var(--neon-blue) / 0.2)
+                               0 0 20px hsl(var(--neon-white) / 0.4),
+                               inset 0 0 20px hsl(var(--neon-white) / 0.2)
                              `
                             }}>
                             <img
@@ -1023,9 +1025,9 @@ const Index = () => {
                             />
                           </div>
                           <div>
-                            <h4 className="font-rajdhani font-bold text-lg md:group-hover:text-transparent transition-all duration-300"
+                            <h4 className="font-rajdhani font-bold text-lg md:group-hover transition-all duration-300"
                               style={{
-                                background: 'linear-gradient(135deg, hsl(var(--neon-purple)), hsl(var(--neon-blue)))',
+                                
                                 WebkitBackgroundClip: 'text',
                                 backgroundClip: 'text',
                               }}>
@@ -1167,7 +1169,7 @@ const Index = () => {
     {/* Neon glow effect */}
     <div className="absolute inset-0 rounded-full bg-green-400/30 blur-lg scale-110 opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
     
-    <MessageCircle className="w-6 h-6 text-white relative z-10" />
+    <FaWhatsapp className="w-6 h-6 text-white relative z-10" />
   </div>
 </div>
 

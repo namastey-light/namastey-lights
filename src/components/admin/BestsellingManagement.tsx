@@ -246,7 +246,7 @@ const BestsellingManagement = () => {
       {/* Add New Bestselling Product */}
       <Card className="neon-card">
         <CardHeader>
-          <CardTitle className="text-neon-blue">Add New Bestselling Product</CardTitle>
+          <CardTitle className="text-neon-white">Add New Bestselling Product</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -293,7 +293,7 @@ const BestsellingManagement = () => {
       {/* Current Bestselling Products */}
       <Card className="neon-card">
         <CardHeader>
-          <CardTitle className="text-neon-blue">Current Bestselling Products</CardTitle>
+          <CardTitle className="text-neon-white">Current Bestselling Products</CardTitle>
         </CardHeader>
         <CardContent>
           {bestsellingProducts.length === 0 ? (

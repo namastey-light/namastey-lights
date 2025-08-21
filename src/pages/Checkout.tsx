@@ -320,7 +320,7 @@ const Checkout = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <h1 className="font-orbitron font-bold text-4xl text-center mb-8">
           <NeonText color="pink">Secure</NeonText>{' '}
-          <NeonText color="blue">Checkout</NeonText>
+          <NeonText color="white">Checkout</NeonText>
         </h1>
 
         <form onSubmit={handleSubmit}>
@@ -331,7 +331,7 @@ const Checkout = () => {
               <Card className="neon-card">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
-                    <User className="w-5 h-5 text-neon-blue" />
+                    <User className="w-5 h-5 text-neon-white" />
                     Customer Information
                   </CardTitle>
                 </CardHeader>
@@ -380,7 +380,7 @@ const Checkout = () => {
               <Card className="neon-card">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
-                    <MapPin className="w-5 h-5 text-neon-blue" />
+                    <MapPin className="w-5 h-5 text-neon-white" />
                     Delivery Address
                   </CardTitle>
                 </CardHeader>
@@ -481,17 +481,7 @@ const Checkout = () => {
                       />
                     </div>
                   </div>
-                  <div>
-                    <Label htmlFor="preferredDate">Preferred Delivery Date</Label>
-                    <Input
-                      id="preferredDate"
-                      name="preferredDate"
-                      type="date"
-                      value={deliveryInfo.preferredDate}
-                      onChange={(e) => handleInputChange(e, 'delivery')}
-                      min={new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0]}
-                    />
-                  </div>
+                  
                 </CardContent>
               </Card>
 
@@ -499,7 +489,7 @@ const Checkout = () => {
               <Card className="neon-card">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
-                    <CreditCard className="w-5 h-5 text-neon-blue" />
+                    <CreditCard className="w-5 h-5 text-neon-white" />
                     Payment Method
                   </CardTitle>
                 </CardHeader>
@@ -530,7 +520,7 @@ const Checkout = () => {
                               Pay when your order is delivered
                             </p>
                           </div>
-                          <Truck className="w-5 h-5 text-neon-blue" />
+                          <Truck className="w-5 h-5 text-neon-white" />
                         </div>
                       </Label>
                     </div>
@@ -583,7 +573,7 @@ const Checkout = () => {
                     )}
                     <div className="flex justify-between font-bold text-lg pt-2 border-t border-white/10">
                       <span>Total</span>
-                      <NeonText color="blue">₹{grandTotal.toLocaleString()}</NeonText>
+                      <p color="white">₹{grandTotal.toLocaleString()}</p>
                     </div>
                   </div>
 

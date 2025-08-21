@@ -8,7 +8,7 @@ const ReturnPolicy = () => {
         <div className="text-center mb-12">
           <h1 className="font-orbitron font-bold text-4xl md:text-5xl mb-4">
             <NeonText color="pink">Return</NeonText>{' '}
-            <NeonText color="blue">Policy</NeonText>
+            <NeonText color="white">Policy</NeonText>
           </h1>
           <p className="subtitle-cursive text-lg">
             Your satisfaction is our priority at Namastey lights

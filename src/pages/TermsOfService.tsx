@@ -8,7 +8,7 @@ const TermsOfService = () => {
         <div className="text-center mb-12">
           <h1 className="font-orbitron font-bold text-4xl md:text-5xl mb-4">
             <NeonText color="pink">Terms of</NeonText>{' '}
-            <NeonText color="blue">Service</NeonText>
+            <NeonText color="white">Service</NeonText>
           </h1>
           <p className="subtitle-cursive text-lg">
             Please read these terms carefully before using our services
