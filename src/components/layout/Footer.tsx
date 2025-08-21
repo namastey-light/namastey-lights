@@ -51,7 +51,7 @@ const Footer = () => {
                   fontSize: '1.4em',
                   fontWeight: '600',
                   fontStyle: 'italic',
-                  textShadow: '0 0 5px hsl(var(--neon-white) / 0.9), 0 0 10px hsl(var(--neon-white) / 0.7), 0 0 20px hsl(var(--neon-white) / 0.5), 0 0 35px hsl(var(--neon-whitw) / 0.3), 0 0 50px hsl(var(--neon-white) / 0.2)'
+                  textShadow: '0 0 5px hsl(var(--neon-white) / 0.9), 0 0 10px hsl(var(--neon-white) / 0.7), 0 0 20px hsl(var(--neon-white) / 0.5), 0 0 35px hsl(var(--neon-white) / 0.3), 0 0 50px hsl(var(--neon-white) / 0.2)'
                 }}
               >
                 lights

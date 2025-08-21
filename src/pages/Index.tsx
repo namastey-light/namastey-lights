@@ -326,7 +326,7 @@ const Index = () => {
         {/* Why Choose Us Section */}
         <section className="py-[10px] relative z-10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="text-center mb-16 animate-fade-in">
+            <div className="text-center mb-[30px] animate-fade-in">
 
 
               <h2 className="font-orbitron font-bold text-4xl md:text-5xl mb-6 text-neon-white"
@@ -357,7 +357,7 @@ const Index = () => {
             </div>
 
             {/* Mobile: Horizontal scroll, Desktop: Grid */}
-            <div className="flex overflow-x-auto gap-6 pb-4 md:pb-0 md:grid md:grid-cols-2 lg:grid-cols-4 md:overflow-visible scrollbar-hide py-4 md:py-0">
+            <div className="flex overflow-x-auto gap-6 pb-4 md:pb-0 md:grid md:grid-cols-2 lg:grid-cols-4 md:overflow-visible scrollbar-hide py-1 md:py-0">
               {features.map((feature, index) => {
                 const Icon = feature.icon;
                 return (
@@ -405,7 +405,7 @@ const Index = () => {
         </section>
 
         {/* Categories Showcase */}
-        <section className="py-[50px] relative z-10">
+        <section className="py-[30px] relative z-10">
           <div className="max-w-9xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="text-center mb-16 animate-fade-in">
               <h2 className="font-orbitron font-bold text-4xl md:text-5xl mb-6 text-neon-white "
@@ -420,7 +420,7 @@ const Index = () => {
             </div>
 
             {/* Mobile: Horizontal scroll, Desktop: Grid */}
-            <div className="flex overflow-x-auto gap-6 pb-4 md:pb-0 md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 md:overflow-visible scrollbar-hide py-6 md:py-0">
+            <div className="flex overflow-x-auto gap-6 pb-4 md:pb-0 md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 md:overflow-visible scrollbar-hide py-0 md:py-0">
               {categories.map((category, index) => {
                 const Icon = category.icon;
                 return (
@@ -574,7 +574,7 @@ const Index = () => {
         </section>
 
         {/* Bestsellers Carousel */}
-        <section className="py-[50px] relative z-10">
+        <section className="py-[20px] relative z-10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="text-center mb-16 animate-fade-in">
               <h2 className="font-orbitron font-bold text-4xl md:text-5xl mb-6 text-neon-white"
@@ -588,7 +588,7 @@ const Index = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-0">
               {bestsellingProducts.length === 0 ? (
                 <div className="col-span-full text-center py-12">
                   <p className="text-muted-foreground">No bestselling products yet.</p>
@@ -1117,6 +1117,35 @@ const Index = () => {
             </div>
           </div>
         </section>
+
+        {/* FAQ Section */}
+        <section className="py-[1px] relative z-10 px-[20px] sm:px-[100px]">
+        <div className="mb-16">
+          <h2 className="font-orbitron font-bold text-5xl mb-8 text-center pt-[1px]">
+            FAQ
+          </h2>
+          <div className="space-y-4 pt-1 sm:pt-[20px] mb-[1px] ">
+            {[
+              { question: "How much does a custom neon sign cost?", answer: "The price depends on the size, style, and design details you choose." },
+              { question: "How long does delivery usually take?", answer: "Most orders arrive within 7–10 business days after confirmation." },
+              { question: "What size will my customized neon sign be?", answer: "You’ll receive the exact dimensions before we finalize your order." },
+              { question: "Do LED neon signs make noise?", answer: "Nope! Our LED neon signs are 100% silent and buzz-free." },
+              { question: "Can I get a neon sign without visible cords?", answer: "Yes, we also offer battery-powered models for a clean, cord-free look." },
+              { question: "Can you make a neon sign from my logo or design?", answer: "Absolutely! Share your artwork and we’ll bring it to life in neon." },
+              { question: "Do you accept urgent/rush orders?", answer: "Yes, we can fast-track production for an additional charge." },
+              { question: "Why are there tiny marks on my sign?", answer: "Those are normal cutting marks from LED tubing and don’t affect quality." }
+            ].map((faq, index) => (
+              <div key={index} className="border-b border-white/10 pb-4">
+                <h4 className="subtitle-cursive text-xl mb-2">{faq.question}</h4>
+                <p className="subtitle-cursive text-sm">{faq.answer}</p>
+              </div>
+            ))}
+          </div>
+
+        </div>
+        </section>
+
+
       </div> {/* End unified background wrapper */}
 
       {/* WhatsApp Order Button */}

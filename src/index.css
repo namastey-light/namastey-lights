@@ -387,3 +387,7 @@
 .animate-blink {
   animation: blink 0.8s infinite ease-in-out;
 }
+
+body{
+  user-select: none;
+}
