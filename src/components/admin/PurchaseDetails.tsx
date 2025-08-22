@@ -353,8 +353,8 @@ export function PurchaseDetails() {
                   <CardContent className="space-y-3">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                       <div>
-                        <strong className="text-sm">Order ID:</strong>
-                        <p className="text-sm font-mono">NL{selectedOrder.id.split('-')[0].toUpperCase()}</p>
+                        <strong className="text-sm text-green-500">Order ID:</strong>
+                        <p className="text-sm font-mono text-green-500">NL{selectedOrder.id.split('-')[0].toUpperCase()}</p>
                       </div>
                       <div>
                         <strong className="text-sm">Subtotal:</strong>
@@ -365,8 +365,8 @@ export function PurchaseDetails() {
                         <p className="text-sm">₹{selectedOrder.delivery_fee || 299}</p>
                       </div>
                       <div>
-                        <strong className="text-sm">Total Amount:</strong>
-                        <p className="text-sm font-semibold">₹{selectedOrder.total_amount}</p>
+                        <strong className="text-sm text-red-500">Total Amount:</strong>
+                        <p className="text-sm font-semibold text-red-500">₹{selectedOrder.total_amount}</p>
                       </div>
                     </div>
                     <div className="space-y-2">
@@ -457,7 +457,7 @@ export function PurchaseDetails() {
                                   <div>Size: {config.size}</div>
                                   <br></br>
                                   {config.brightnessController && (
-                                    <div className="text-green-600">✓ Brightness Controller</div>
+                                    <div className="text-red-600">✓ Brightness Controller</div>
                                   )}
                                 </div>
                               )}
