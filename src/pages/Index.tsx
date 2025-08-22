@@ -334,7 +334,7 @@ const Index = () => {
 
                 <div className="flex items-center space-x-2 font-orbitron">
                   <Truck className="w-5 h-5 text-pink-500 " />
-                  <span>Shipping Across All States In India</span>
+                  <span>Free Shipping Across India</span>
                 </div>
 
                 <div className="flex items-center space-x-2 font-orbitron">
