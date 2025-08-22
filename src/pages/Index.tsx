@@ -25,6 +25,8 @@ import {
   CheckCircle,
   MessageCircle
 } from 'lucide-react';
+import { ShieldCheck, CreditCard } from "lucide-react";
+
 
 import { FaWhatsapp } from 'react-icons/fa';
 
@@ -301,7 +303,7 @@ const Index = () => {
       </section>
 
       {/* Action Buttons Section */}
-      <section className="bg-background pb-8 md:pb-12">
+      <section className="bg-background pb-8 md:pb-12 mb-[0px]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Button asChild className="btn-neon text-lg px-8 py-4">
@@ -320,6 +322,46 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+
+      {/* Infinite Running Text Line */}
+      <div className="w-full overflow-hidden bg-black py-2 border-t border-b border-gray-800 mt-0 mb-[30px]">
+        <div className="marquee">
+          <div className="marquee-track">
+            {/* Repeat content multiple times */}
+            {[...Array(3)].map((_, i) => (
+              <div key={i} className="flex space-x-12 text-lg font-semibold items-center px-6">
+
+                <div className="flex items-center space-x-2 font-orbitron">
+                  <Truck className="w-5 h-5 text-pink-500 " />
+                  <span>Shipping Across All States In India</span>
+                </div>
+
+                <div className="flex items-center space-x-2 font-orbitron">
+                  <ShieldCheck className="w-5 h-5 text-blue-400 " />
+                  <span>12 Months Warranty</span>
+                </div>
+
+                <div className="flex items-center space-x-2 font-orbitron">
+                  <CreditCard className="w-5 h-5 text-green-400 " />
+                  <span>COD Available</span>
+                </div>
+
+                <div className="flex items-center space-x-2 font-orbitron">
+                  <Zap className="w-5 h-5 text-yellow-400 " />
+                  <span>Expertly Crafted Neon Signs</span>
+                </div>
+
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+
+
+
+
 
       {/* simple black bg */}
       <div className="bg-background">
@@ -395,7 +437,7 @@ const Index = () => {
                 );
               })}
             </div>
-            
+
             {/* Swipe Indicator for Mobile */}
             <div className="flex md:hidden justify-center mt-6">
               <div className="flex items-center gap-2 text-muted-foreground text-sm">
@@ -1027,7 +1069,7 @@ const Index = () => {
                           <div>
                             <h4 className="font-rajdhani font-bold text-lg md:group-hover transition-all duration-300"
                               style={{
-                                
+
                                 WebkitBackgroundClip: 'text',
                                 backgroundClip: 'text',
                               }}>
@@ -1076,7 +1118,7 @@ const Index = () => {
                 </div>
               ))}
             </div>
-            
+
             {/* Swipe Indicator for Mobile */}
             <div className="flex md:hidden justify-center mt-6">
               <div className="flex items-center gap-2 text-muted-foreground text-sm">
@@ -1122,29 +1164,29 @@ const Index = () => {
 
         {/* FAQ Section */}
         <section className="py-[1px] relative z-10 px-[20px] sm:px-[100px]">
-        <div className="mb-16">
-          <h2 className="font-orbitron font-bold text-5xl mb-8 text-center pt-[1px]">
-            FAQ
-          </h2>
-          <div className="space-y-4 pt-1 sm:pt-[20px] mb-[1px] ">
-            {[
-              { question: "How much does a custom neon sign cost?", answer: "The price depends on the size, style, and design details you choose." },
-              { question: "How long does delivery usually take?", answer: "Most orders arrive within 7–10 business days after confirmation." },
-              { question: "What size will my customized neon sign be?", answer: "You’ll receive the exact dimensions before we finalize your order." },
-              { question: "Do LED neon signs make noise?", answer: "Nope! Our LED neon signs are 100% silent and buzz-free." },
-              { question: "Can I get a neon sign without visible cords?", answer: "Yes, we also offer battery-powered models for a clean, cord-free look." },
-              { question: "Can you make a neon sign from my logo or design?", answer: "Absolutely! Share your artwork and we’ll bring it to life in neon." },
-              { question: "Do you accept urgent/rush orders?", answer: "Yes, we can fast-track production for an additional charge." },
-              { question: "Why are there tiny marks on my sign?", answer: "Those are normal cutting marks from LED tubing and don’t affect quality." }
-            ].map((faq, index) => (
-              <div key={index} className="border-b border-white/10 pb-4">
-                <h4 className="subtitle-cursive text-xl mb-2">{faq.question}</h4>
-                <p className="subtitle-cursive text-sm">{faq.answer}</p>
-              </div>
-            ))}
-          </div>
+          <div className="mb-16">
+            <h2 className="font-orbitron font-bold text-5xl mb-8 text-center pt-[1px]">
+              FAQ
+            </h2>
+            <div className="space-y-4 pt-1 sm:pt-[20px] mb-[1px] ">
+              {[
+                { question: "How much does a custom neon sign cost?", answer: "The price depends on the size, style, and design details you choose." },
+                { question: "How long does delivery usually take?", answer: "Most orders arrive within 7–10 business days after confirmation." },
+                { question: "What size will my customized neon sign be?", answer: "You’ll receive the exact dimensions before we finalize your order." },
+                { question: "Do LED neon signs make noise?", answer: "Nope! Our LED neon signs are 100% silent and buzz-free." },
+                { question: "Can I get a neon sign without visible cords?", answer: "Yes, we also offer battery-powered models for a clean, cord-free look." },
+                { question: "Can you make a neon sign from my logo or design?", answer: "Absolutely! Share your artwork and we’ll bring it to life in neon." },
+                { question: "Do you accept urgent/rush orders?", answer: "Yes, we can fast-track production for an additional charge." },
+                { question: "Why are there tiny marks on my sign?", answer: "Those are normal cutting marks from LED tubing and don’t affect quality." }
+              ].map((faq, index) => (
+                <div key={index} className="border-b border-white/10 pb-4">
+                  <h4 className="subtitle-cursive text-xl mb-2">{faq.question}</h4>
+                  <p className="subtitle-cursive text-sm">{faq.answer}</p>
+                </div>
+              ))}
+            </div>
 
-        </div>
+          </div>
         </section>
 
 
@@ -1162,16 +1204,16 @@ const Index = () => {
           <div className="bg-neon-white text-gray-900 px-[5px] py-[1px] square-l-full border-2 border-green-500/20 font-medium text-l mx-1">
             Order On
           </div>
-          
+
           {/* WhatsApp icon circle */}
-<div className="relative group">
-  <div className="bg-green-500 hover:bg-green-600 rounded-full p-3 border-2 border-green-400/20 hover:border-green-300/40 transition-colors duration-300 relative animate-blink">
-    {/* Neon glow effect */}
-    <div className="absolute inset-0 rounded-full bg-green-400/30 blur-lg scale-110 opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
-    
-    <FaWhatsapp className="w-6 h-6 text-white relative z-10" />
-  </div>
-</div>
+          <div className="relative group">
+            <div className="bg-green-500 hover:bg-green-600 rounded-full p-3 border-2 border-green-400/20 hover:border-green-300/40 transition-colors duration-300 relative animate-blink">
+              {/* Neon glow effect */}
+              <div className="absolute inset-0 rounded-full bg-green-400/30 blur-lg scale-110 opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+              <FaWhatsapp className="w-6 h-6 text-white relative z-10" />
+            </div>
+          </div>
 
         </div>
       </a>

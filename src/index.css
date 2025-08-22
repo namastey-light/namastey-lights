@@ -392,21 +392,35 @@
   }
 }
 
+.marquee {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content; /* content jitna hoga utna width */
+  animation: marquee 15s linear infinite;
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-33.333%); } /* kyunki 3 bar repeat kiya */
+}
+
+
 @keyframes blink {
-  0%, 100% {
+  0%, 50%, 100% {
     opacity: 1;
-    box-shadow: 0 0 5px #22c55e, 0 0 5px #22c55e, 0 0 5px #22c55e;
   }
-  50% {
-    opacity: 0.6;
-    box-shadow: 0 0 5px #22c55e, 0 0 5px #22c55e;
+  25%, 75% {
+    opacity: 0.3;
   }
 }
 
 .animate-blink {
-  animation: blink 0.8s infinite ease-in-out;
+  animation: blink 2.1s infinite ease-in-out;
 }
 
-body{
-  user-select: none;
-}
+
