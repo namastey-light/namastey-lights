@@ -309,7 +309,7 @@ const ProductDetail = () => {
             <div className="space-y-6">
 
 
-              <div>
+              {/* <div>
                 <label className="block text-sm font-medium mb-3">Type <span className="text-red-500">*</span></label>
                 <div className="space-y-2">
                   <label className="flex items-center gap-3">
@@ -324,7 +324,7 @@ const ProductDetail = () => {
                     <span>Standard</span>
                   </label>
                 </div>
-              </div>
+              </div> */}
 
               <div>
                 <label className="block text-sm font-medium mb-3">Addons</label>
