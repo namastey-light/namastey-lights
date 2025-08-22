@@ -229,7 +229,7 @@ const Products = () => {
                                linear-gradient(135deg, 
                                  hsl(var(--card) / 0.9) 0%, 
                                  hsl(220 15% 12% / 0.85) 30%,
-                                 hsl(var(--card) / 0.9) 70%,
+                                 hsl(var(--card) / 0.9) 65%,
                                  hsl(220 15% 10% / 0.9) 100%
                                )
                              `,
