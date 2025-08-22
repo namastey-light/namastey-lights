@@ -62,7 +62,7 @@ const Customize = () => {
     { id: 'red', name: 'Red', class: 'neon-text-red', hex: '#ff0000' },
     { id: 'green', name: 'Green', class: 'neon-text-green', hex: '#00ff00' },
     { id: 'yellow', name: 'Yellow', class: 'neon-text-yellow', hex: '#ffff00' },
-    { id: 'orange', name: 'Orange', class: 'neon-text-white', hex: '#f5f5dc' },
+    { id: 'orange', name: 'Orange', class: 'neon-text-orange', hex: '#FFA500' },
     { id: 'navy', name: 'Navy Blue', class: 'neon-text-navy', hex: '#000080' },
     { id: 'warm-white', name: 'Warm White', class: 'neon-text-warm-white', hex: '#fdf6e3' },
   ];
@@ -235,8 +235,9 @@ const Customize = () => {
                           selectedSize === 'M' ? 'clamp(2rem, 6vw, 3rem)' :
                             selectedSize === 'L' ? 'clamp(2.5rem, 8vw, 4rem)' :
                               'clamp(3rem, 10vw, 5rem)',
+                              fontWeight:'100',
                         color: selectedColorData?.hex,
-                        textShadow: 'none',
+                        textShadow: '0 0 100px currentColor, 0 0 20px currentColor, 0 0 300px currentColor, 1px 1px 2px rgba(0,0,0,0.6)',
                         lineHeight: '1.2',
                         wordBreak: 'break-word',
                         hyphens: 'auto',

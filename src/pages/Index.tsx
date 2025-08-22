@@ -1159,9 +1159,9 @@ const Index = () => {
       >
         <div className="flex items-center shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
           {/* Order On text bubble */}
-          {/* <div className="bg-neon-white text-gray-900 px-[5px] py-[1px] square-l-full border-2 border-green-500/20 font-medium text-l mx-1">
+          <div className="bg-neon-white text-gray-900 px-[5px] py-[1px] square-l-full border-2 border-green-500/20 font-medium text-l mx-1">
             Order On
-          </div> */}
+          </div>
           
           {/* WhatsApp icon circle */}
 <div className="relative group">
