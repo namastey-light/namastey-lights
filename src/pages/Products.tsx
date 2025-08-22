@@ -281,7 +281,7 @@ const Products = () => {
                         <Link to={`/products/${product.id}`}>
                           <h3 className="font-rajdhani font-bold text-lg mb-3 group-hover:text-transparent transition-all duration-300"
                               style={{
-                                background: 'linear-gradient(135deg, hsl(var(--neon-whitw)), hsl(var(--neon-whitw)))',
+                                background: 'linear-gradient(135deg, hsl(var(--neon-white)), hsl(var(--neon-white)))',
                                 WebkitBackgroundClip: 'text',
                                 backgroundClip: 'text',
                               }}>
@@ -309,7 +309,7 @@ const Products = () => {
                           <div className="flex items-center gap-2">
                             <span className="font-bold text-lg group-hover:text-transparent transition-all duration-300"
                                   style={{
-                                    background: 'linear-gradient(135deg, hsl(var(--neon-orange)), hsl(var(--neon-purple)))',
+                                    background: 'linear-gradient(135deg, hsl(var(--neon-white)), hsl(var(--neon-white)))',
                                     WebkitBackgroundClip: 'text',
                                     backgroundClip: 'text',
                                   }}>
