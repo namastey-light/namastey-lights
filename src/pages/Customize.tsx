@@ -413,6 +413,7 @@ const Customize = () => {
               }}>
                 <CardHeader>
                   <CardTitle className="bg-gradient-to-r from-neon-white to-neon-white bg-clip-text text-transparent py-1">Size & Options ( Width × Height)</CardTitle>
+                  <CardHeader className='py-0 px-0 text-neon-white '>Note: If your text has more than 5 characters, the frame width increases by 4" per extra character. Height remains unchanged.</CardHeader>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div>

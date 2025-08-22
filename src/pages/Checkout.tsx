@@ -11,10 +11,10 @@ import { useCart } from '@/contexts/CartContext';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
 import NeonText from '@/components/ui/NeonText';
-import { 
-  CreditCard, 
-  Truck, 
-  Shield, 
+import {
+  CreditCard,
+  Truck,
+  Shield,
   MapPin,
   Phone,
   Mail,
@@ -26,7 +26,7 @@ const Checkout = () => {
   const navigate = useNavigate();
   const { state, clearCart } = useCart();
   const { toast } = useToast();
-  
+
   const [customerInfo, setCustomerInfo] = useState({
     name: '',
     email: '',
@@ -182,15 +182,15 @@ const Checkout = () => {
   const saveOrder = async (paymentStatus: string = 'pending') => {
     // Create order in database
     const fullAddress = `${deliveryInfo.address1}, ${deliveryInfo.address2 ? deliveryInfo.address2 + ', ' : ''}${deliveryInfo.landmark ? 'Near ' + deliveryInfo.landmark + ', ' : ''}${deliveryInfo.city}, ${deliveryInfo.state} - ${deliveryInfo.pincode}`;
-    
+
     // Generate a UUID on the client to avoid SELECT RLS issues
     const orderUuid = (typeof crypto !== 'undefined' && 'randomUUID' in crypto)
       ? crypto.randomUUID()
       : `${Date.now()}-xxxx-4xxx-yxxx-xxxxxxxxxxxx`.replace(/[xy]/g, c => {
-          const r = Math.random() * 16 | 0;
-          const v = c === 'x' ? r : (r & 0x3 | 0x8);
-          return v.toString(16);
-        });
+        const r = Math.random() * 16 | 0;
+        const v = c === 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+      });
 
     // Separate custom and regular items
     const customItems = state.items.filter(item => item.type === 'custom');
@@ -331,7 +331,7 @@ const Checkout = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <h1 className="font-orbitron font-bold text-4xl text-center mb-8">
           <NeonText color="pink">Secure</NeonText>{' '}
-          <NeonText color="blue">Checkout</NeonText>
+          <NeonText color="white">Checkout</NeonText>
         </h1>
 
         <form onSubmit={handleSubmit}>
@@ -342,7 +342,7 @@ const Checkout = () => {
               <Card className="neon-card">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
-                    <User className="w-5 h-5 text-neon-blue" />
+                    <User className="w-5 h-5 text-neon-white" />
                     Customer Information
                   </CardTitle>
                 </CardHeader>
@@ -391,7 +391,7 @@ const Checkout = () => {
               <Card className="neon-card">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
-                    <MapPin className="w-5 h-5 text-neon-blue" />
+                    <MapPin className="w-5 h-5 text-neon-white" />
                     Delivery Address
                   </CardTitle>
                 </CardHeader>
@@ -448,13 +448,46 @@ const Checkout = () => {
                           <SelectValue placeholder="Select state" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="maharashtra">Maharashtra</SelectItem>
-                          <SelectItem value="delhi">Delhi</SelectItem>
-                          <SelectItem value="karnataka">Karnataka</SelectItem>
+                          {/* States */}
+                          <SelectItem value="andhra-pradesh">Andhra Pradesh</SelectItem>
+                          <SelectItem value="arunachal-pradesh">Arunachal Pradesh</SelectItem>
+                          <SelectItem value="assam">Assam</SelectItem>
+                          <SelectItem value="bihar">Bihar</SelectItem>
+                          <SelectItem value="chhattisgarh">Chhattisgarh</SelectItem>
+                          <SelectItem value="goa">Goa</SelectItem>
                           <SelectItem value="gujarat">Gujarat</SelectItem>
+                          <SelectItem value="haryana">Haryana</SelectItem>
+                          <SelectItem value="himachal-pradesh">Himachal Pradesh</SelectItem>
+                          <SelectItem value="jharkhand">Jharkhand</SelectItem>
+                          <SelectItem value="karnataka">Karnataka</SelectItem>
+                          <SelectItem value="kerala">Kerala</SelectItem>
+                          <SelectItem value="madhya-pradesh">Madhya Pradesh</SelectItem>
+                          <SelectItem value="maharashtra">Maharashtra</SelectItem>
+                          <SelectItem value="manipur">Manipur</SelectItem>
+                          <SelectItem value="meghalaya">Meghalaya</SelectItem>
+                          <SelectItem value="mizoram">Mizoram</SelectItem>
+                          <SelectItem value="nagaland">Nagaland</SelectItem>
+                          <SelectItem value="odisha">Odisha</SelectItem>
+                          <SelectItem value="punjab">Punjab</SelectItem>
                           <SelectItem value="rajasthan">Rajasthan</SelectItem>
+                          <SelectItem value="sikkim">Sikkim</SelectItem>
                           <SelectItem value="tamil-nadu">Tamil Nadu</SelectItem>
+                          <SelectItem value="telangana">Telangana</SelectItem>
+                          <SelectItem value="tripura">Tripura</SelectItem>
+                          <SelectItem value="uttar-pradesh">Uttar Pradesh</SelectItem>
+                          <SelectItem value="uttarakhand">Uttarakhand</SelectItem>
                           <SelectItem value="west-bengal">West Bengal</SelectItem>
+
+                          {/* Union Territories */}
+                          <SelectItem value="andaman-nicobar">Andaman and Nicobar Islands</SelectItem>
+                          <SelectItem value="chandigarh">Chandigarh</SelectItem>
+                          <SelectItem value="dadra-nagar-haveli-daman-diu">Dadra and Nagar Haveli and Daman and Diu</SelectItem>
+                          <SelectItem value="delhi">Delhi</SelectItem>
+                          <SelectItem value="jammu-kashmir">Jammu and Kashmir</SelectItem>
+                          <SelectItem value="ladakh">Ladakh</SelectItem>
+                          <SelectItem value="lakshadweep">Lakshadweep</SelectItem>
+                          <SelectItem value="puducherry">Puducherry</SelectItem>
+
                         </SelectContent>
                       </Select>
                     </div>
@@ -471,17 +504,7 @@ const Checkout = () => {
                       />
                     </div>
                   </div>
-                  <div>
-                    <Label htmlFor="preferredDate">Preferred Delivery Date</Label>
-                    <Input
-                      id="preferredDate"
-                      name="preferredDate"
-                      type="date"
-                      value={deliveryInfo.preferredDate}
-                      onChange={(e) => handleInputChange(e, 'delivery')}
-                      min={new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0]}
-                    />
-                  </div>
+
                 </CardContent>
               </Card>
 
@@ -489,7 +512,7 @@ const Checkout = () => {
               <Card className="neon-card">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
-                    <CreditCard className="w-5 h-5 text-neon-blue" />
+                    <CreditCard className="w-5 h-5 text-neon-white" />
                     Payment Method
                   </CardTitle>
                 </CardHeader>
@@ -520,7 +543,7 @@ const Checkout = () => {
                               Pay when your order is delivered
                             </p>
                           </div>
-                          <Truck className="w-5 h-5 text-neon-blue" />
+                          <Truck className="w-5 h-5 text-neon-white" />
                         </div>
                       </Label>
                     </div>
@@ -573,12 +596,12 @@ const Checkout = () => {
                     )}
                     <div className="flex justify-between font-bold text-lg pt-2 border-t border-white/10">
                       <span>Total</span>
-                      <NeonText color="blue">₹{grandTotal.toLocaleString()}</NeonText>
+                      <p color="white">₹{grandTotal.toLocaleString()}</p>
                     </div>
                   </div>
 
-                  <Button 
-                    type="submit" 
+                  <Button
+                    type="submit"
                     className="btn-neon w-full"
                     disabled={isProcessing}
                   >
