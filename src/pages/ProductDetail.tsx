@@ -301,7 +301,7 @@ const ProductDetail = () => {
               </p>
 
               <div className="mb-6">
-                <p className="text-sm font-medium mb-2">Size: {getSizeDisplay(product)}</p>
+                <p className="text-sm font-medium mb-2">Size(inches): {getSizeDisplay(product)}</p>
               </div>
             </div>
 
