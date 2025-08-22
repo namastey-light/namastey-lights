@@ -16,13 +16,13 @@ const Customize = () => {
   const navigate = useNavigate();
   const { addItem, openCart } = useCart();
   const { toast } = useToast();
-  
-  const [customText, setCustomText] = useState('YOUR TEXT');
-  const [selectedFont, setSelectedFont] = useState('passionate');
-  const [selectedColor, setSelectedColor] = useState('pink');
-  const [selectedSize, setSelectedSize] = useState('M');
+
+  const [customText, setCustomText] = useState('');
+  const [selectedFont, setSelectedFont] = useState('original');
+  const [selectedColor, setSelectedColor] = useState('white');
+  const [selectedSize, setSelectedSize] = useState('Medium');
   const [hasDimmer, setHasDimmer] = useState(false);
-  const [backingShape, setBackingShape] = useState('cut-to-shape');
+  const [backingShape, setBackingShape] = useState('rectangle');
 
   const fonts = [
     { id: 'passionate', name: 'Passionate', family: 'font-passionate' },
@@ -68,23 +68,23 @@ const Customize = () => {
   ];
 
   const sizes = [
-    { id: 'S', name: 'Small', width: '18"×10"', basePrice: 1999 },
-    { id: 'M', name: 'Medium', width: '24"×13"', basePrice: 2999 },
-    { id: 'L', name: 'Large', width: '30"×15"', basePrice: 4499 },
+    { id: 'Regular', name: 'Regular', width: '12"×10"', basePrice: 1449 },
+    { id: 'Medium', name: 'Medium', width: '18"×13"', basePrice: 1949 },
+    { id: 'Large', name: 'Large', width: '24"×15"', basePrice: 2450 },
   ];
 
   const calculatePrice = () => {
     const selectedSizeData = sizes.find(s => s.id === selectedSize);
-    let basePrice = selectedSizeData?.basePrice || 2999;
-    
+    let basePrice = selectedSizeData?.basePrice || 1949;
+
     // Character multiplier
     const charCount = customText.length;
-    const charPrice = charCount > 10 ? (charCount - 10) * 50 : 0;
-    
+    const charPrice = charCount > 5 ? (charCount - 5) * 100 : 0;
+
     // Add-ons
-    const dimmerPrice = hasDimmer ? 499 : 0;
-    const backingPrice = backingShape === 'rectangle' ? 299 : 0;
-    
+    const dimmerPrice = hasDimmer ? 200 : 0;
+    const backingPrice = backingShape === 'cut-to-shape' ? 200 : 0;
+
     return basePrice + charPrice + dimmerPrice + backingPrice;
   };
 
@@ -136,10 +136,10 @@ const Customize = () => {
   const handleAddToCart = async () => {
     const finalPrice = calculatePrice();
     const selectedSizeData = sizes.find(s => s.id === selectedSize);
-    
+
     // Capture preview image
     const previewImageUrl = await capturePreviewImage();
-    
+
     addItem({
       id: `custom-${Date.now()}`,
       name: `Custom Neon: "${customText}"`,
@@ -231,11 +231,11 @@ const Customize = () => {
                     <div
                       className={`absolute top-4 left-1/2 transform -translate-x-1/2 z-10 text-center ${selectedFontData?.family} ${selectedColorData?.class}`}
                       style={{
-                        fontSize: selectedSize === 'S' ? 'clamp(1.5rem, 4vw, 2rem)' :
-                          selectedSize === 'M' ? 'clamp(2rem, 6vw, 3rem)' :
-                            selectedSize === 'L' ? 'clamp(2.5rem, 8vw, 4rem)' :
+                        fontSize: selectedSize === 'Regular' ? 'clamp(1.5rem, 4vw, 2rem)' :
+                          selectedSize === 'Medium' ? 'clamp(2rem, 6vw, 3rem)' :
+                            selectedSize === 'Large' ? 'clamp(2.5rem, 8vw, 4rem)' :
                               'clamp(3rem, 10vw, 5rem)',
-                              fontWeight:'100',
+                        fontWeight: '100',
                         color: selectedColorData?.hex,
                         textShadow: '0 0 100px currentColor, 0 0 20px currentColor, 0 0 300px currentColor, 1px 1px 2px rgba(0,0,0,0.6)',
                         lineHeight: '1.2',
@@ -289,24 +289,24 @@ const Customize = () => {
                     <span>₹{sizes.find(s => s.id === selectedSize)?.basePrice.toLocaleString()}</span>
                   </div>
 
-                  {customText.length > 10 && (
+                  {customText.length > 5 && (
                     <div className="flex justify-between">
-                      <span>Extra Characters ({customText.length - 10})</span>
-                      <span>₹{((customText.length - 10) * 50).toLocaleString()}</span>
+                      <span>Extra Characters ({customText.length - 5})</span>
+                      <span>₹{((customText.length - 5) * 100).toLocaleString()}</span>
                     </div>
                   )}
 
                   {hasDimmer && (
                     <div className="flex justify-between">
-                      <span>Dimmer Add-on</span>
-                      <span>₹499</span>
+                      <span>Brightness Controller Add-on</span>
+                      <span>₹200</span>
                     </div>
                   )}
 
-                  {backingShape === 'rectangle' && (
+                  {backingShape === 'cut-to-shape' && (
                     <div className="flex justify-between">
-                      <span>Rectangle Backing</span>
-                      <span>₹299</span>
+                      <span>Cut To Shape</span>
+                      <span>₹200</span>
                     </div>
                   )}
 
@@ -344,7 +344,7 @@ const Customize = () => {
                   <div>
                     <label className="block text-sm font-medium mb-2">Your Text</label>
                     <Textarea
-                    
+
                       placeholder="Enter your custom text..."
                       value={customText}
                       onChange={(e) => setCustomText(e.target.value)}
@@ -376,8 +376,8 @@ const Customize = () => {
                           key={color.id}
                           onClick={() => setSelectedColor(color.id)}
                           className={`p-3 rounded-lg border-2 transition-all ${selectedColor === color.id
-                              ? 'border-neon-orange neon-glow'
-                              : 'border-border hover:border-muted-foreground'
+                            ? 'border-neon-orange neon-glow'
+                            : 'border-border hover:border-muted-foreground'
                             }`}
                         >
                           <div className="flex flex-col items-center gap-2">
@@ -412,7 +412,7 @@ const Customize = () => {
                 boxShadow: `0 8px 32px hsl(220 15% 3% / 0.4)`
               }}>
                 <CardHeader>
-                  <CardTitle className="bg-gradient-to-r from-neon-white to-neon-white bg-clip-text text-transparent">Size & Options</CardTitle>
+                  <CardTitle className="bg-gradient-to-r from-neon-white to-neon-white bg-clip-text text-transparent py-1">Size & Options ( Width × Height)</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div>
@@ -423,8 +423,8 @@ const Customize = () => {
                           key={size.id}
                           onClick={() => setSelectedSize(size.id)}
                           className={`p-3 rounded-lg border-2 transition-all ${selectedSize === size.id
-                              ? 'border-neon-orange'
-                              : 'border-border hover:border-muted-foreground'
+                            ? 'border-neon-orange'
+                            : 'border-border hover:border-muted-foreground'
                             }`}
                         >
                           <div className="text-left">
@@ -434,6 +434,21 @@ const Customize = () => {
                           </div>
                         </button>
                       ))}
+
+                      {/* Custom Size Button */}
+                      <a
+                        href="https://wa.me/918384884622?text=Hello%20I%20want%20a%20Custom%20Size%20Neon%20Sign"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-3 rounded-lg border-2 border-border hover:border-neon-orange transition-all block"
+                      >
+                        <div className="text-left">
+                          <div className="font-medium">Custom Size</div>
+                          <div className="text-sm text-muted-foreground">Any Dimension</div>
+                          <div className="text-sm text-neon-white">Contact on WhatsApp</div>
+                        </div>
+                      </a>
+
                     </div>
                   </div>
 
@@ -445,7 +460,7 @@ const Customize = () => {
                         onChange={(e) => setHasDimmer(e.target.checked)}
                         className="w-4 h-4"
                       />
-                      <span>Add Dimmer Control (+₹499)</span>
+                      <span>Add Brightness Controller (+₹200)</span>
                     </label>
 
                     <div>
@@ -455,8 +470,8 @@ const Customize = () => {
                           <SelectValue />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="cut-to-shape">Cut to Shape (Free)</SelectItem>
-                          <SelectItem value="rectangle">Rectangle (+₹299)</SelectItem>
+                          <SelectItem value="cut-to-shape">Cut to Shape (+₹200)</SelectItem>
+                          <SelectItem value="rectangle">Rectangle (Free)</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>

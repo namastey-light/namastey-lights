@@ -123,7 +123,7 @@ const ProductDetail = () => {
 
   const calculatePrice = () => {
     let basePrice = getDisplayPrice(product);
-    const dimmerPrice = hasDimmer ? 500 : 0;
+    const dimmerPrice = hasDimmer ? 200 : 0;
     return basePrice + dimmerPrice;
   };
 
@@ -335,9 +335,9 @@ const ProductDetail = () => {
                         checked={hasDimmer}
                         onCheckedChange={(checked) => setHasDimmer(checked === true)}
                       />
-                      <span>Brightness Controller</span>
+                      <span>Add Brightness Controller</span>
                     </div>
-                    <span className="text-neon-white font-medium">₹500</span>
+                    <span className="text-neon-white font-medium">₹200</span>
                   </label>
                 </div>
               </div>

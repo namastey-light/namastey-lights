@@ -11,10 +11,10 @@ import { useCart } from '@/contexts/CartContext';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
 import NeonText from '@/components/ui/NeonText';
-import {
-  CreditCard,
-  Truck,
-  Shield,
+import { 
+  CreditCard, 
+  Truck, 
+  Shield, 
   MapPin,
   Phone,
   Mail,
@@ -26,7 +26,7 @@ const Checkout = () => {
   const navigate = useNavigate();
   const { state, clearCart } = useCart();
   const { toast } = useToast();
-
+  
   const [customerInfo, setCustomerInfo] = useState({
     name: '',
     email: '',
@@ -46,7 +46,7 @@ const Checkout = () => {
   const [paymentMethod, setPaymentMethod] = useState('razorpay');
   const [isProcessing, setIsProcessing] = useState(false);
 
-  const shippingFee = 299;
+  const shippingFee = 0;
   const discount = 0;
   const grandTotal = state.totalPrice + shippingFee - discount;
 
@@ -182,15 +182,15 @@ const Checkout = () => {
   const saveOrder = async (paymentStatus: string = 'pending') => {
     // Create order in database
     const fullAddress = `${deliveryInfo.address1}, ${deliveryInfo.address2 ? deliveryInfo.address2 + ', ' : ''}${deliveryInfo.landmark ? 'Near ' + deliveryInfo.landmark + ', ' : ''}${deliveryInfo.city}, ${deliveryInfo.state} - ${deliveryInfo.pincode}`;
-
+    
     // Generate a UUID on the client to avoid SELECT RLS issues
     const orderUuid = (typeof crypto !== 'undefined' && 'randomUUID' in crypto)
       ? crypto.randomUUID()
       : `${Date.now()}-xxxx-4xxx-yxxx-xxxxxxxxxxxx`.replace(/[xy]/g, c => {
-        const r = Math.random() * 16 | 0;
-        const v = c === 'x' ? r : (r & 0x3 | 0x8);
-        return v.toString(16);
-      });
+          const r = Math.random() * 16 | 0;
+          const v = c === 'x' ? r : (r & 0x3 | 0x8);
+          return v.toString(16);
+        });
 
     // Separate custom and regular items
     const customItems = state.items.filter(item => item.type === 'custom');
@@ -240,27 +240,38 @@ const Checkout = () => {
 
     // Handle custom neon orders (separate table)
     if (customItems.length > 0) {
-      const customOrderItems = customItems.map(item => ({
-        customer_name: customerInfo.name,
-        customer_email: customerInfo.email,
-        customer_phone: customerInfo.phone,
-        shipping_address: fullAddress,
-        custom_text: item.customConfig?.text || '',
-        font_style: item.customConfig?.font || 'orbitron',
-        neon_color: item.customConfig?.color || 'pink',
-        size: item.customConfig?.size || 'M',
-        has_dimmer: item.customConfig?.hasDimmer || false,
-        backing_shape: item.customConfig?.backingShape || 'cut-to-shape',
-        preview_image_url: item.customConfig?.previewImageUrl || null,
-        base_price: item.price,
-        dimmer_price: item.customConfig?.hasDimmer ? 499 : 0,
-        backing_price: item.customConfig?.backingShape === 'rectangle' ? 299 : 0,
-        character_price: 0,
-        total_amount: item.price * item.quantity,
-        payment_method: paymentMethod,
-        status: 'pending',
-        payment_status: paymentStatus
-      }));
+      const customOrderItems = customItems.map(item => {
+        const size = item.customConfig?.size || 'Medium';
+        const text = item.customConfig?.text || '';
+        const basePriceMap: Record<string, number> = { Regular: 1449, Medium: 1949, Large: 2450 };
+        const base_price = basePriceMap[size] ?? 1949;
+        const character_price = text.length > 5 ? (text.length - 5) * 100 : 0;
+        const dimmer_price = item.customConfig?.hasDimmer ? 200 : 0;
+        const backing_price = item.customConfig?.backingShape === 'cut-to-shape' ? 200 : 0;
+        const total_per_item = base_price + character_price + dimmer_price + backing_price;
+
+        return {
+          customer_name: customerInfo.name,
+          customer_email: customerInfo.email,
+          customer_phone: customerInfo.phone,
+          shipping_address: fullAddress,
+          custom_text: item.customConfig?.text || '',
+          font_style: item.customConfig?.font || 'orbitron',
+          neon_color: item.customConfig?.color || 'pink',
+          size: size,
+          has_dimmer: item.customConfig?.hasDimmer || false,
+          backing_shape: item.customConfig?.backingShape || 'cut-to-shape',
+          preview_image_url: item.customConfig?.previewImageUrl || null,
+          base_price,
+          dimmer_price,
+          backing_price,
+          character_price,
+          total_amount: total_per_item * item.quantity,
+          payment_method: paymentMethod,
+          status: 'pending',
+          payment_status: paymentStatus
+        };
+      });
 
       const { error: customOrderError } = await supabase
         .from('custom_neon_orders')
@@ -320,7 +331,7 @@ const Checkout = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <h1 className="font-orbitron font-bold text-4xl text-center mb-8">
           <NeonText color="pink">Secure</NeonText>{' '}
-          <NeonText color="white">Checkout</NeonText>
+          <NeonText color="blue">Checkout</NeonText>
         </h1>
 
         <form onSubmit={handleSubmit}>
@@ -331,7 +342,7 @@ const Checkout = () => {
               <Card className="neon-card">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
-                    <User className="w-5 h-5 text-neon-white" />
+                    <User className="w-5 h-5 text-neon-blue" />
                     Customer Information
                   </CardTitle>
                 </CardHeader>
@@ -380,7 +391,7 @@ const Checkout = () => {
               <Card className="neon-card">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
-                    <MapPin className="w-5 h-5 text-neon-white" />
+                    <MapPin className="w-5 h-5 text-neon-blue" />
                     Delivery Address
                   </CardTitle>
                 </CardHeader>
@@ -437,33 +448,12 @@ const Checkout = () => {
                           <SelectValue placeholder="Select state" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="andhra-pradesh">Andhra Pradesh</SelectItem>
-                          <SelectItem value="arunachal-pradesh">Arunachal Pradesh</SelectItem>
-                          <SelectItem value="assam">Assam</SelectItem>
-                          <SelectItem value="bihar">Bihar</SelectItem>
-                          <SelectItem value="chhattisgarh">Chhattisgarh</SelectItem>
-                          <SelectItem value="goa">Goa</SelectItem>
-                          <SelectItem value="gujarat">Gujarat</SelectItem>
-                          <SelectItem value="haryana">Haryana</SelectItem>
-                          <SelectItem value="himachal-pradesh">Himachal Pradesh</SelectItem>
-                          <SelectItem value="jharkhand">Jharkhand</SelectItem>
-                          <SelectItem value="karnataka">Karnataka</SelectItem>
-                          <SelectItem value="kerala">Kerala</SelectItem>
-                          <SelectItem value="madhya-pradesh">Madhya Pradesh</SelectItem>
                           <SelectItem value="maharashtra">Maharashtra</SelectItem>
-                          <SelectItem value="manipur">Manipur</SelectItem>
-                          <SelectItem value="meghalaya">Meghalaya</SelectItem>
-                          <SelectItem value="mizoram">Mizoram</SelectItem>
-                          <SelectItem value="nagaland">Nagaland</SelectItem>
-                          <SelectItem value="odisha">Odisha</SelectItem>
-                          <SelectItem value="punjab">Punjab</SelectItem>
+                          <SelectItem value="delhi">Delhi</SelectItem>
+                          <SelectItem value="karnataka">Karnataka</SelectItem>
+                          <SelectItem value="gujarat">Gujarat</SelectItem>
                           <SelectItem value="rajasthan">Rajasthan</SelectItem>
-                          <SelectItem value="sikkim">Sikkim</SelectItem>
                           <SelectItem value="tamil-nadu">Tamil Nadu</SelectItem>
-                          <SelectItem value="telangana">Telangana</SelectItem>
-                          <SelectItem value="tripura">Tripura</SelectItem>
-                          <SelectItem value="uttar-pradesh">Uttar Pradesh</SelectItem>
-                          <SelectItem value="uttarakhand">Uttarakhand</SelectItem>
                           <SelectItem value="west-bengal">West Bengal</SelectItem>
                         </SelectContent>
                       </Select>
@@ -481,7 +471,17 @@ const Checkout = () => {
                       />
                     </div>
                   </div>
-                  
+                  <div>
+                    <Label htmlFor="preferredDate">Preferred Delivery Date</Label>
+                    <Input
+                      id="preferredDate"
+                      name="preferredDate"
+                      type="date"
+                      value={deliveryInfo.preferredDate}
+                      onChange={(e) => handleInputChange(e, 'delivery')}
+                      min={new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0]}
+                    />
+                  </div>
                 </CardContent>
               </Card>
 
@@ -489,7 +489,7 @@ const Checkout = () => {
               <Card className="neon-card">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
-                    <CreditCard className="w-5 h-5 text-neon-white" />
+                    <CreditCard className="w-5 h-5 text-neon-blue" />
                     Payment Method
                   </CardTitle>
                 </CardHeader>
@@ -520,7 +520,7 @@ const Checkout = () => {
                               Pay when your order is delivered
                             </p>
                           </div>
-                          <Truck className="w-5 h-5 text-neon-white" />
+                          <Truck className="w-5 h-5 text-neon-blue" />
                         </div>
                       </Label>
                     </div>
@@ -573,12 +573,12 @@ const Checkout = () => {
                     )}
                     <div className="flex justify-between font-bold text-lg pt-2 border-t border-white/10">
                       <span>Total</span>
-                      <p color="white">₹{grandTotal.toLocaleString()}</p>
+                      <NeonText color="blue">₹{grandTotal.toLocaleString()}</NeonText>
                     </div>
                   </div>
 
-                  <Button
-                    type="submit"
+                  <Button 
+                    type="submit" 
                     className="btn-neon w-full"
                     disabled={isProcessing}
                   >

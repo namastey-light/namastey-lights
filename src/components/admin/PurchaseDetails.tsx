@@ -279,8 +279,8 @@ export function PurchaseDetails() {
                     </div>
                   </TableCell>
                   <TableCell className="hidden md:table-cell">{order.customer_email}</TableCell>
-                  <TableCell className="hidden sm:table-cell">₹{order.subtotal || (order.total_amount - (order.delivery_fee || 299))}</TableCell>
-                  <TableCell className="hidden sm:table-cell">₹{order.delivery_fee || 299}</TableCell>
+                  <TableCell className="hidden sm:table-cell">₹{order.subtotal || (order.total_amount - (order.delivery_fee ?? 0))}</TableCell>
+                  <TableCell className="hidden sm:table-cell">₹{order.delivery_fee ?? 0}</TableCell>
                   <TableCell className="font-semibold">₹{order.total_amount}</TableCell>
                   <TableCell className="hidden lg:table-cell">
                     <span className="px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-medium">
@@ -353,20 +353,20 @@ export function PurchaseDetails() {
                   <CardContent className="space-y-3">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                       <div>
-                        <strong className="text-sm text-green-500">Order ID:</strong>
-                        <p className="text-sm font-mono text-green-500">NL{selectedOrder.id.split('-')[0].toUpperCase()}</p>
+                        <strong className="text-sm">Order ID:</strong>
+                        <p className="text-sm font-mono">NL{selectedOrder.id.split('-')[0].toUpperCase()}</p>
                       </div>
                       <div>
                         <strong className="text-sm">Subtotal:</strong>
-                        <p className="text-sm">₹{selectedOrder.subtotal || (selectedOrder.total_amount - (selectedOrder.delivery_fee || 299))}</p>
+                        <p className="text-sm">₹{selectedOrder.subtotal || (selectedOrder.total_amount - (selectedOrder.delivery_fee ?? 0))}</p>
                       </div>
                       <div>
                         <strong className="text-sm">Delivery Fee:</strong>
-                        <p className="text-sm">₹{selectedOrder.delivery_fee || 299}</p>
+                        <p className="text-sm">₹{selectedOrder.delivery_fee ?? 0}</p>
                       </div>
                       <div>
-                        <strong className="text-sm text-red-500">Total Amount:</strong>
-                        <p className="text-sm font-semibold text-red-500">₹{selectedOrder.total_amount}</p>
+                        <strong className="text-sm">Total Amount:</strong>
+                        <p className="text-sm font-semibold">₹{selectedOrder.total_amount}</p>
                       </div>
                     </div>
                     <div className="space-y-2">
@@ -455,9 +455,9 @@ export function PurchaseDetails() {
                               {config && (
                                 <div className="text-xs space-y-1">
                                   <div>Size: {config.size}</div>
-                                  <br></br>
+                            
                                   {config.brightnessController && (
-                                    <div className="text-red-600">✓ Brightness Controller</div>
+                                    <div className="text-green-600">✓ Brightness Controller</div>
                                   )}
                                 </div>
                               )}

@@ -168,31 +168,39 @@ export const CustomNeonPurchaseDetails = () => {
   ];
 
   const fonts = [
-    { id: 'orbitron', name: 'Orbitron', family: 'font-orbitron' },
-    { id: 'rajdhani', name: 'Rajdhani', family: 'font-rajdhani' },
-    { id: 'passion-one', name: 'Passion One', family: 'font-passion-one' },
-    { id: 'dancing-script', name: 'Dancing Script', family: 'font-dancing-script' },
-    { id: 'flavors', name: 'Flavors', family: 'font-flavors' },
-    { id: 'ewert', name: 'Ewert', family: 'font-ewert' },
-    { id: 'fugaz-one', name: 'Fugaz One', family: 'font-fugaz-one' },
-    { id: 'monoton', name: 'Monoton', family: 'font-monoton' },
-    { id: 'abril-fatface', name: 'Abril Fatface', family: 'font-abril-fatface' },
-    { id: 'playfair-display', name: 'Playfair Display', family: 'font-playfair-display' },
-    { id: 'press-start', name: 'Press Start 2P', family: 'font-press-start' },
-    { id: 'audiowide', name: 'Audiowide', family: 'font-audiowide' },
-    { id: 'permanent-marker', name: 'Permanent Marker', family: 'font-permanent-marker' },
-    { id: 'rubik-glitch', name: 'Rubik Glitch', family: 'font-rubik-glitch' },
-    { id: 'rock-salt', name: 'Rock Salt', family: 'font-rock-salt' },
-    { id: 'special-elite', name: 'Special Elite', family: 'font-special-elite' },
-    { id: 'sans', name: 'Modern Sans', family: 'font-sans' },
-    { id: 'mono', name: 'Digital Mono', family: 'font-mono' },
+    { id: 'passionate', name: 'Passionate', family: 'font-passionate' },
+    { id: 'dreamy', name: 'Dreamy', family: 'font-dreamy' },
+    { id: 'flowy', name: 'Flowy', family: 'font-flowy' },
+    { id: 'original', name: 'Original', family: 'font-original' },
+    { id: 'classic', name: 'Classic', family: 'font-classic' },
+    { id: 'breeze', name: 'Breeze', family: 'font-breeze' },
+    { id: 'funky', name: 'Funky', family: 'font-funky' },
+    { id: 'chic', name: 'Chic', family: 'font-chic' },
+    { id: 'delight', name: 'Delight', family: 'font-delight' },
+    { id: 'classy', name: 'Classy', family: 'font-classy' },
+    { id: 'romantic', name: 'Romantic', family: 'font-romantic' },
+    { id: 'robo', name: 'ROBO', family: 'font-robo' },
+    { id: 'charming', name: 'Charming', family: 'font-charming' },
+    { id: 'quirky', name: 'Quirky', family: 'font-quirky' },
+    { id: 'stylish', name: 'Stylish', family: 'font-stylish' },
+    { id: 'sassy', name: 'Sassy', family: 'font-sassy' },
+    { id: 'glam', name: 'Glam', family: 'font-glam' },
+    { id: 'dope', name: 'DOPE', family: 'font-dope' },
+    { id: 'chemistry', name: 'Chemistry', family: 'font-chemistry' },
+    { id: 'realistic', name: 'Realistic', family: 'font-realistic' },
+    { id: 'sparky', name: 'Sparky', family: 'font-sparky' },
+    { id: 'vibey', name: 'Vibey', family: 'font-vibey' },
+    { id: 'la-fi', name: 'La Fi', family: 'font-la-fi' },
+    { id: 'bossy', name: 'Bossy', family: 'font-bossy' },
+    { id: 'iconic', name: 'ICONIC', family: 'font-iconic' },
+    { id: 'jolly', name: 'Jolly', family: 'font-jolly' },
+    { id: 'modern', name: 'MODERN', family: 'font-modern' },
   ];
 
   const sizes = [
-    { id: 'S', name: 'Small', width: '30cm' },
-    { id: 'M', name: 'Medium', width: '50cm' },
-    { id: 'L', name: 'Large', width: '70cm' },
-    { id: 'XL', name: 'Extra Large', width: '100cm' },
+    { id: 'Regular', name: 'Regular', width: '12"' },
+    { id: 'Medium', name: 'Medium', width: '18"' },
+    { id: 'Large', name: 'Large', width: '24"' },
   ];
 
   useEffect(() => {
@@ -481,14 +489,14 @@ export const CustomNeonPurchaseDetails = () => {
                         <div>
                           <label className="font-medium">Dimmer Control</label>
                           <Badge variant={selectedOrder.has_dimmer ? "default" : "secondary"}>
-                            {selectedOrder.has_dimmer ? 'Yes (+₹499)' : 'No'}
+                            {selectedOrder.has_dimmer ? 'Yes (+₹200)' : 'No'}
                           </Badge>
                         </div>
                         
                         <div>
                           <label className="font-medium">Backing Shape</label>
                           <p className="capitalize">
-                            {selectedOrder.backing_shape === 'rectangle' ? 'Rectangle (+₹299)' : 'Cut to Shape (Free)'}
+                            {selectedOrder.backing_shape === 'rectangle' ? 'Rectangle (Free)' : 'Cut to Shape (+₹200)'}
                           </p>
                         </div>
                       </div>
@@ -515,7 +523,7 @@ export const CustomNeonPurchaseDetails = () => {
                           )}
                           {selectedOrder.backing_price > 0 && (
                             <div className="flex justify-between">
-                              <span>Rectangle Backing:</span>
+                              <span>{selectedOrder.backing_shape === 'cut-to-shape' ? 'Cut to Shape:' : 'Rectangle Backing:'}</span>
                               <span>₹{selectedOrder.backing_price.toLocaleString()}</span>
                             </div>
                           )}
