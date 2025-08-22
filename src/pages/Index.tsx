@@ -102,8 +102,8 @@ const Index = () => {
           products (
             id,
             name,
-            medium_price,
-            medium_mrp,
+            selling_price,
+            mrp,
             description,
             product_images (
               image_url,
@@ -120,8 +120,8 @@ const Index = () => {
       const formattedProducts = data?.map(item => ({
         id: item.products.id,
         name: item.products.name,
-        price: item.products.medium_price,
-        originalPrice: item.products.medium_mrp,
+        price: item.products.selling_price,
+        originalPrice: item.products.mrp,
         image: item.products.product_images?.[0]?.image_url || '/placeholder.svg',
         badge: item.badge_text,
         rating: Math.round((4.8 + Math.random() * 0.2) * 10) / 10, // Generate clean rating between 4.8-5.0

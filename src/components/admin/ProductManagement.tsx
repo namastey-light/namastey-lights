@@ -44,12 +44,10 @@ export function ProductManagement() {
   const [formData, setFormData] = useState({
     name: "",
     description: "",
-    small_mrp: "",
-    small_price: "",
-    medium_mrp: "",
-    medium_price: "",
-    large_mrp: "",
-    large_price: "",
+    width_inches: "",
+    height_inches: "",
+    mrp: "",
+    selling_price: "",
     category_id: "",
     stock_quantity: "",
     rating: "",
@@ -199,12 +197,10 @@ export function ProductManagement() {
       const productData = {
         name: formData.name,
         description: formData.description,
-        small_mrp: formData.small_mrp ? parseFloat(formData.small_mrp) : null,
-        small_price: formData.small_price ? parseFloat(formData.small_price) : null,
-        medium_mrp: formData.medium_mrp ? parseFloat(formData.medium_mrp) : null,
-        medium_price: formData.medium_price ? parseFloat(formData.medium_price) : null,
-        large_mrp: formData.large_mrp ? parseFloat(formData.large_mrp) : null,
-        large_price: formData.large_price ? parseFloat(formData.large_price) : null,
+        width_inches: formData.width_inches ? parseFloat(formData.width_inches) : null,
+        height_inches: formData.height_inches ? parseFloat(formData.height_inches) : null,
+        mrp: parseFloat(formData.mrp),
+        selling_price: parseFloat(formData.selling_price),
         stock_quantity: parseInt(formData.stock_quantity),
         rating: formData.rating ? parseFloat(formData.rating) : 4.0,
         review_count: formData.review_count ? parseInt(formData.review_count) : 0,
@@ -261,12 +257,10 @@ export function ProductManagement() {
     setFormData({
       name: "",
       description: "",
-      small_mrp: "",
-      small_price: "",
-      medium_mrp: "",
-      medium_price: "",
-      large_mrp: "",
-      large_price: "",
+      width_inches: "",
+      height_inches: "",
+      mrp: "",
+      selling_price: "",
       category_id: "",
       stock_quantity: "",
       rating: "",
@@ -314,12 +308,10 @@ export function ProductManagement() {
     setFormData({
       name: product.name,
       description: product.description || "",
-      small_mrp: product.small_mrp?.toString() || "",
-      small_price: product.small_price?.toString() || "",
-      medium_mrp: product.medium_mrp?.toString() || "",
-      medium_price: product.medium_price?.toString() || "",
-      large_mrp: product.large_mrp?.toString() || "",
-      large_price: product.large_price?.toString() || "",
+      width_inches: product.width_inches?.toString() || "",
+      height_inches: product.height_inches?.toString() || "",
+      mrp: product.mrp?.toString() || "",
+      selling_price: product.selling_price?.toString() || "",
       category_id: product.category_id || "",
       stock_quantity: product.stock_quantity.toString(),
       rating: product.rating?.toString() || "",
@@ -421,100 +413,65 @@ export function ProductManagement() {
                 />
               </div>
 
-              {/* Size-specific pricing */}
+              {/* Size and Pricing */}
               <div className="space-y-4">
-                <Label className="text-base font-semibold">Size-wise Pricing *</Label>
+                <Label className="text-base font-semibold">Size & Pricing *</Label>
                 
-                {/* Small Size */}
-                <div className="border rounded-lg p-4 space-y-3">
-                  <Label className="text-sm font-medium text-neon-white">Small Size (0.5ft x 0.5ft)</Label>
+                <div className="border rounded-lg p-4 space-y-4">
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <Label htmlFor="small_mrp">MRP ₹</Label>
+                      <Label htmlFor="width_inches">Width (inches) *</Label>
                       <Input
-                        id="small_mrp"
+                        id="width_inches"
                         type="number"
-                        step="0.01"
-                        value={formData.small_mrp}
-                        onChange={(e) => setFormData({ ...formData, small_mrp: e.target.value })}
-                        placeholder="320"
+                        step="0.1"
+                        value={formData.width_inches}
+                        onChange={(e) => setFormData({ ...formData, width_inches: e.target.value })}
+                        placeholder="12"
+                        required
                       />
                     </div>
                     <div>
-                      <Label htmlFor="small_price">Selling Price ₹</Label>
+                      <Label htmlFor="height_inches">Height (inches) *</Label>
                       <Input
-                        id="small_price"
+                        id="height_inches"
                         type="number"
-                        step="0.01"
-                        value={formData.small_price}
-                        onChange={(e) => setFormData({ ...formData, small_price: e.target.value })}
-                        placeholder="320"
+                        step="0.1"
+                        value={formData.height_inches}
+                        onChange={(e) => setFormData({ ...formData, height_inches: e.target.value })}
+                        placeholder="12"
+                        required
                       />
                     </div>
                   </div>
-                </div>
-
-                {/* Medium Size */}
-                <div className="border rounded-lg p-4 space-y-3 border-primary">
-                  <Label className="text-sm font-medium text-primary">Medium Size (1ft x 1ft) - Default Display</Label>
+                  
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <Label htmlFor="medium_mrp">MRP ₹ *</Label>
+                      <Label htmlFor="mrp">MRP ₹ *</Label>
                       <Input
-                        id="medium_mrp"
+                        id="mrp"
                         type="number"
                         step="0.01"
-                        value={formData.medium_mrp}
-                        onChange={(e) => setFormData({ ...formData, medium_mrp: e.target.value })}
+                        value={formData.mrp}
+                        onChange={(e) => setFormData({ ...formData, mrp: e.target.value })}
                         placeholder="500"
                         required
                       />
                     </div>
                     <div>
-                      <Label htmlFor="medium_price">Selling Price ₹ *</Label>
+                      <Label htmlFor="selling_price">Selling Price ₹ *</Label>
                       <Input
-                        id="medium_price"
+                        id="selling_price"
                         type="number"
                         step="0.01"
-                        value={formData.medium_price}
-                        onChange={(e) => setFormData({ ...formData, medium_price: e.target.value })}
+                        value={formData.selling_price}
+                        onChange={(e) => setFormData({ ...formData, selling_price: e.target.value })}
                         placeholder="400"
                         required
                       />
                     </div>
                   </div>
                 </div>
-
-                {/* Large Size */}
-                <div className="border rounded-lg p-4 space-y-3">
-                  <Label className="text-sm font-medium text-neon-white">Large Size (1.5ft x 1.5ft)</Label>
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <Label htmlFor="large_mrp">MRP ₹</Label>
-                      <Input
-                        id="large_mrp"
-                        type="number"
-                        step="0.01"
-                        value={formData.large_mrp}
-                        onChange={(e) => setFormData({ ...formData, large_mrp: e.target.value })}
-                        placeholder="700"
-                      />
-                    </div>
-                    <div>
-                      <Label htmlFor="large_price">Selling Price ₹</Label>
-                      <Input
-                        id="large_price"
-                        type="number"
-                        step="0.01"
-                        value={formData.large_price}
-                        onChange={(e) => setFormData({ ...formData, large_price: e.target.value })}
-                        placeholder="560"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                
               </div>
               
               <div>
@@ -684,6 +641,7 @@ export function ProductManagement() {
               <TableRow>
                 <TableHead>Name</TableHead>
                 <TableHead>Category</TableHead>
+                <TableHead>Size</TableHead>
                 <TableHead>Price</TableHead>
                 <TableHead>Stock</TableHead>
                 <TableHead>Status</TableHead>
@@ -695,7 +653,13 @@ export function ProductManagement() {
                 <TableRow key={product.id}>
                   <TableCell className="font-medium">{product.name}</TableCell>
                   <TableCell>{product.categories?.name || "No category"}</TableCell>
-                  <TableCell>₹{product.medium_price || 'N/A'}</TableCell>
+                  <TableCell>
+                    {product.width_inches && product.height_inches 
+                      ? `${product.width_inches}" × ${product.height_inches}"`
+                      : 'N/A'
+                    }
+                  </TableCell>
+                  <TableCell>₹{product.selling_price || 'N/A'}</TableCell>
                   <TableCell>{product.stock_quantity}</TableCell>
                   <TableCell>
                     <span className={`px-2 py-1 rounded text-xs ${

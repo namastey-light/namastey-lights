@@ -10,29 +10,28 @@ import NeonCard from '@/components/ui/NeonCard';
 import { useCart } from '@/contexts/CartContext';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
-import {
-  ArrowLeft,
-  ShoppingCart,
-  Zap,
-  Star,
-  Shield,
-  Truck,
+import { 
+  ArrowLeft, 
+  ShoppingCart, 
+  Zap, 
+  Star, 
+  Shield, 
+  Truck, 
   Award,
   Plus,
   Minus,
   MessageCircle
 } from 'lucide-react';
-import { Product, getDisplayPrice, getDisplayMRP, getPriceBySize, getMRPBySize } from '@/types/product';
+import { Product, getDisplayPrice, getDisplayMRP, getSizeDisplay } from '@/types/product';
 
 const ProductDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const { addItem, openCart } = useCart();
   const { toast } = useToast();
-
+  
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
-  const [selectedSize, setSelectedSize] = useState('M');
   const [selectedColor, setSelectedColor] = useState('Blue');
   const [hasDimmer, setHasDimmer] = useState(false);
   const [backingShape, setBackingShape] = useState('Standard');
@@ -105,58 +104,44 @@ const ProductDetail = () => {
     );
   }
 
-  const productImages = product.product_images?.length > 0
+  const productImages = product.product_images?.length > 0 
     ? product.product_images.map(img => img.image_url)
     : ['/placeholder.svg'];
 
   const primaryImage = product.product_images?.[0]?.image_url || '/placeholder.svg';
 
-  const sizes = [
-    { id: 'S', name: 'Small', width: '0.5ft width × 0.5ft height', price: getPriceBySize(product, 'small') },
-    { id: 'M', name: 'Medium', width: '1ft width × 1ft height', price: getPriceBySize(product, 'medium') },
-    { id: 'L', name: 'Large', width: '1.5ft width × 1.5ft height', price: getPriceBySize(product, 'large') },
-  ];
-
   const colors = [
-    { id: 'blue', name: 'Ice Blue', class: 'neon-text-blue', hex: '#00bfff' },
-    { id: 'pink', name: 'Pink', class: 'neon-text-pink', hex: '#ff1493' },
-    { id: 'purple', name: 'Purple', class: 'neon-text-purple', hex: '#9945ff' },
-    { id: 'white', name: 'White', class: 'neon-text-white', hex: '#ffffff' },
-    { id: 'red', name: 'Red', class: 'neon-text-red', hex: '#ff0000' },
-    { id: 'green', name: 'Green', class: 'neon-text-green', hex: '#00ff00' },
-    { id: 'yellow', name: 'Yellow', class: 'neon-text-yellow', hex: '#ffff00' },
-    { id: 'orange', name: 'Orange', class: 'neon-text-white', hex: '#f5f5dc' },
-    { id: 'navy', name: 'Navy Blue', class: 'neon-text-navy', hex: '#000080' },
-    { id: 'warm-white', name: 'Warm White', class: 'neon-text-warm-white', hex: '#fdf6e3' },
+    { id: 'Blue', name: 'Blue', hex: '#00bfff' },
+    { id: 'Pink', name: 'Pink', hex: '#ff1493' },
+    { id: 'Purple', name: 'Purple', hex: '#9945ff' },
+    { id: 'White', name: 'White', hex: '#ffffff' },
+    { id: 'Red', name: 'Red', hex: '#ff0000' },
+    { id: 'Green', name: 'Green', hex: '#00ff00' },
+    { id: 'Yellow', name: 'Yellow', hex: '#ffff00' },
+    { id: 'Orange', name: 'Orange', hex: '#ffa500' },
   ];
 
   const calculatePrice = () => {
-    const selectedSizeData = sizes.find(s => s.id === selectedSize);
-    let basePrice = selectedSizeData?.price || getDisplayPrice(product);
-
+    let basePrice = getDisplayPrice(product);
     const dimmerPrice = hasDimmer ? 500 : 0;
-
     return basePrice + dimmerPrice;
   };
 
   const calculateMRP = () => {
-    const sizeMapping = { S: 'small', M: 'medium', L: 'large', XL: 'extra_large' } as const;
-    const size = sizeMapping[selectedSize as keyof typeof sizeMapping] || 'medium';
-    return getMRPBySize(product, size);
+    return getDisplayMRP(product);
   };
 
   const handleAddToCart = () => {
     const finalPrice = calculatePrice();
-    const selectedSizeData = sizes.find(s => s.id === selectedSize);
-
+    
     addItem({
-      id: `${product.id}-${selectedSize}-${selectedColor}-${hasDimmer}-${Date.now()}`,
-      name: `${product.name} (${selectedSizeData?.name})`,
+      id: `${product.id}-${selectedColor}-${hasDimmer}-${Date.now()}`,
+      name: `${product.name}`,
       price: finalPrice,
       image: primaryImage,
       type: 'product',
       productConfig: {
-        size: selectedSize,
+        size: getSizeDisplay(product),
         color: selectedColor,
         brightnessController: hasDimmer,
         productType: backingShape,
@@ -200,8 +185,7 @@ const ProductDetail = () => {
 
   return (
     <div className="min-h-screen pt-8 bg-background">
-
-
+      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Breadcrumb */}
         <div className="flex items-center gap-2 text-sm text-muted-foreground mb-8">
@@ -215,7 +199,7 @@ const ProductDetail = () => {
             Back
           </Button>
           <span>/</span>
-          <Link to="/products" className="hover:text-neon-white transition-colors">Products</Link>
+          <Link to="/products" className="hover:text-neon-blue transition-colors">Products</Link>
           <span>/</span>
           <span>{product.name}</span>
         </div>
@@ -224,14 +208,14 @@ const ProductDetail = () => {
           {/* Product Images */}
           <div className="space-y-4">
             <div className="relative p-0.5 rounded-3xl overflow-hidden"
-              style={{
-                background: `linear-gradient(135deg, 
+                 style={{
+                   background: `linear-gradient(135deg, 
                      hsl(var(--neon-white) / 0.6), 
                      hsl(var(--neon-white) / 0.6), 
                      hsl(var(--neon-white) / 0.6),
                      hsl(var(--neon-white) / 0.6)
                    )`
-              }}>
+                 }}>
               <div className="aspect-square bg-muted rounded-3xl overflow-hidden">
                 <img
                   src={productImages[selectedImageIndex]}
@@ -240,17 +224,18 @@ const ProductDetail = () => {
                 />
               </div>
             </div>
-
+            
             {productImages.length > 1 && (
               <div className="grid grid-cols-3 gap-4">
                 {productImages.map((image, index) => (
                   <button
                     key={index}
                     onClick={() => setSelectedImageIndex(index)}
-                    className={`relative p-0.5 rounded-2xl overflow-hidden transition-all duration-300 ${selectedImageIndex === index ? 'scale-105' : 'hover:scale-105'
-                      }`}
+                    className={`relative p-0.5 rounded-2xl overflow-hidden transition-all duration-300 ${
+                      selectedImageIndex === index ? 'scale-105' : 'hover:scale-105'
+                    }`}
                     style={{
-                      background: selectedImageIndex === index
+                      background: selectedImageIndex === index 
                         ? `linear-gradient(135deg, hsl(var(--neon-white) / 0.8), hsl(var(--neon-white) / 0.8))`
                         : `linear-gradient(135deg, hsl(var(--border)), hsl(var(--border)))`
                     }}
@@ -272,7 +257,7 @@ const ProductDetail = () => {
           <div className="space-y-6">
             <div>
               <div className="flex items-center gap-2 mb-2">
-                <Badge className="bg-gray-900/20 text-neon-white">
+                <Badge className="bg-neon-white/20 text-neon-white">
                   {product.categories?.name || 'Neon Signs'}
                 </Badge>
                 {product.stock_quantity > 0 && (
@@ -281,11 +266,11 @@ const ProductDetail = () => {
                   </Badge>
                 )}
               </div>
-
+              
               <h1 className="font-orbitron font-bold text-3xl md:text-4xl mb-4 bg-gradient-to-r from-neon-white via-neon-white to-neon-white bg-clip-text text-transparent">
                 {product.name}
               </h1>
-
+              
               <div className="flex items-center gap-4 mb-4">
                 <div className="flex items-center">
                   {[...Array(5)].map((_, i) => (
@@ -311,58 +296,18 @@ const ProductDetail = () => {
                 )}
               </div>
 
-
-
-              <p className="subtitle-cursive text-l leading-relaxed mb-6">
+              <p className="text-muted-foreground leading-relaxed mb-6">
                 {product.description || `Fancoelite® Neon Signs can be in multiple sizes, can last 50,000+ hours, custom made with quality Neon LED Lights. Choose from a wide range of colours like Red, Pink, Blue, Ice Blue, Orange, White, Warm White, Purple, Yellow! Customise Neon Signs with your name, word, letter, logo or quote. Install it on a wall of bedroom, balcony, hall, terrace, office space or workspace.`}
               </p>
 
-              
+              <div className="mb-6">
+                <p className="text-sm font-medium mb-2">Size: {getSizeDisplay(product)}</p>
+              </div>
             </div>
 
             {/* Product Options */}
             <div className="space-y-6">
-              <div>
-                <label className="block text-sm font-medium mb-3">Size</label>
-                <div className="grid grid-cols-2 gap-3">
-                  {sizes.map((size) => (
-                    <button
-                      key={size.id}
-                      onClick={() => setSelectedSize(size.id)}
-                      className={`p-3 rounded-lg border-2 transition-all text-left ${selectedSize === size.id
-                          ? 'border-neon-white bg-neon-white/10'
-                          : 'border-border hover:border-muted-foreground'
-                        }`}
-                    >
-                      <div className="font-medium">{size.name}</div>
-                      <div className="text-sm text-muted-foreground">{size.width}</div>
-                      <div className="text-sm text-neon-white">₹{size.price.toLocaleString()}</div>
-                    </button>
-                  ))}
-                </div>
-              </div>
 
-              <div>
-                <label className="block text-sm font-medium mb-3">Color <span className="text-red-500">*</span></label>
-                <Select value={selectedColor} onValueChange={setSelectedColor} >
-                  <SelectTrigger className="bg-transperent text-white border border-gray-600">
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {colors.map((color) => (
-                      <SelectItem key={color.id} value={color.id}>
-                        <div className="flex items-center gap-2 ">
-                          <div
-                            className="w-4 h-4 rounded-full border"
-                            style={{ backgroundColor: color.hex }}
-                          />
-                          {color.name}
-                        </div>
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
 
               <div>
                 <label className="block text-sm font-medium mb-3">Type <span className="text-red-500">*</span></label>
@@ -384,7 +329,7 @@ const ProductDetail = () => {
               <div>
                 <label className="block text-sm font-medium mb-3">Addons</label>
                 <div className="space-y-3">
-                  <label className="flex items-center justify-between p-3 border border-gray-600 rounded-lg">
+                  <label className="flex items-center justify-between p-3 border rounded-lg">
                     <div className="flex items-center gap-3">
                       <Checkbox
                         checked={hasDimmer}
@@ -401,20 +346,18 @@ const ProductDetail = () => {
 
             {/* Action Buttons */}
             <div className="space-y-4">
-              <Button
+              <Button 
                 className="w-full font-semibold py-3 text-lg rounded-2xl"
                 style={{
                   background: 'linear-gradient(135deg, hsl(var(--neon-white)), hsl(var(--neon-white)))',
                   color: 'hsl(var(--background))',
-                  boxShadow: '0 0 20px hsl(var(--neon-white) / 0.4)'
+                  boxShadow: '0 0 20px hsl(var(--neonwhite) / 0.4)'
                 }}
                 onClick={handleAddToCart}
                 disabled={product.stock_quantity === 0}
               >
                 {product.stock_quantity === 0 ? 'OUT OF STOCK' : 'ADD TO CART'}
               </Button>
-
-
             </div>
 
             {/* Trust Badges */}
@@ -437,12 +380,13 @@ const ProductDetail = () => {
 
         {/* About Your Neon Sign */}
         <div className="mb-16">
-          <NeonCard>
+          <div>
             <h3 className="font-rajdhani font-semibold text-2xl mb-6 text-neon-white">
               About Your Neon Sign:
             </h3>
-            <p className="subtitle-cursive text-xl leading-relaxed mb-8">
-              Every Namastey Lights sign is built on 6MM clear acrylic with advanced LEDs that shine bright while saving energy. Strong, lightweight, and hassle-free to install—perfect to vibe up your space!
+            <p className="text-muted-foreground leading-relaxed mb-8">
+              Neon Attack's neon signs are handcrafted with advanced 2nd gen LED on high-quality 6MM transparent acrylic. 
+              Energy-efficient, durable, and easy to install—perfect for any space!
             </p>
 
             {/* LED Neon Strip Image and Description */}
@@ -450,18 +394,20 @@ const ProductDetail = () => {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                 <div>
                   <h4 className="font-orbitron font-bold text-xl mb-4 text-neon-pink">
-                    🚀 2nd Gen LED Neon is here – Brighter than ever, tough as always!
+                    Meet 2nd Gen LED Neon - 2X Brighter & Built to Last!
                   </h4>
-                  <p className="subtitle-cursive text-xl mb-4">
-                    Light it up smarter! Our 2nd Gen LED Neon gives you double the shine, saves energy, and lasts way longer. Control the glow to match your mood, and even go waterproof for the perfect indoor-outdoor vibe.
+                  <p className="text-muted-foreground mb-4">
+                    Our revolutionary 2nd Gen LED Neon is twice as bright, 80% more energy-efficient, and built to 
+                    outlast the rest. Plus, with adjustable brightness controls, and the option for waterproof durability, 
+                    this is the ultimate neon upgrade you've been waiting for!
                   </p>
-                  <p className="subtitle-cursive text-l">
-                    No more boring, faded neon—this is where the future shines.
+                  <p className="text-muted-foreground">
+                    Say goodbye to dull, outdated neon—this is the future!
                   </p>
                 </div>
                 <div className="aspect-video bg-muted rounded-xl overflow-hidden">
                   <img
-                    src="\lovable-uploads\1755593981887.png"
+                    src="\public\lovable-uploads\1755593981887.png"
                     alt="2nd Gen LED Neon Strip"
                     className="w-full h-full object-cover"
                   />
@@ -474,11 +420,12 @@ const ProductDetail = () => {
               <h4 className="font-rajdhani font-semibold text-xl mb-4 text-neon-white">
                 The Box Contains:
               </h4>
-              <p className="subtitle-cursive text-xl mb-6">
-                From package to wall in minutes — let your space glow instantly.
+              <p className="text-muted-foreground mb-6">
+                Our neon lights are ready to shine straight from the box!
               </p>
-              <p className="subtitle-cursive text-xl">
-                Strong acrylic backing, precision-drilled holes, and stainless steel screws included — because hanging your neon should be as easy as switching it on.
+              <p className="text-muted-foreground">
+                Each sign is mounted on clear acrylic for support and comes with pre-drilled holes. Stainless steel mounting 
+                screws are included, making wall installation quick and easy.
               </p>
             </div>
 
@@ -492,22 +439,22 @@ const ProductDetail = () => {
                   {
                     step: 1,
                     title: "Take a measuring tape and mark out the position of your neon sign.",
-                    image: "/lovable-uploads/AdobeStock_535119941_1_2.jpg"
+                    image: "/public/lovable-uploads/AdobeStock_535119941_1_2.jpg"
                   },
                   {
                     step: 2,
                     title: "Safely Drill small holes on the wall.",
-                    image: "/lovable-uploads/Rectangle_26311_1.jpg"
+                    image: "/public/lovable-uploads/Rectangle_26311_1.jpg"
                   },
                   {
                     step: 3,
                     title: "Use the SS mounting screws to mount your neon sign on the wall.",
-                    image: "/lovable-uploads/AdobeStock_1271062131_1_1.jpg"
+                    image: "/public/lovable-uploads/AdobeStock_1271062131_1_1.jpg"
                   },
                   {
                     step: 4,
                     title: "Connect the power adapter to the transparent cable and your sign is ready!",
-                    image: "/lovable-uploads/AdobeStock_981467593_1_2.jpg"
+                    image: "/public/lovable-uploads/AdobeStock_981467593_1_2.jpg"
                   }
                 ].map((item) => (
                   <div key={item.step} className="text-center">
@@ -518,26 +465,25 @@ const ProductDetail = () => {
                         className="w-full h-full object-cover"
                       />
                     </div>
-                    <p className="subtitle-cursive text-sm">{item.title}</p>
+                    <p className="text-sm text-muted-foreground">{item.title}</p>
                   </div>
                 ))}
               </div>
             </div>
-          </NeonCard>
+          </div>
         </div>
 
-        
 
         {/* Similar Products */}
-        <div className="mb-[25px]">
-          <h2 className="font-orbitron font-bold text-3xl mb-2 text-center">
+        <div className="mb-16">
+          <h2 className="font-orbitron font-bold text-3xl mb-8 text-center">
             Similar <NeonText color="pink">Products</NeonText>
           </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-[30px]">
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {similarProducts.map((item) => {
               const itemPrimaryImage = item.product_images?.[0]?.image_url || '/placeholder.svg';
-
+              
               return (
                 <NeonCard key={item.id} className="group cursor-pointer">
                   <Link to={`/products/${item.id}`}>
@@ -548,11 +494,11 @@ const ProductDetail = () => {
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                       />
                     </div>
-
-                    <h3 className="font-rajdhani font-semibold text-lg mb-2 group-hover:text-neon-pink transition-colors">
+                    
+                    <h3 className="font-rajdhani font-semibold text-lg mb-2 group-hover:text-neon-white transition-colors">
                       {item.name}
                     </h3>
-
+                    
                     <div className="flex items-center gap-3">
                       <span className="font-bold text-xl text-neon-white">
                         ₹{getDisplayPrice(item).toLocaleString()}
@@ -572,27 +518,29 @@ const ProductDetail = () => {
 
         {/* FAQ Section */}
         <div className="mb-16">
-          <h2 className="font-orbitron font-bold text-5xl mb-8 text-center">
+          <h2 className="font-orbitron font-bold text-3xl mb-8 text-center">
             FAQ
           </h2>
           <div className="space-y-4">
             {[
-              { question: "How much does a custom neon sign cost?", answer: "The price depends on the size, style, and design details you choose." },
-              { question: "How long does delivery usually take?", answer: "Most orders arrive within 7–10 business days after confirmation." },
-              { question: "What size will my customized neon sign be?", answer: "You’ll receive the exact dimensions before we finalize your order." },
-              { question: "Do LED neon signs make noise?", answer: "Nope! Our LED neon signs are 100% silent and buzz-free." },
-              { question: "Can I get a neon sign without visible cords?", answer: "Yes, we also offer battery-powered models for a clean, cord-free look." },
-              { question: "Can you make a neon sign from my logo or design?", answer: "Absolutely! Share your artwork and we’ll bring it to life in neon." },
-              { question: "Do you accept urgent/rush orders?", answer: "Yes, we can fast-track production for an additional charge." },
-              { question: "Why are there tiny marks on my sign?", answer: "Those are normal cutting marks from LED tubing and don’t affect quality." }
+              { question: "How much does a customized neon sign cost?", answer: "Pricing varies based on size and customization options." },
+              { question: "How long will it take to deliver my neon sign?", answer: "Standard delivery takes 7-10 business days." },
+              { question: "If I customize a sign using the online neon sign maker, what will be its exact size?", answer: "The exact dimensions will be provided before finalizing your order." },
+              { question: "Does the neon sign buzz?", answer: "No, our LED neon signs are completely silent." },
+              { question: "Can you have quality LED neon signs without the cords?", answer: "Yes, we offer battery-powered options for cord-free installation." },
+              { question: "I have my own design/logo. Can I get it customised into a neon sign?", answer: "Absolutely! We can create custom designs from your artwork." },
+              { question: "Can you do a rush order?", answer: "Yes, rush orders are available for an additional fee." },
+              { question: "What are the small marks on my sign?", answer: "These are cutting marks and are normal for LED neon strips." }
             ].map((faq, index) => (
               <div key={index} className="border-b border-white/10 pb-4">
-                <h4 className="subtitle-cursive text-xl mb-2">{faq.question}</h4>
-                <p className="subtitle-cursive text-sm">{faq.answer}</p>
+                <h4 className="font-medium text-lg mb-2">{faq.question}</h4>
+                <p className="text-muted-foreground text-sm">{faq.answer}</p>
               </div>
             ))}
           </div>
         </div>
+
+        
       </div>
     </div>
   );

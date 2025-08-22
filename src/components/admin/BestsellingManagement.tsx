@@ -13,7 +13,7 @@ import { Trash2, Plus, Star, MoveUp, MoveDown } from 'lucide-react';
 interface Product {
   id: string;
   name: string;
-  medium_price: number;
+  selling_price: number;
   description: string;
 }
 
@@ -48,7 +48,7 @@ const BestsellingManagement = () => {
           products (
             id,
             name,
-            medium_price,
+            selling_price,
             description
           )
         `)
@@ -70,7 +70,7 @@ const BestsellingManagement = () => {
     try {
       const { data, error } = await supabase
         .from('products')
-        .select('id, name, medium_price, description')
+        .select('id, name, selling_price, description')
         .eq('is_active', true)
         .order('name');
 
@@ -259,7 +259,7 @@ const BestsellingManagement = () => {
                 <SelectContent>
                   {availableProducts.map((product) => (
                     <SelectItem key={product.id} value={product.id}>
-                      {product.name} - ₹{product.medium_price?.toLocaleString()}
+                      {product.name} - ₹{product.selling_price?.toLocaleString()}
                     </SelectItem>
                   ))}
                 </SelectContent>
@@ -327,7 +327,7 @@ const BestsellingManagement = () => {
                     <div>
                       <h3 className="font-semibold text-foreground">{item.products.name}</h3>
                       <p className="text-sm text-muted-foreground">
-                        Price: ₹{item.products.medium_price?.toLocaleString()}
+                        Price: ₹{item.products.selling_price?.toLocaleString()}
                       </p>
                       <div className="flex items-center gap-2 mt-1">
                         <Badge variant="secondary">{item.badge_text}</Badge>

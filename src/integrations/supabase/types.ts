@@ -340,61 +340,49 @@ export type Database = {
           category_id: string | null
           created_at: string
           description: string | null
-          extra_large_mrp: number | null
-          extra_large_price: number | null
+          height_inches: number | null
           id: string
           is_active: boolean | null
-          large_mrp: number | null
-          large_price: number | null
-          medium_mrp: number | null
-          medium_price: number | null
+          mrp: number
           name: string
           rating: number | null
           review_count: number | null
-          small_mrp: number | null
-          small_price: number | null
+          selling_price: number
           stock_quantity: number | null
           updated_at: string
+          width_inches: number | null
         }
         Insert: {
           category_id?: string | null
           created_at?: string
           description?: string | null
-          extra_large_mrp?: number | null
-          extra_large_price?: number | null
+          height_inches?: number | null
           id?: string
           is_active?: boolean | null
-          large_mrp?: number | null
-          large_price?: number | null
-          medium_mrp?: number | null
-          medium_price?: number | null
+          mrp?: number
           name: string
           rating?: number | null
           review_count?: number | null
-          small_mrp?: number | null
-          small_price?: number | null
+          selling_price?: number
           stock_quantity?: number | null
           updated_at?: string
+          width_inches?: number | null
         }
         Update: {
           category_id?: string | null
           created_at?: string
           description?: string | null
-          extra_large_mrp?: number | null
-          extra_large_price?: number | null
+          height_inches?: number | null
           id?: string
           is_active?: boolean | null
-          large_mrp?: number | null
-          large_price?: number | null
-          medium_mrp?: number | null
-          medium_price?: number | null
+          mrp?: number
           name?: string
           rating?: number | null
           review_count?: number | null
-          small_mrp?: number | null
-          small_price?: number | null
+          selling_price?: number
           stock_quantity?: number | null
           updated_at?: string
+          width_inches?: number | null
         }
         Relationships: [
           {
