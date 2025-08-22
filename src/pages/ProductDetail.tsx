@@ -407,7 +407,7 @@ const ProductDetail = () => {
                 </div>
                 <div className="aspect-video bg-muted rounded-xl overflow-hidden">
                   <img
-                    src="\public\lovable-uploads\1755593981887.png"
+                    src="\lovable-uploads\1755593981887.png"
                     alt="2nd Gen LED Neon Strip"
                     className="w-full h-full object-cover"
                   />
@@ -439,22 +439,22 @@ const ProductDetail = () => {
                   {
                     step: 1,
                     title: "Take a measuring tape and mark out the position of your neon sign.",
-                    image: "/public/lovable-uploads/AdobeStock_535119941_1_2.jpg"
+                    image: "/lovable-uploads/AdobeStock_535119941_1_2.jpg"
                   },
                   {
                     step: 2,
                     title: "Safely Drill small holes on the wall.",
-                    image: "/public/lovable-uploads/Rectangle_26311_1.jpg"
+                    image: "/lovable-uploads/Rectangle_26311_1.jpg"
                   },
                   {
                     step: 3,
                     title: "Use the SS mounting screws to mount your neon sign on the wall.",
-                    image: "/public/lovable-uploads/AdobeStock_1271062131_1_1.jpg"
+                    image: "/lovable-uploads/AdobeStock_1271062131_1_1.jpg"
                   },
                   {
                     step: 4,
                     title: "Connect the power adapter to the transparent cable and your sign is ready!",
-                    image: "/public/lovable-uploads/AdobeStock_981467593_1_2.jpg"
+                    image: "/lovable-uploads/AdobeStock_981467593_1_2.jpg"
                   }
                 ].map((item) => (
                   <div key={item.step} className="text-center">

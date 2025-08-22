@@ -177,35 +177,35 @@ const Index = () => {
     {
       name: 'Bedroom',
       icon: Heart,
-      image: '/lovable-uploads/bedroom.jpeg',
+      image: '/lovable-uploads/rooms.jpg',
       description: 'Romantic neon lights',
       count: '10+ designs'
     },
     {
       name: 'Bar/Cafe',
       icon: Coffee,
-      image: '/lovable-uploads/bar.jpeg',
+      image: '/lovable-uploads/cafe.jpg',
       description: 'Professional business',
       count: '15+ designs'
     },
     {
       name: 'Gaming Zone',
       icon: GamepadIcon,
-      image: '/lovable-uploads/gaming.jpeg',
+      image: '/lovable-uploads/gaming.jpg',
       description: 'Epic gaming setup lights',
       count: '5+ designs'
     },
     {
       name: 'Wedding/Event',
       icon: PartyPopper,
-      image: '/lovable-uploads/wedding.jpeg',
+      image: '/lovable-uploads/event.jpg',
       description: 'Special occasion decor',
       count: '20+ designs'
     },
     {
       name: 'Quotes',
       icon: Quote,
-      image: '/lovable-uploads/quots.jpeg',
+      image: '/lovable-uploads/quotes.jpg',
       description: 'Inspirational text designs',
       count: '15+ designs'
     }
