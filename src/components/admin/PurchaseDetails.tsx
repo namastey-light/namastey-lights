@@ -455,8 +455,7 @@ export function PurchaseDetails() {
                               {config && (
                                 <div className="text-xs space-y-1">
                                   <div>Size: {config.size}</div>
-                                  <div>Color: {config.color}</div>
-                                  <div>Type: {config.productType}</div>
+                                  <br></br>
                                   {config.brightnessController && (
                                     <div className="text-green-600">✓ Brightness Controller</div>
                                   )}
