@@ -534,13 +534,16 @@ const Checkout = () => {
                     </div>
 
                     <div className="flex items-center space-x-3 p-4 rounded-lg border border-white/10 hover:bg-white/5">
-                      <RadioGroupItem value="cod" id="cod" />
+                      {/* <RadioGroupItem value="cod" id="cod" /> */}
                       <Label htmlFor="cod" className="flex-1 cursor-pointer">
                         <div className="flex items-center justify-between">
                           <div>
                             <p className="font-medium">Cash on Delivery</p>
                             <p className="text-sm text-muted-foreground">
                               Pay when your order is delivered
+                            </p>
+                            <p className="text-[12px] text-muted-foreground">
+                              ~Currently COD not available~
                             </p>
                           </div>
                           <Truck className="w-5 h-5 text-neon-white" />
