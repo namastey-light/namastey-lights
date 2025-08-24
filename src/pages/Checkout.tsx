@@ -72,7 +72,7 @@ const Checkout = () => {
 
         // Initialize Razorpay
         const options = {
-          key: 'rzp_test_R6GyW9jpjGA33l', // Your Razorpay Key ID (publishable)
+          key: 'rzp_live_R95nfmPEY2xoET', // Your Razorpay Key ID (publishable)
           amount: orderData.amount,
           currency: orderData.currency,
           name: 'Neon Lights',
@@ -368,7 +368,7 @@ const Checkout = () => {
                         required
                         value={customerInfo.phone}
                         onChange={(e) => handleInputChange(e, 'customer')}
-                        placeholder="+91 98765 43210"
+                        placeholder="+91 xxxxxxxxxx"
                       />
                     </div>
                   </div>

@@ -647,7 +647,7 @@ const Index = () => {
                     {/* Premium multicolor product card with proper rounded border */}
                     <div className="relative p-0.5 rounded-3xl overflow-hidden"
                       style={{
-                        background: `linear-gradient(135deg, 
+                        background: `linear-gradient(135deg,
                          hsl(var(--neon-white) / 0.6), 
                          hsl(var(--neon-white) / 0.6), 
                          hsl(var(--neon-white) / 0.6),
