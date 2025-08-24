@@ -75,8 +75,8 @@ const Checkout = () => {
           key: 'rzp_live_R95nfmPEY2xoET', // Your Razorpay Key ID (publishable)
           amount: orderData.amount,
           currency: orderData.currency,
-          name: 'Neon Lights',
-          description: 'Custom Neon Sign Order',
+          name: 'Namastey lights',
+          description: 'Neon Sign Order',
           order_id: orderData.id,
           handler: async (response: any) => {
             try {
